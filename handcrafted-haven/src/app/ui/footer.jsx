@@ -1,9 +1,10 @@
-
+import styles from "@/app/page.module.css"
 
 export function Footer() {
   return (
-    <footer>
-      <p>hi</p>
+    <footer className={styles.footer}>
+      <p>Handcrafted Haven</p>
+      <p>&copy; 2025</p>
     </footer>
   );
 }
