@@ -21,7 +21,7 @@ export function Hero() {
         <p className={styles.hero__subtitle}>Connect with artisans and find one-of-a-kind creations made with passion.</p>
         <div className={styles.hero__actions}>
           <a href="/products" className={`${styles.btn} ${styles.btnPrimary}`}>Start Exploring</a>
-          <a href="/register" className={`${styles.btn} ${styles.btnSecondary}`}>Join as a Seller</a>
+          <a href="/sellers" className={`${styles.btn} ${styles.btnSecondary}`}>Join as a Seller</a>
         </div>
       </div>
     </section>
