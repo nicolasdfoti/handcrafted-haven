@@ -1,0 +1,117 @@
+$angle: 45deg;
+
+//BROWN
+$artisan-brown-flat: rgb(60% 36.5% 15.3%);
+$artisan-brown-hover: rgba(153, 92, 39, 0.5);
+
+$artisan-brown: linear-gradient(
+  $angle,
+  rgb(45.9% 26.7% 7.84%),
+  rgb(60% 36.5% 15.3%),
+  rgb(63.9% 44.7% 21.2%),
+  rgb(69% 52.5% 29.8%)
+);
+
+//BLUE
+$tech-blue-flat: rgb(47.8% 77.3% 80.4%);
+$tech-blue-hover: rgba(122, 197, 205, 0.5);
+
+$tech-blue: linear-gradient(
+  $angle,
+  hsl(180, 30%, 55%),
+  rgb(47.8% 77.3% 80.4%),
+  rgb(69% 88.6% 100%),
+  rgb(107, 230, 255)
+);
+
+//RED
+$raspberry-red-flat: rgb(80% 34.1% 39.6%);
+$raspberry-red-hover: hsla(353, 53%, 57%, 0.5);
+
+$raspberry-red: linear-gradient(
+  $angle,
+  rgb(58% 23.5% 27.8%),
+  rgb(80% 34.1% 39.6%),
+  rgb(87.8% 51% 48.2%)
+);
+
+//utility
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$xxs: 0.236em;
+$xs: 0.382em;
+$s: 0.618em;
+$m: 1em;
+$l: 1.618em;
+$xl: 2.618em;
+$xxl: 4.236em;
+
+.information-section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 10px 0;
+}
+.site-exploration-card {
+  display: flex;
+  flex-direction: column;
+  height: clamp(300px, 25vh, 700px);
+  width: clamp(250px, 50vw, 300px);
+  border-radius: 10%;
+  align-items: center;
+
+  .svg-wrapper {
+    width: 40%;
+    margin-top: $l;
+  }
+
+  a {
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: $transition;
+    padding: $s $xl;
+  }
+
+  h2 {
+    text-align: center;
+    padding: $s;
+    width: 80%;
+    border-top: rgba(248, 248, 248, 0.756) 1px solid;
+  }
+}
+
+.tech-blue {
+  background: $tech-blue;
+
+  a {
+    border: 2px solid darken($tech-blue-flat, 20%);
+    &:hover {
+      background-color: $tech-blue-hover;
+    }
+  }
+}
+
+.artisan-brown {
+  background: $artisan-brown;
+
+  a {
+    border: 2px solid darken($artisan-brown-flat, 20%);
+    &:hover {
+      background-color: darken($artisan-brown-hover, 5%);
+    }
+  }
+}
+
+.raspberry-red {
+  background: $raspberry-red;
+
+  a {
+    border: 2px solid darken($raspberry-red-flat, 20%);
+    &:hover {
+      background-color: darken($raspberry-red-hover, 5%);
+    }
+  }
+}
+
+/*make the cards float in and have them randomized order, maybe multiple categories can appear if time */

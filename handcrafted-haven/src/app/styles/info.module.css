@@ -1,0 +1,67 @@
+.information-section {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.site-exploration-card {
+  display: flex;
+  flex-direction: column;
+  height: clamp(300px, 25vh, 700px);
+  width: clamp(250px, 50vw, 300px);
+  border-radius: 10%;
+  align-items: center;
+}
+.site-exploration-card .svg-wrapper {
+  width: 40%;
+  margin-top: 1.618em;
+}
+.site-exploration-card a {
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.618em 2.618em;
+}
+.site-exploration-card h2 {
+  text-align: center;
+  padding: 0.618em;
+  width: 80%;
+  border-top: rgba(248, 248, 248, 0.756) 1px solid;
+}
+
+.tech-blue {
+  background: linear-gradient(45deg, hsl(180, 30%, 55%), rgb(121.89, 197.115, 205.02), rgb(175.95, 225.93, 255), rgb(107, 230, 255));
+}
+.tech-blue a {
+  border: 2px solid rgb(61.3960445682, 153.803356546, 163.5139554318);
+}
+.tech-blue a:hover {
+  background-color: rgba(122, 197, 205, 0.5);
+}
+
+.artisan-brown {
+  background: linear-gradient(45deg, rgb(117.045, 68.085, 19.992), rgb(153, 93.075, 39.015), rgb(162.945, 113.985, 54.06), rgb(175.95, 133.875, 75.99));
+}
+.artisan-brown a {
+  border: 2px solid rgb(71.7250996016, 43.6327689243, 18.2899003984);
+}
+.artisan-brown a:hover {
+  background-color: rgba(132.6796875, 79.78125, 33.8203125, 0.5);
+}
+
+.raspberry-red {
+  background: linear-gradient(45deg, rgb(147.9, 59.925, 70.89), rgb(204, 86.955, 100.98), rgb(223.89, 130.05, 122.91));
+}
+.raspberry-red a {
+  border: 2px solid rgb(144.9608207218, 43.9941792782, 56.0925785797);
+}
+.raspberry-red a:hover {
+  background-color: hsla(353, 53%, 52%, 0.5);
+}
+
+/*make the cards float in and have them randomized order, maybe multiple categories can appear if time */
+
+/*# sourceMappingURL=info.module.css.map */
