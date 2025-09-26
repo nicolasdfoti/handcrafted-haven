@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/app/hero.module.css";
+import styles from "@/app/page.module.css";
 import Image from "next/image";
 
 export function Hero() {
