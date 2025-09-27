@@ -1,4 +1,8 @@
 
+export default function Page() {
+  return <div>Hello</div>
+}
+
 //import { fetchProductById  } from "@/app/lib/data";
 
 /*
