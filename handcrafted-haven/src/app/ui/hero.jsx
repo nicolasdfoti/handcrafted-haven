@@ -17,11 +17,20 @@ export function Hero() {
       </div>
 
       <div className={styles.heroContent}>
-        <h1 className={styles.hero__title}>Discover Unique Handcrafted Treasures</h1>
-        <p className={styles.hero__subtitle}>Connect with artisans and find one-of-a-kind creations made with passion.</p>
+        <h1 className={styles.hero__title}>
+          Discover Unique Handcrafted Treasures
+        </h1>
+        <p className={styles.hero__subtitle}>
+          Connect with artisans and find one-of-a-kind creations made with
+          passion.
+        </p>
         <div className={styles.hero__actions}>
-          <a href="/products" className={`${styles.btn} ${styles.btnPrimary}`}>Start Exploring</a>
-          <a href="/sellers" className={`${styles.btn} ${styles.btnSecondary}`}>Join as a Seller</a>
+          <a href="/explore" className={`${styles.btn} ${styles.btnPrimary}`}>
+            Start Exploring
+          </a>
+          <a href="/sellers" className={`${styles.btn} ${styles.btnSecondary}`}>
+            Join as a Seller
+          </a>
         </div>
       </div>
     </section>
