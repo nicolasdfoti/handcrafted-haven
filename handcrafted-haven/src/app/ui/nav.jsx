@@ -1,8 +1,11 @@
 import styles from "@/app/page.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-regular-svg-icons";
+import { faWpexplorer } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
 
 export function Navigation() {
+
   return (
     <nav className={styles.nav}>
       <ul>
@@ -13,10 +16,14 @@ export function Navigation() {
           </a>
         </li>
         <li>
-          <a href="">Sellers</a>
+          <a href="">
+             <FontAwesomeIcon icon={faBagShopping} /> Sellers
+          </a>
         </li>
         <li>
-          <a href="">Explore</a>
+          <a href="">
+            <FontAwesomeIcon icon={faWpexplorer} />Explore
+          </a>
         </li>
       </ul>
     </nav>
