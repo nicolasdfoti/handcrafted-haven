@@ -9,7 +9,7 @@ export function Navigation() {
     <nav className={styles.nav}>
       <ul>
         <li>
-          <a href="">
+          <a href="/">
             {/*This looks a bit out of place for now, it's just a proof of concept using FontAwesomeIcon's library you can just type in any svg from here and it will automatically work https://fontawesome.com/icons */}
             <FontAwesomeIcon icon={faHome} /> Home
           </a>
