@@ -2,7 +2,7 @@ import styles from "@/app/styles/page.module.css";
 import { faHome } from "@fortawesome/free-regular-svg-icons";
 import { faWpexplorer } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBagShopping } from "@fortawesome/free-solid-svg-icons";
+
 
 export function Navigation() {
   return (
