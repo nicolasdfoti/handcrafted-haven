@@ -15,7 +15,7 @@ export function Navigation() {
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/sellers">
             <svg
               fill="currentColor"
               width="48px"
@@ -29,7 +29,7 @@ export function Navigation() {
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="/explore">
             <FontAwesomeIcon icon={faWpexplorer} />
             Explore
           </a>
