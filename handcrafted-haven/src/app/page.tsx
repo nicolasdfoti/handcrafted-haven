@@ -1,4 +1,4 @@
-import styles from "./page.module.css";
+import styles from "./styles/page.module.css";
 import { Footer } from "./ui/footer.jsx";
 import { Header } from "./ui/header.jsx";
 import { Hero } from "./ui/hero.jsx";

@@ -22,14 +22,15 @@
 }
 
 .nav li {
+  display: flex;
+  align-items: self-end;
   list-style: none;
   display: flex;
-  align-items: last baseline;
 }
 
 .nav a {
   text-decoration: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #333;
   transition: color 0.3s ease;
   display: flex;
@@ -39,6 +40,9 @@
 
 .nav a:hover {
   color: #9a8054;
+}
+.nav .svg-inline--fa {
+  padding-top: 50px;
 }
 
 /* Hero */
@@ -61,7 +65,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0, 0, 0, 0.45);
   z-index: 1;
 }
 
@@ -123,7 +127,6 @@
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-1px);
 }
-
 
 /* Footer */
 .footer {
