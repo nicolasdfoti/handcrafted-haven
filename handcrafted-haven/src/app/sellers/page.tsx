@@ -2,6 +2,7 @@ import { Footer } from '@/app/ui/footer.jsx';
 import { Header } from '@/app/ui/header.jsx';
 import { FormControl } from '@/app/ui/form-control';
 import styles from './styles/sellers.module.scss';
+import { registerSeller } from '../lib/actions';
 
 export default function Sellers() {
   return (
