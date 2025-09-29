@@ -14,24 +14,39 @@ SCSS stands for Scoped CSS, it's basically a quality of life update to CSS. For 
 */
 @use "variables" as *;
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: $text-color;
-  background: $foreground;
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: $header-big-font;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-small-font;
+}
+
+body {
+  color: $text-color;
+  background-color: $foreground;
+  font-family: $body-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  background-color: $background;
 }
 
 a {

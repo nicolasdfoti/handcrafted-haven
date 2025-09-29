@@ -1,3 +1,8 @@
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Header */
 .header {
   display: flex;
@@ -78,14 +83,14 @@
 }
 
 .hero__title {
-  font-family: "Playfair Display", serif;
+  font-family: "Epunda Slab" serif;
   font-size: clamp(2rem, 3.8vw + 0.5rem, 3rem);
   margin-bottom: 0.75rem;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .hero__subtitle {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins" sans-serif;
   font-size: clamp(1rem, 1.2vw + 0.7rem, 1.25rem);
   opacity: 0.95;
   margin-bottom: 1.75rem;
@@ -137,6 +142,12 @@
   padding: 1rem 2rem;
   background-color: #f1ece5;
   border-top: 2px solid #9ba78d;
+}
+
+.marketplace-container {
+  align-self: center;
+  width: 80%;
+  height: 500px;
 }
 
 /*# sourceMappingURL=page.module.css.map */

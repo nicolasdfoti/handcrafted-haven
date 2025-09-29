@@ -18,7 +18,7 @@
     "@fortawesome/react-fontawesome": "^3.0.2",
     "bcryptjs": "^3.0.2",
     "fortawesome": "0.0.1-security",
-    "next": "15.5.3",
+    "next": "^15.5.4",
     "pg": "^8.16.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
