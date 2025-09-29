@@ -4,10 +4,8 @@ import { pool } from '@/app/lib/db';
 import { redirect } from "next/navigation";
 import styles from "@/app/styles/page.module.css"
 
-type DetailPageProps = {
-  params: {
-    id: string;
-  }
+interface DetailPageProps {
+  params: { id: string };
 }
 
 export default async function Page({ params }: DetailPageProps) {
@@ -21,7 +19,7 @@ export default async function Page({ params }: DetailPageProps) {
   // const products = resProducts.rows;
 
   if (res.rows.length === 0) {
-    redirect( '/not-found.tsx')
+    redirect( '/not-found')
   }
 
   const account = res.rows[0];
