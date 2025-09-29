@@ -18,8 +18,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: #000000;
+  background: #f1ece5;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

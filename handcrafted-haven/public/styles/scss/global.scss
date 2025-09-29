@@ -12,17 +12,7 @@ SCSS stands for Scoped CSS, it's basically a quality of life update to CSS. For 
 
 //Most useful quality of life features of SCSS explained in public/styles/scss/whatisSCSS.md
 */
-:root {
-  $background: #ffffff;
-  $foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    $foreground: #ededed;
-    $background: #0a0a0a;
-  }
-}
+@use "variables" as *;
 
 html,
 body {
@@ -31,8 +21,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: $text-color;
+  background: $foreground;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,3 +44,5 @@ a {
     color-scheme: dark;
   }
 }
+
+//

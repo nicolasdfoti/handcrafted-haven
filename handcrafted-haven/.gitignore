@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+rebuild.sql
 
 # next.js
 /.next/

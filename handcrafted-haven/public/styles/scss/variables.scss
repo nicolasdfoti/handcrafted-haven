@@ -1,0 +1,58 @@
+//GLOBAL
+$background: hsl(35, 15%, 95%);
+$foreground: #f1ece5;
+$text-color: #000000;
+
+$angle: 45deg;
+
+//BROWN
+$artisan-brown-flat: rgb(60% 36.5% 15.3%);
+$artisan-brown-hover: rgba(153, 92, 39, 0.5);
+
+$artisan-brown: linear-gradient(
+  $angle,
+  rgb(45.9% 26.7% 7.84%),
+  rgb(60% 36.5% 15.3%),
+  rgb(63.9% 44.7% 21.2%),
+  rgb(69% 52.5% 29.8%)
+);
+
+//BLUE
+$tech-blue-flat: rgb(47.8% 77.3% 80.4%);
+$tech-blue-hover: rgba(122, 197, 205, 0.5);
+
+$tech-blue: linear-gradient(
+  $angle,
+  hsl(180, 30%, 55%),
+  rgb(47.8% 77.3% 80.4%),
+  rgb(69% 88.6% 100%),
+  rgb(107, 230, 255)
+);
+
+//RED
+$raspberry-red-flat: rgb(80% 34.1% 39.6%);
+$raspberry-red-hover: hsla(353, 53%, 57%, 0.5);
+
+$raspberry-red: linear-gradient(
+  $angle,
+  rgb(58% 23.5% 27.8%),
+  rgb(80% 34.1% 39.6%),
+  rgb(87.8% 51% 48.2%)
+);
+
+//utility
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$xxs: 0.236em;
+$xs: 0.382em;
+$s: 0.618em;
+$m: 1em;
+$l: 1.618em;
+$xl: 2.618em;
+$xxl: 4.236em;
+
+@use "sass:map";
+
+@media (prefers-color-scheme: dark) {
+  $background: #0a0a0a;
+  $foreground: #ededed;
+}

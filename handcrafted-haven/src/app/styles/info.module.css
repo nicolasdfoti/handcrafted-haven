@@ -3,6 +3,7 @@
   justify-content: space-evenly;
   width: 100%;
   padding: 10px 0;
+  background-color: hsl(35, 15%, 95%);
 }
 
 .site-exploration-card {
@@ -12,6 +13,7 @@
   width: clamp(250px, 50vw, 300px);
   border-radius: 10%;
   align-items: center;
+  color: black;
 }
 .site-exploration-card .svg-wrapper {
   width: 40%;
@@ -39,7 +41,7 @@
   border: 2px solid rgb(61.3960445682, 153.803356546, 163.5139554318);
 }
 .tech-blue a:hover {
-  background-color: rgba(122, 197, 205, 0.5);
+  background-color: rgba(96.0540983607, 185.6852459016, 195.2459016393, 0.5);
 }
 
 .artisan-brown {

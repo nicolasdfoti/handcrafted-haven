@@ -140,30 +140,3 @@
 }
 
 /*# sourceMappingURL=page.module.css.map */
-
-/* Detail page */
-.detail {
-  width: 100%;
-  text-align: center;
-}
-
-.contact {
-  padding-top: 10px;
-  text-align: center;
-}
-
-.card {
-  margin: 20px;
-  padding: 10px;
-  border: 0.5px solid #9a8054;
-  width: 20%;
-  border-radius: 10px;
-}
-
-.card_title {
-  text-align: center;
-}
-
-.card_body {
-
-}
