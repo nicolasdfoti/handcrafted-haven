@@ -12,7 +12,7 @@ type DetailPageProps = {
 
 export default async function Page({ params }: DetailPageProps) {
 
-  const { id } = params;
+  const { id } = await params;
   const res = await pool.query("SELECT * FROM account WHERE account_id = $1", [id]);
   // const resProducts = await pool.query(
   //   "SELECT * FROM products WHERE account_id = $1",
