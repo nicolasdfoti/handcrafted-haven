@@ -12,7 +12,7 @@ type DetailPageProps = {
 
 export default async function Page({ params }: DetailPageProps) {
 
-  const { id } = await params;
+  const { id } = params;
   const res = await pool.query("SELECT * FROM account WHERE account_id = $1", [id]);
   // const resProducts = await pool.query(
   //   "SELECT * FROM products WHERE account_id = $1",
@@ -21,7 +21,7 @@ export default async function Page({ params }: DetailPageProps) {
   // const products = resProducts.rows;
 
   if (res.rows.length === 0) {
-    redirect( 'not-found.tsx')
+    redirect( '/not-found.tsx')
   }
 
   const account = res.rows[0];
