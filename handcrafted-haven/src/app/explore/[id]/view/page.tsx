@@ -5,12 +5,12 @@ import { redirect } from "next/navigation";
 import styles from "@/app/styles/page.module.css"
 
 interface DetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function Page({ params }: DetailPageProps) {
 
-  const { id } = params;
+  const { id } = await params;
   const res = await pool.query("SELECT * FROM account WHERE account_id = $1", [id]);
   // const resProducts = await pool.query(
   //   "SELECT * FROM products WHERE account_id = $1",
