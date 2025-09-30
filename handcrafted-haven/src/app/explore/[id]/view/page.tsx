@@ -24,7 +24,7 @@ export default async function Page({ params }: DetailPageProps) {
     const products = resProducts.rows || [];
 
     return (
-      <div>
+      <div className={styles.details_page}>
         <Header />
 
         <div className={styles.hero_container}>
@@ -38,12 +38,15 @@ export default async function Page({ params }: DetailPageProps) {
             />
           
             <div className={styles.detail}>
+              <h1>{account.account_company_name}</h1>
               <h1>{account.account_firstname} {account.account_lastname}</h1>
             </div>
 
             <div className={styles.contact}>
               <p>Contact info:</p>
-              <p>Email: {account.account_email}</p>
+              <p><strong>Email:</strong> {account.account_email}</p>
+              <p><strong>Phone:</strong> {account.account_phone}</p>
+              <p><strong>Website/Social:</strong> {account.account_website}</p>
             </div>
           </div>
         </div>
@@ -62,7 +65,7 @@ export default async function Page({ params }: DetailPageProps) {
                 <section className={styles.card_body}>
                   <ul>
                     <li>{product.product_description}</li>
-                    <li>Price: ${product.product_price}</li>
+                    <li><strong>Price:</strong> ${product.product_price}</li>
                   </ul>
                 </section>
               </div>

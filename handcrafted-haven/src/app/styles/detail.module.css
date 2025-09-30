@@ -1,3 +1,7 @@
+.details_page {
+    font-family: "Poppins", sans-serif;
+}
+
 .hero_container {
     position: relative;
     width: 100%;
@@ -25,10 +29,13 @@
     position: relative;
     z-index: 1;
     color: black;
+    font-family: "Epunda Slab", serif;
 }
 
 .contact {
     width: 100%;
+    border-top: 0.5px solid black;
+    font-family: "Poppins", sans-serif;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -36,7 +43,8 @@
 }
 
 .cards_container {
-    width: 100%; /* Cambiado de 20% a 100% para mejor responsividad */
+    width: 100%;
+    font-family: "Poppins", sans-serif;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -52,13 +60,15 @@
 }
 
 .card_title {
+    border-bottom: 0.5px solid black;
     text-align: center;
+    background-color: #ffffff;
     padding: 10px;
 }
 
 .card_body ul {
     list-style: none;
-    padding: 0;
+    padding: 10px;
     margin: 0;
 }
 
