@@ -1,0 +1,67 @@
+.hero_container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.hero_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.detail, .contact {
+    background-color: #9ba78d;
+    padding: 10px;
+}
+
+.detail {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: black;
+}
+
+.contact {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: black;
+}
+
+.cards_container {
+    width: 100%; /* Cambiado de 20% a 100% para mejor responsividad */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #9ba78d;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card_title {
+    text-align: center;
+    padding: 10px;
+}
+
+.card_body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card_body li {
+    margin-bottom: 8px;
+}
