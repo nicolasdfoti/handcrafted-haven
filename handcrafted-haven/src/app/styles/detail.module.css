@@ -1,77 +1,269 @@
 .details_page {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.hero_container {
-    position: relative;
-    width: 100%;
-    height: 300px;
+/* Hero Section */
+.hero_section {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
 }
 
 .hero_image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.detail, .contact {
-    background-color: #9ba78d;
-    padding: 10px;
+.hero_img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+.hero_content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .detail {
-    width: 100%;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    color: black;
-    font-family: "Epunda Slab", serif;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.company_name {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.artisan_name {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  font-style: italic;
 }
 
 .contact {
-    width: 100%;
-    border-top: 0.5px solid black;
-    font-family: "Poppins", sans-serif;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    color: black;
+  background: rgba(155, 167, 141, 0.95);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact_title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+}
+
+.contact_info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.contact_item:last-child {
+  border-bottom: none;
+}
+
+.contact_label {
+  font-weight: 600;
+  color: white;
+  min-width: 80px;
+}
+
+.contact_link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-align: right;
+  word-break: break-all;
+}
+
+.contact_link:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+/* Products Section */
+.products_section {
+  flex: 1;
+  padding: 4rem 0;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section_title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #2c3e50;
+}
+
+.empty_state {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+}
+
+.empty_subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
 .cards_container {
-    width: 100%;
-    font-family: "Poppins", sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
 }
 
+/* Product Cards */
 .card {
-    border: 1px solid #9ba78d;
-    border-radius: 10px;
-    padding: 10px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card_header {
+  background: #9ba78d;
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .card_title {
-    border-bottom: 0.5px solid black;
-    text-align: center;
-    background-color: #ffffff;
-    padding: 10px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  text-align: center;
 }
 
-.card_body ul {
-    list-style: none;
-    padding: 10px;
-    margin: 0;
+.card_body {
+  padding: 1.5rem;
 }
 
-.card_body li {
-    margin-bottom: 8px;
+.product_description {
+  color: #5d6d7e;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.product_price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #27ae60;
+  text-align: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero_content {
+    padding: 1rem;
+  }
+  
+  .company_name {
+    font-size: 2rem;
+  }
+  
+  .contact_item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .contact_label {
+    min-width: auto;
+  }
+  
+  .contact_link {
+    text-align: left;
+  }
+  
+  .cards_container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .section_title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero_section {
+    min-height: 300px;
+  }
+  
+  .hero_image {
+    height: 300px;
+  }
+  
+  .company_name {
+    font-size: 1.75rem;
+  }
+  
+  .contact {
+    padding: 1rem;
+  }
 }
