@@ -60,8 +60,3 @@ $xl: 2.618em;
 $xxl: 4.236em;
 
 @use "sass:map";
-
-@media (prefers-color-scheme: dark) {
-  $background: #0a0a0a;
-  $foreground: #ededed;
-}
