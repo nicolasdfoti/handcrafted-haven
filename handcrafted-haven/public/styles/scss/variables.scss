@@ -9,6 +9,11 @@ $body-font: "Playfair Display" Arial, Helvetica, sans-serif;
 
 $angle: 45deg;
 
+//Breakpoints
+$breakpoint-s: 576px;
+$breakpoint-m: 768px;
+$breakpoint-l: 1080px;
+
 //BROWN
 $artisan-brown-flat: rgb(60% 36.5% 15.3%);
 $artisan-brown-hover: rgba(153, 92, 39, 0.5);
