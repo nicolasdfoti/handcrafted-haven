@@ -63,5 +63,5 @@ export async function registerSeller(
   }
 
   // On success, redirect to thank you page
-  redirect("/thankyou");
+  redirect('/sellers/thankyou');
 }
