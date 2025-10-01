@@ -147,8 +147,63 @@
 
 //Explore
 
-.marketplace-container {
+.marketplace__page {
+  background-color: $background;
+}
+
+.marketplace__container {
+  display: flex;
+  flex-direction: column;
   align-self: center;
-  width: 80%;
-  height: 500px;
+  width: clamp(968px, 80vw, 1920px);
+  height: 500px; //change to 100%
+  margin-top: $xl;
+  background-color: $foreground;
+
+  @media (max-width: $breakpoint-l) {
+    width: clamp($breakpoint-s, 90vw, 1920px);
+  }
+
+  //MOBILE
+  @media (max-width: $breakpoint-s) {
+    width: 100%;
+  }
+}
+
+.marketplace__header {
+  margin-bottom: auto;
+  border-bottom: #0b0b0b 1px solid;
+  height: 100px;
+  width: 100%;
+
+  //MOBILE
+  @media (max-width: $breakpoint-s) {
+    display: none;
+  }
+}
+
+.marketplace__dynamic-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-color: $background;
+}
+
+.marketplace__products {
+  background-color: $background;
+  width: 100px;
+  height: 100px;
+  flex: 1;
+}
+
+.marketplace__mobile-sidebar {
+  height: 100%;
+  background-color: red;
+}
+
+.marketplace__mobile-sidebar {
+  @media (min-width: $breakpoint-s) {
+    display: none;
+  }
 }
