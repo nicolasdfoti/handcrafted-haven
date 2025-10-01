@@ -1,0 +1,20 @@
+{
+  "sqltools.connections": [
+    {
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "ep-ancient-violet-ad18ju8a-pooler.c-2.us-east-1.aws.neon.tech",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "MiConexionPostgres",
+      "database": "neondb",
+      "username": "neondb_owner",
+      "password": "npg_libc4T2XMYNW",
+      "pgOptions": {
+        "ssl": {
+          "rejectUnauthorized": false
+        }
+      }
+    }
+  ]
+}
