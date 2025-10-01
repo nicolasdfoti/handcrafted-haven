@@ -65,3 +65,4 @@ compress db.ts into Data.ts
 ### Commit 1
 
 Added readme docs
+Working on product detail page
