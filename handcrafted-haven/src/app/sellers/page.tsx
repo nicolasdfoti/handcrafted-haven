@@ -1,10 +1,28 @@
+"use client";
+
 import { Footer } from '@/app/ui/footer.jsx';
 import { Header } from '@/app/ui/header.jsx';
 import { FormControl } from '@/app/ui/form-control';
+import { useActionState } from "react";
+import { registerSeller } from "../lib/form-actions";
 import styles from './styles/sellers.module.scss';
-import { registerSeller } from '../lib/actions';
+import { useFormStatus } from "react-dom";
+
+type RegisterState = { ok: boolean; message?: string | null };
+const initialRegisterState: RegisterState = { ok: false, message: null };
+
+function SubmitBtn() {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" className={styles.submitBtn} disabled={pending}>
+      {pending ? "Creating..." : "Create account & Apply"}
+    </button>
+  );
+}
 
 export default function Sellers() {
+  const [state, formAction] = useActionState<RegisterState, FormData>(registerSeller, initialRegisterState);
+
   return (
     <div>
       <Header />
@@ -21,79 +39,48 @@ export default function Sellers() {
         Create your account and tell us about your craft. We’ll review and get back to you.
       </p>
 
-      <form action={registerSeller} id="sellerSignupForm" className={styles.form}>
+      <form action={formAction} id="sellerSignupForm" className={styles.form}>
+      {state?.message && (
+        <p role="alert" className={styles.errorMsg}>
+          {state.message}
+        </p>
+      )}
         {/* Account */}
         <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>Account</legend>
+          <legend className={styles.legend}>Account Information</legend>
 
           <div className={styles.grid2}>
-            <FormControl label="Email *" id="email" name="email" type="email" required autoComplete="email" />
-            <FormControl label="Username (optional)" id="username" name="username" type="text" autoComplete="username" />
-          </div>
-
-          <div className={styles.grid2}>
+            <FormControl label="First Name *" id="account_firstname" name="account_firstname" type="text" required autoComplete="first name" />
+            <FormControl label="Last Name *" id="account_lastname" name="account_lastname" type="text" required autoComplete="last name" />
+            <FormControl label="Email *" id="account_email" name="account_email" type="email" required autoComplete="email" />
             <FormControl
               label="Password *"
-              id="password"
-              name="password"
+              id="account_password"
+              name="account_password"
               type="password"
               required
               autoComplete="new-password"
               placeholder="At least 8 characters"
               minLength={8}
-            />
-            <FormControl
-              label="Confirm Password *"
-              id="confirm"
-              name="confirm"
-              type="password"
-              required
-              autoComplete="new-password"
-            />
+            /> 
           </div>
         </fieldset>
 
         {/* Business profile */}
         <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>Basic Company Information</legend>
-
-          <FormControl label="Brand / Shop Name *" id="company-name" name="company-name" required />
-
+          <legend className={styles.legend}>Company Information</legend>
           <div className={styles.grid3}>
-            <FormControl label="Website or Social" id="website" name="website" type="url" placeholder="https://…" />
-            <FormControl
-              label="Main Sector *"
-              id="sector"
-              name="sector"
-              required
-              placeholder="e.g., Handmade jewelry, Leather, Woodwork"
-            />
-          </div>
-
-        </fieldset>
-
-        {/* Primary contact */}
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>Primary Contact</legend>
-
-          <div className={styles.grid3}>
-            <FormControl label="Full Name *" id="contact-name" name="contact-name" required autoComplete="name" />
-            <FormControl label="Contact Phone *" id="contact-phone" name="contact-phone" type="tel" required />
+            <FormControl label="Brand / Shop Name *" id="account_company_name" name="account_company_name" required />
+            <FormControl label="Website or Social" id="account_website" name="account_website" type="url" placeholder="https://…" />
+            <FormControl label="Contact Phone *" id="account_phone" name="account_phone" type="tel" required />
           </div>
         </fieldset>
-
-        <div className={styles.termsRow}>
-          <input id="terms" name="terms" type="checkbox" required className={styles.checkbox} />
-          <label htmlFor="terms" className={styles.termsText}>
-            I agree to the <a href="/terms">Terms</a> and <a href="/privacy">Privacy Policy</a>.
-          </label>
-        </div>
 
         <div className={styles.formActions}>
-          <button type="submit" className={styles.submitBtn}>Create account & Apply</button>
+          <SubmitBtn />
         </div>
       </form>
-    </main>
+      </main>
         
       <Footer />
     </div>
