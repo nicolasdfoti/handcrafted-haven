@@ -1,7 +1,7 @@
 // app/(routes)/sellers/actions.server.ts
 "use server";
 
-import { sql } from "@vercel/postgres";
+import { pool } from "@/app/lib/db";
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 
@@ -27,23 +27,23 @@ export async function registerSeller(
     if (!account_company_name) return { ok: false, message: "Company/Brand name is required." };
     if (!account_phone) return { ok: false, message: "Contact phone is required." };
 
-    const { rows } = await sql`
+    const { rows } = await pool.query(`
       SELECT account_id FROM account WHERE account_email = ${account_email};
-    `;
+    `);
     if (rows.length > 0) {
       return { ok: false, message: "That email is already registered." };
     }
 
     // Hash password and insert new account
     const passwordHash = await bcrypt.hash(account_password, 10);
-    await sql`
+    await pool.query(`
       INSERT INTO account 
         (account_firstname, account_lastname, account_email, account_password,
          account_company_name, account_website, account_phone)
       VALUES 
         (${account_firstname}, ${account_lastname}, ${account_email}, ${passwordHash},
          ${account_company_name}, ${account_website}, ${account_phone});
-    `;
+    `);
 
     // Alternatively, return success state
   } catch (err: unknown) {
