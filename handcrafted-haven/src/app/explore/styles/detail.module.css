@@ -2,13 +2,9 @@
   display: flex;
 }
 
-.details_page {
+.details_body {
   width: 80%;
   justify-self: center;
-  padding: 10px;
-}
-
-.details_body {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
