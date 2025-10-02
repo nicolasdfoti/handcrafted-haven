@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product } from './definitions';
 import styles from './components.module.css';
+import Link from "next/link";
 
 export type ContactType = 'email' | 'phone' | 'website';
 
@@ -69,7 +70,7 @@ export function ProductCard({
 }: ProductCardProps) {
   return (
     <article className={styles.card}>
-      <a href={`${basePath}/${product.product_id}/view`}>
+      <Link href={`${basePath}/${product.product_id}/view`}>
         <div className={styles.card_header}>
           <h3 className={styles.card_title}>{product.product_name}</h3>
         </div>
@@ -83,7 +84,7 @@ export function ProductCard({
             </div>
           )}
         </div>
-      </a>
+      </Link>
     </article>
   );
 }

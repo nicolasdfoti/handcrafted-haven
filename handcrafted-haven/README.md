@@ -75,3 +75,4 @@ components styles
 Added readme docs
 Working on product detail page
 Added components page (with product card and contact card), and created components.module.css
+Corrected mistakes to deploy

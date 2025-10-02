@@ -3,6 +3,7 @@ export type Product = {
   product_name: string;
   product_description: string;
   product_price: number;
+  account_id: number;
 }
 
 export type Account = {

@@ -8,24 +8,35 @@ import { ProductCard } from '@/app/lib/components';
 import { Account, Product } from '@/app/lib/definitions';
 
 interface DetailPageProps {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }
 
 export default async function DetailPage({ params }: DetailPageProps) {
-  const { id } = await params;
+  const { id } = params;
   
   try {
-    const [accountResult, productsResult] = await Promise.all([
-      pool.query<Account>('SELECT * FROM account WHERE account_id = $1', [id]),
-      pool.query<Product>('SELECT * FROM products WHERE account_id = $1', [id])
-    ]);
+    
+    // looking for the product
+    const productsResult = await pool.query<Product>(
+      'SELECT * FROM products WHERE product_id = $1', [id]
+    );
+
+    if (productsResult.rows.length === 0) {
+      redirect('/not-found');
+    }
+
+    const product = productsResult.rows[0];
+
+    // looking for the account
+    const accountResult = await pool.query<Account>(
+      'SELECT * FROM account WHERE account_id = $1', [product.account_id]
+    );
 
     if (accountResult.rows.length === 0) {
       redirect('/not-found');
     }
 
     const account = accountResult.rows[0];
-    const products = productsResult.rows[0];
 
     return (
       <div className={styles.details_page}>
@@ -43,7 +54,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
           </div>
 
           <div className={styles.cards_container}>
-            <ProductCard key={products.product_id} product={products} />
+            <ProductCard key={product.product_id} product={product} />
           </div>
 
         </div>
