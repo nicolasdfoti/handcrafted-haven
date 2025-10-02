@@ -2,25 +2,10 @@ import { Header } from '@/app/ui/header';
 import { Footer } from '@/app/ui/footer';
 import { pool } from '@/app/lib/db';
 import { redirect } from 'next/navigation';
-import styles from '@/app/explore/styles/detail.module.css';
+import styles from '../../styles/detail.module.css';
 import Image from 'next/image';
-
-interface Account {
-  account_id: string;
-  account_company_name: string;
-  account_firstname: string;
-  account_lastname: string;
-  account_email: string;
-  account_phone: string;
-  account_website: string;
-}
-
-interface Product {
-  product_id: string;
-  product_name: string;
-  product_description: string;
-  product_price: number;
-}
+import { ProductCard } from '@/app/lib/components';
+import { Account, Product } from '@/app/lib/definitions';
 
 interface DetailPageProps {
   params: Promise<{ id: string }>;
@@ -46,40 +31,28 @@ export default async function DetailPage({ params }: DetailPageProps) {
       <div className={styles.details_page}>
         <Header />
 
-        <div className={styles.image}>
+        <div className={styles.details_body}>
+
+          <div className={styles.image}>
             <Image
-                src="/images/handcrafted-hero.jpg"
-                alt={`Artisan products by ${account.account_company_name || account.account_firstname}`}
-                width='100'
-                height='100'
+              src="/images/handcrafted-hero.jpg"
+              alt={`Artisan products by ${account.account_company_name || account.account_firstname}`}
+              width='300'
+              height='300'
             />
+          </div>
+
+          <div className={styles.cards_container}>
+            <ProductCard key={products.product_id} product={products} />
+          </div>
+
         </div>
 
         <Footer />
       </div>
     );
   } catch (error) {
-    console.error('Error loading artisan details:', error);
+    console.error('Error loading product details:', error);
     redirect('/error');
   }
-}
-
-// Returns the product component
-function ProductCard({ product }: { product: Product }) {
-  return (
-    <article className={styles.card}>
-        <a href={`/explore/${product.product_id}`}> 
-            {/* we need to add the /view here */}
-            <div className={styles.card_header}>
-                <h3 className={styles.card_title}>{product.product_name}</h3>
-            </div>
-            <div className={styles.card_body}>
-                <p className={styles.product_description}>{product.product_description}</p>
-                <div className={styles.product_price}>
-                ${product.product_price}
-                </div>
-            </div>
-        </a>
-    </article>
-  );
 }

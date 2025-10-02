@@ -66,3 +66,4 @@ compress db.ts into Data.ts
 
 Added readme docs
 Working on product detail page
+Added components page (with product card and contact card), and created components.module.css

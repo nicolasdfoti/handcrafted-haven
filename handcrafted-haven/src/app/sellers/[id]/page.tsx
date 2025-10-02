@@ -2,26 +2,10 @@ import { Header } from '@/app/ui/header';
 import { Footer } from '@/app/ui/footer';
 import { pool } from '@/app/lib/db';
 import { redirect } from 'next/navigation';
-import { formatPhoneNumber } from '@/app/lib/products'
-import styles from '@/app/styles/detail.module.css';
+import { ProductCard, ContactItem } from '@/app/lib/components';
+import { Product, Account } from '@/app/lib/definitions';
+import styles from '../styles/detail.module.css';
 import Image from 'next/image';
-
-interface Account {
-  account_id: string;
-  account_company_name: string;
-  account_firstname: string;
-  account_lastname: string;
-  account_email: string;
-  account_phone: string;
-  account_website: string;
-}
-
-interface Product {
-  product_id: string;
-  product_name: string;
-  product_description: string;
-  product_price: number;
-}
 
 interface DetailPageProps {
   params: Promise<{ id: string }>;
@@ -71,10 +55,10 @@ export default async function DetailPage({ params }: DetailPageProps) {
               </div>
 
               <div className={styles.contact}>
-                <h3 className={styles.contact_title}>Contact Information</h3>
-                <div className={styles.contact_info}>
+                <h3>Contact Information</h3>
+                <div>
                   <ContactItem 
-                    label="Email" 
+                    label="Email"
                     value={account.account_email} 
                     type="email" 
                   />
@@ -121,52 +105,4 @@ export default async function DetailPage({ params }: DetailPageProps) {
     console.error('Error loading artisan details:', error);
     redirect('/error');
   }
-}
-
-// Returns the contact component
-function ContactItem({ label, value, type }: { 
-  label: string; 
-  value: string; 
-  type: 'email' | 'phone' | 'website' 
-}) {
-  if (!value) return null;
-
-  const formattedValue = type === 'phone' ? formatPhoneNumber(value) : value;
-  const href = type === 'email' ? `mailto:${value}` : 
-               type === 'phone' ? `tel:${value}` : 
-               value;
-
-  return (
-    <div className={styles.contact_item}>
-      <span className={styles.contact_label}>{label}:</span>
-      <a 
-        href={href} 
-        className={styles.contact_link}
-        target={type === 'website' ? '_blank' : undefined}
-        rel={type === 'website' ? 'noopener noreferrer' : undefined}
-      >
-        {formattedValue}
-      </a>
-    </div>
-  );
-}
-
-// Returns the product component
-function ProductCard({ product }: { product: Product }) {
-  return (
-    <article className={styles.card}>
-        <a href={`/explore/${product.product_id}`}> 
-            {/* we need to add the /view here */}
-            <div className={styles.card_header}>
-                <h3 className={styles.card_title}>{product.product_name}</h3>
-            </div>
-            <div className={styles.card_body}>
-                <p className={styles.product_description}>{product.product_description}</p>
-                <div className={styles.product_price}>
-                ${product.product_price}
-                </div>
-            </div>
-        </a>
-    </article>
-  );
 }
