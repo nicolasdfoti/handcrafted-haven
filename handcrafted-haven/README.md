@@ -21,6 +21,8 @@ Purchase item view | Not implemented
 Registration page for sellers currently
 #### /thankyou
 page redirect after registering
+#### /[id]
+Seller profile page
 
 ## SCSS
 =================
@@ -58,6 +60,12 @@ Stores functions for products
 create actions.ts
 compress form-actions.ts into actions.ts
 compress db.ts into Data.ts
+
+## components.tsx
+components to export
+
+## components.module.css
+components styles
 
 
 # GIT COMMITS
