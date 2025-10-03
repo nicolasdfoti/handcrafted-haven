@@ -3,6 +3,8 @@
 
 .information-section {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
   justify-content: space-evenly;
   width: 100%;
   padding: 10px 0;
@@ -11,10 +13,15 @@
 .site-exploration-card {
   display: flex;
   flex-direction: column;
-  height: clamp(300px, 25vh, 700px);
+  justify-content: space-around;
+  text-align: center;
+  height: clamp(350px, 25vh, 700px);
   width: clamp(250px, 50vw, 300px);
   border-radius: 10%;
   align-items: center;
+  padding: 15px;
+  row-gap: 10px;
+  
 
   color: black;
 
@@ -35,19 +42,8 @@
   h2 {
     text-align: center;
     padding: $s;
-    width: 80%;
+    width: 90%;
     border-top: rgba(248, 248, 248, 0.756) 1px solid;
-  }
-}
-
-.tech-blue {
-  background: $tech-blue;
-
-  a {
-    border: 2px solid adjust($tech-blue-flat, $lightness: -20%);
-    &:hover {
-      background-color: adjust($tech-blue-hover, $lightness: -7%);
-    }
   }
 }
 
@@ -62,15 +58,60 @@
   }
 }
 
-.raspberry-red {
-  background: $raspberry-red;
+.artisan-green {
+  background: $artisan-green;
 
   a {
-    border: 2px solid adjust($raspberry-red-flat, $lightness: -20%);
+    border: 2px solid adjust($artisan-green-flat, $lightness: -20%);
     &:hover {
-      background-color: adjust($raspberry-red-hover, $lightness: -5%);
+      background-color: adjust($artisan-green-hover, $lightness: -5%);
     }
-  }
+  } 
 }
+
+.artisan-rust {
+  background: $artisan-rust;
+
+  a {
+    border: 2px solid adjust($artisan-rust-flat, $lightness: -20%);
+    &:hover {
+      background-color: adjust($artisan-rust-hover, $lightness: -5%);
+    }
+  } 
+}
+
+.artisan-sand {
+  background: $artisan-sand;
+
+  a {
+    border: 2px solid adjust($artisan-sand-flat, $lightness: -20%);
+    &:hover {
+      background-color: adjust($artisan-sand-hover, $lightness: -5%);
+    }
+  } 
+}
+
+// .tech-blue {
+//   background: $tech-blue;
+
+//   a {
+//     border: 2px solid adjust($tech-blue-flat, $lightness: -20%);
+//     &:hover {
+//       background-color: adjust($tech-blue-hover, $lightness: -7%);
+//     }
+//   }
+// }
+
+// .raspberry-red {
+//   background: $raspberry-red;
+
+//   a {
+//     border: 2px solid adjust($raspberry-red-flat, $lightness: -20%);
+//     &:hover {
+//       background-color: adjust($raspberry-red-hover, $lightness: -5%);
+//     }
+//   }
+// }
+
 
 /*make the cards float in and have them randomized order, maybe multiple categories can appear if time */

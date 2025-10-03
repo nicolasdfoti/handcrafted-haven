@@ -26,28 +26,65 @@ $artisan-brown: linear-gradient(
   rgb(69% 52.5% 29.8%)
 );
 
-//BLUE
-$tech-blue-flat: rgb(47.8% 77.3% 80.4%);
-$tech-blue-hover: rgba(122, 197, 205, 0.5);
+//GREEN
+$artisan-green-flat: rgb(34% 50% 34%);  
+$artisan-green-hover: rgb(25% 42% 25%); 
 
-$tech-blue: linear-gradient(
+
+$artisan-green: linear-gradient(
   $angle,
-  hsl(180, 30%, 55%),
-  rgb(47.8% 77.3% 80.4%),
-  rgb(69% 88.6% 100%),
-  rgb(107, 230, 255)
+  rgb(18% 30% 16%),   // verde bosque profundo
+  rgb(25% 42% 25%),   // verde oliva
+  rgb(34% 50% 34%),   // verde musgo
+  rgb(42% 60% 42%)    // verde tierra suave
 );
 
-//RED
-$raspberry-red-flat: rgb(80% 34.1% 39.6%);
-$raspberry-red-hover: hsla(353, 53%, 57%, 0.5);
+//RUST
+$artisan-rust-flat: rgb(62% 32% 22%);   
+$artisan-rust-hover: rgb(55% 25% 15%);  
 
-$raspberry-red: linear-gradient(
+$artisan-rust: linear-gradient(
   $angle,
-  rgb(58% 23.5% 27.8%),
-  rgb(80% 34.1% 39.6%),
-  rgb(87.8% 51% 48.2%)
+  rgb(45% 18% 10%),   // terracota oscuro
+  rgb(55% 25% 15%),   // cobre tostado
+  rgb(62% 32% 22%),   // ladrillo
+  rgb(70% 40% 28%)    // óxido suave
 );
+
+//SAND
+$artisan-sand-flat: rgb(72% 64% 50%);    
+$artisan-sand-hover: rgb(58% 47% 32%);   
+
+$artisan-sand: linear-gradient(
+  $angle,
+  rgb(80% 72% 58%),   // beige claro
+  rgb(72% 64% 50%),   // arena tostada
+  rgb(65% 55% 40%),   // caramelo suave
+  rgb(58% 47% 32%)    // marrón arena
+);
+
+// //BLUE
+// $tech-blue-flat: rgb(47.8% 77.3% 80.4%);
+// $tech-blue-hover: rgba(122, 197, 205, 0.5);
+
+// $tech-blue: linear-gradient(
+//   $angle,
+//   hsl(180, 30%, 55%),
+//   rgb(47.8% 77.3% 80.4%),
+//   rgb(69% 88.6% 100%),
+//   rgb(107, 230, 255)
+// );
+
+// //RED
+// $raspberry-red-flat: rgb(80% 34.1% 39.6%);
+// $raspberry-red-hover: hsla(353, 53%, 57%, 0.5);
+
+// $raspberry-red: linear-gradient(
+//   $angle,
+//   rgb(58% 23.5% 27.8%),
+//   rgb(80% 34.1% 39.6%),
+//   rgb(87.8% 51% 48.2%)
+// );
 
 //utility
 $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
