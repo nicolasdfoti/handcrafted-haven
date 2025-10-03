@@ -1,6 +1,6 @@
 import React from 'react';
-import { Product } from './definitions';
-import styles from './components.module.css';
+import { Product } from '../lib/definitions';
+import styles from '@/app/styles/components.module.css';
 import Link from "next/link";
 
 export type ContactType = 'email' | 'phone' | 'website';
