@@ -1,9 +1,10 @@
-import React from 'react';
-import { Product } from '../lib/definitions';
-import styles from '@/app/styles/components.module.css';
+import React from "react";
+import { Product } from "../lib/definitions";
+import styles from "@/app/styles/components.module.css";
 import Link from "next/link";
+import { pool } from "@/app/lib/db";
 
-export type ContactType = 'email' | 'phone' | 'website';
+export type ContactType = "email" | "phone" | "website";
 
 export interface ContactItemProps {
   label: string;
@@ -22,26 +23,31 @@ export interface ProductCardProps {
 }
 
 export const formatPhoneNumber = (phone: string): string => {
-  const cleaned = phone.replace(/\D/g, '');
+  const cleaned = phone.replace(/\D/g, "");
   if (cleaned.length === 10) {
-    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(
+      6
+    )}`;
   }
   return phone;
 };
 
-export function ContactItem({ 
-  label, 
-  value, 
+export function ContactItem({
+  label,
+  value,
   type,
-  linkClassName = '',
-  labelClassName = ''
+  linkClassName = "",
+  labelClassName = "",
 }: ContactItemProps) {
   if (!value) return null;
 
-  const formattedValue = type === 'phone' ? formatPhoneNumber(value) : value;
-  const href = type === 'email' ? `mailto:${value}` : 
-               type === 'phone' ? `tel:${value}` : 
-               value;
+  const formattedValue = type === "phone" ? formatPhoneNumber(value) : value;
+  const href =
+    type === "email"
+      ? `mailto:${value}`
+      : type === "phone"
+      ? `tel:${value}`
+      : value;
 
   const containerClass = styles.contact_item;
   const labelClass = labelClassName || styles.contact_label;
@@ -50,11 +56,11 @@ export function ContactItem({
   return (
     <div className={containerClass}>
       <span className={labelClass}>{label}:</span>
-      <a 
-        href={href} 
+      <a
+        href={href}
         className={linkClass}
-        target={type === 'website' ? '_blank' : undefined}
-        rel={type === 'website' ? 'noopener noreferrer' : undefined}
+        target={type === "website" ? "_blank" : undefined}
+        rel={type === "website" ? "noopener noreferrer" : undefined}
       >
         {formattedValue}
       </a>
@@ -62,11 +68,11 @@ export function ContactItem({
   );
 }
 
-export function ProductCard({ 
-  product, 
-  basePath = '/explore',
+export function ProductCard({
+  product,
+  basePath = "/explore",
   showDescription = true,
-  showPrice = true
+  showPrice = true,
 }: ProductCardProps) {
   return (
     <article className={styles.card}>
@@ -76,12 +82,12 @@ export function ProductCard({
         </div>
         <div className={styles.card_body}>
           {showDescription && (
-            <p className={styles.product_description}>{product.product_description}</p>
+            <p className={styles.product_description}>
+              {product.product_description}
+            </p>
           )}
           {showPrice && (
-            <div className={styles.product_price}>
-              ${product.product_price}
-            </div>
+            <div className={styles.product_price}>${product.product_price}</div>
           )}
         </div>
       </Link>
