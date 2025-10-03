@@ -4,7 +4,7 @@ import { fetchFromDB } from '@/app/ui/components';
 import { redirect } from 'next/navigation';
 import { ProductCard, ContactItem } from '@/app/ui/components';
 import { Product, Account } from '@/app/lib/definitions';
-import styles from '../styles/detail.module.css';
+import styles from '@styles/s';
 import Image from 'next/image';
 
 interface DetailPageProps {

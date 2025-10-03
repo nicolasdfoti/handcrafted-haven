@@ -56,7 +56,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
             </div>
 
             <div className={styles.product_body}>
-              <h3><strong>Price: </strong> {product.product_price}</h3>
+              <h3><strong>Price: </strong> ${product.product_price}</h3>
               <h3><strong>Description: </strong> {product.product_description}</h3>
             </div>
 
