@@ -1,5 +1,7 @@
 .information-section {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
   justify-content: space-evenly;
   width: 100%;
   padding: 10px 0;
@@ -9,10 +11,14 @@
 .site-exploration-card {
   display: flex;
   flex-direction: column;
-  height: clamp(300px, 25vh, 700px);
+  justify-content: space-around;
+  text-align: center;
+  height: clamp(350px, 25vh, 700px);
   width: clamp(250px, 50vw, 300px);
   border-radius: 10%;
   align-items: center;
+  padding: 15px;
+  row-gap: 10px;
   color: black;
 }
 .site-exploration-card .svg-wrapper {
@@ -30,18 +36,8 @@
 .site-exploration-card h2 {
   text-align: center;
   padding: 0.618em;
-  width: 80%;
+  width: 90%;
   border-top: rgba(248, 248, 248, 0.756) 1px solid;
-}
-
-.tech-blue {
-  background: linear-gradient(45deg, hsl(180, 30%, 55%), rgb(121.89, 197.115, 205.02), rgb(175.95, 225.93, 255), rgb(107, 230, 255));
-}
-.tech-blue a {
-  border: 2px solid rgb(61.3960445682, 153.803356546, 163.5139554318);
-}
-.tech-blue a:hover {
-  background-color: rgba(96.0540983607, 185.6852459016, 195.2459016393, 0.5);
 }
 
 .artisan-brown {
@@ -54,14 +50,34 @@
   background-color: rgba(132.6796875, 79.78125, 33.8203125, 0.5);
 }
 
-.raspberry-red {
-  background: linear-gradient(45deg, rgb(147.9, 59.925, 70.89), rgb(204, 86.955, 100.98), rgb(223.89, 130.05, 122.91));
+.artisan-green {
+  background: linear-gradient(45deg, rgb(45.9, 76.5, 40.8), rgb(63.75, 107.1, 63.75), rgb(86.7, 127.5, 86.7), rgb(107.1, 153, 107.1));
 }
-.raspberry-red a {
-  border: 2px solid rgb(144.9608207218, 43.9941792782, 56.0925785797);
+.artisan-green a {
+  border: 2px solid rgb(45.4142857143, 66.7857142857, 45.4142857143);
 }
-.raspberry-red a:hover {
-  background-color: hsla(353, 53%, 52%, 0.5);
+.artisan-green a:hover {
+  background-color: rgb(54.2350746269, 91.1149253731, 54.2350746269);
+}
+
+.artisan-rust {
+  background: linear-gradient(45deg, rgb(114.75, 45.9, 25.5), rgb(140.25, 63.75, 38.25), rgb(158.1, 81.6, 56.1), rgb(178.5, 102, 71.4));
+}
+.artisan-rust a {
+  border: 2px solid rgb(82.8142857143, 42.7428571429, 29.3857142857);
+}
+.artisan-rust a:hover {
+  background-color: rgb(120.2142857143, 54.6428571429, 32.7857142857);
+}
+
+.artisan-sand {
+  background: linear-gradient(45deg, rgb(204, 183.6, 147.9), rgb(183.6, 163.2, 127.5), rgb(165.75, 140.25, 102), rgb(147.9, 119.85, 81.6));
+}
+.artisan-sand a {
+  border: 2px solid rgb(134.0384615385, 112.5923076923, 75.0615384615);
+}
+.artisan-sand a:hover {
+  background-color: rgb(131.4666666667, 106.5333333333, 72.5333333333);
 }
 
 /*make the cards float in and have them randomized order, maybe multiple categories can appear if time */
