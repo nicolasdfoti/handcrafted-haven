@@ -22,6 +22,7 @@ export interface ProductCardProps {
   showPrice?: boolean;
 }
 
+// formats the phone number
 export const formatPhoneNumber = (phone: string): string => {
   const cleaned = phone.replace(/\D/g, "");
   if (cleaned.length === 10) {
@@ -32,6 +33,7 @@ export const formatPhoneNumber = (phone: string): string => {
   return phone;
 };
 
+// exports the contact item for seller page
 export function ContactItem({
   label,
   value,
@@ -68,6 +70,7 @@ export function ContactItem({
   );
 }
 
+// exports the product card for seller page
 export function ProductCard({
   product,
   basePath = "/explore",
@@ -93,4 +96,39 @@ export function ProductCard({
       </Link>
     </article>
   );
+}
+
+export async function fetchFromDB<T>(
+  table: string,
+  filters: Record<string, unknown> = {},
+  options?: { single?: boolean }
+): Promise<T | T[] | null> {
+  try {
+    const keys = Object.keys(filters);
+    const values = Object.values(filters);
+
+    console.log(`Fetching from ${table} with filters:`, filters);
+
+    let whereClause = "";
+    if (keys.length > 0) {
+      const conditions = keys.map((key, index) => `${key} = $${index + 1}`);
+      whereClause = "WHERE " + conditions.join(" AND ");
+    }
+
+    const query = `SELECT * FROM ${table} ${whereClause}`;
+    console.log(`Query: ${query}`, values);
+    
+    const result = await pool.query(query, values);
+    console.log(`Found ${result.rows.length} rows`);
+
+    if (result.rows.length === 0) return null;
+
+    return options?.single
+      ? (result.rows[0] as T)
+      : (result.rows as T[]);
+
+  } catch (err) {
+    console.error("DB fetch error:", err);
+    throw new Error("Database query failed");
+  }
 }

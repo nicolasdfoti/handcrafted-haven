@@ -1,6 +1,6 @@
 import { Header } from '@/app/ui/header';
 import { Footer } from '@/app/ui/footer';
-import { pool } from '@/app/lib/db';
+import { fetchFromDB } from '@/app/ui/components';
 import { redirect } from 'next/navigation';
 import styles from '@styles/detail.module.scss'
 import Image from 'next/image';
@@ -15,29 +15,15 @@ export default async function DetailPage({ params }: DetailPageProps) {
   const { id } = await params;
 
   try {
-    // looking for the product
-    const productsResult = await pool.query<Product>(
-      "SELECT * FROM products WHERE product_id = $1",
-      [id]
-    );
+    
+    const productId = parseInt(id);
 
-    if (productsResult.rows.length === 0) {
+    const product = await fetchFromDB<Product>("products", { product_id: productId }, { single: true }) as Product;
+    const account = await fetchFromDB<Account>("account", { account_id: product.account_id }, { single: true }) as Account;
+
+    if (!account) {
       redirect("/not-found");
     }
-
-    const product = productsResult.rows[0];
-
-    // looking for the account
-    const accountResult = await pool.query<Account>(
-      "SELECT * FROM account WHERE account_id = $1",
-      [product.account_id]
-    );
-
-    if (accountResult.rows.length === 0) {
-      redirect("/not-found");
-    }
-
-    const account = accountResult.rows[0];
 
     return (
       <div className={styles.details_page}>

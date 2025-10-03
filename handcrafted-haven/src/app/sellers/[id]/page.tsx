@@ -1,6 +1,6 @@
 import { Header } from '@/app/ui/header';
 import { Footer } from '@/app/ui/footer';
-import { pool } from '@/app/lib/db';
+import { fetchFromDB } from '@/app/ui/components';
 import { redirect } from 'next/navigation';
 import { ProductCard, ContactItem } from '@/app/ui/components';
 import { Product, Account } from '@/app/lib/definitions';
@@ -15,17 +15,14 @@ export default async function DetailPage({ params }: DetailPageProps) {
   const { id } = await params;
   
   try {
-    const [accountResult, productsResult] = await Promise.all([
-      pool.query<Account>('SELECT * FROM account WHERE account_id = $1', [id]),
-      pool.query<Product>('SELECT * FROM products WHERE account_id = $1', [id])
-    ]);
+    const accountId = parseInt(id);
 
-    if (accountResult.rows.length === 0) {
-      redirect('/not-found');
+    const account = await fetchFromDB<Account>("account", { account_id: accountId }, { single: true }) as Account | null;
+    const products = await fetchFromDB<Product>("products", { account_id: accountId }) as Product[];
+
+    if (!account) {
+      redirect("/not-found");
     }
-
-    const account = accountResult.rows[0];
-    const products = productsResult.rows;
 
     return (
       <div className={styles.details_page}>

@@ -4,6 +4,7 @@ export type Product = {
   product_description: string;
   product_price: number;
   account_id: number;
+  product_category: string;
 }
 
 export type Account = {

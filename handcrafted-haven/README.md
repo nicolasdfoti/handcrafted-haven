@@ -77,4 +77,4 @@ Working on product detail page
 Added components page (with product card and contact card), and created components.module.css
 Corrected mistakes to deploy
 Add 4 category cards with different colors, a brief description for each one, and representative icons.
-
+Added fetchFromDB function in components, to fetch from DB

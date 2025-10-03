@@ -3,11 +3,15 @@ import { Header } from "@/app/ui/header.jsx";
 import styles from "../styles/page.module.css";
 import Image from "next/image";
 import { Product } from "@/app/lib/definitions";
-//import { fetchProductList } from "@/app/lib/data"
+import { fetchFromDB } from "../ui/components";
+import { ProductCard } from "../ui/components";
 
 //const productList = await fetchProductList();
 
-export default function Products() {
+export default async function Products() {
+
+  const products = await fetchFromDB<Product>("products") as Product[];
+
   return (
     <div className={`${styles["page"]} ${styles["marketplace__page"]}`}>
       <Header />
