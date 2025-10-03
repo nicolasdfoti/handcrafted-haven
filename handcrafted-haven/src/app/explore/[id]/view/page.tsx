@@ -2,7 +2,7 @@ import { Header } from '@/app/ui/header';
 import { Footer } from '@/app/ui/footer';
 import { pool } from '@/app/lib/db';
 import { redirect } from 'next/navigation';
-import styles from '@/app/styles/detail.module.scss';
+import styles from '@styles/detail.module.scss'
 import Image from 'next/image';
 import { ProductCard } from '@/app/ui/components';
 import { Account, Product } from '@/app/lib/definitions';
