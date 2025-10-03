@@ -3,12 +3,12 @@
 }
 
 .details_body {
-  width: 80%;
-  justify-self: center;
+  width: 90%;
+  padding: 10px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  align-items: center;
+  grid-template-columns: 1fr 1.5fr;
   justify-content: center;
+  align-items: center;
 }
 
 .product_info {
