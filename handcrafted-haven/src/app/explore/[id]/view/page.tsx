@@ -8,11 +8,11 @@ import { ProductCard } from '@/app/ui/components';
 import { Account, Product } from '@/app/lib/definitions';
 
 interface DetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function DetailPage({ params }: DetailPageProps) {
-  const { id } = params;
+  const { id } = await params;
 
   try {
     // looking for the product
