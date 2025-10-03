@@ -2,9 +2,9 @@ import { Header } from '@/app/ui/header';
 import { Footer } from '@/app/ui/footer';
 import { fetchFromDB } from '@/app/ui/components';
 import { redirect } from 'next/navigation';
-import styles from '@styles/detail.module.scss'
-import Image from 'next/image';
+import styles from '@styles/detail.module.scss';
 import { ProductCard } from '@/app/ui/components';
+import Image from 'next/image';
 import { Account, Product } from '@/app/lib/definitions';
 
 interface DetailPageProps {
@@ -19,6 +19,10 @@ export default async function DetailPage({ params }: DetailPageProps) {
     const productId = parseInt(id);
 
     const product = await fetchFromDB<Product>("products", { product_id: productId }, { single: true }) as Product;
+    const similar_products = await fetchFromDB<Product>(
+      "products",
+      { product_category: product.product_category }
+    ) as Product[];
     const account = await fetchFromDB<Account>("account", { account_id: product.account_id }, { single: true }) as Account;
 
     if (!account) {
@@ -29,7 +33,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
       <div className={styles.details_page}>
         <Header />
 
-        <div>
+        <div className={styles.product_title}>
           <h1>{product.product_name}</h1>
           <h3>by {account.account_company_name}</h3>
         </div>
@@ -46,9 +50,34 @@ export default async function DetailPage({ params }: DetailPageProps) {
             />
           </div>
 
-          <div className={styles.cards_container}>
-            {/* <ProductCard key={product.product_id} product={product} /> */}
+          <div className={styles.product_info}>
+            <div className={styles.product_header}>
+              <h2>{product.product_name}</h2>
+            </div>
+
+            <div className={styles.product_body}>
+              <h3><strong>Price: </strong> {product.product_price}</h3>
+              <h3><strong>Description: </strong> {product.product_description}</h3>
+            </div>
+
+            <div className={styles.product_button}>
+              <button>Buy now!</button>
+            </div>
           </div>
+
+          <div className={styles.similar_products}>
+            <h2>Similar Products: </h2>
+            <div className={styles.similar_products_info}>
+              {similar_products.length > 0 ? (
+                similar_products.map((similarProduct) => (
+                  <ProductCard key={similarProduct.product_id} product={similarProduct} />
+                ))
+              ) : (
+                <p>No similar products found in the {product.product_category} category</p>
+              )}
+            </div>
+          </div>
+          
         </div>
 
         <Footer />

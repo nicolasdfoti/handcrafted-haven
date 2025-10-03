@@ -74,11 +74,12 @@ export function ContactItem({
 export function ProductCard({
   product,
   basePath = "/explore",
+  className,
   showDescription = true,
   showPrice = true,
 }: ProductCardProps) {
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} ${className || ''}`}>
       <Link href={`${basePath}/${product.product_id}/view`}>
         <div className={styles.card_header}>
           <h3 className={styles.card_title}>{product.product_name}</h3>
