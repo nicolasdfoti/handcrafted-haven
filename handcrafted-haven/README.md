@@ -78,3 +78,4 @@ Added components page (with product card and contact card), and created componen
 Corrected mistakes to deploy
 Add 4 category cards with different colors, a brief description for each one, and representative icons.
 Added fetchFromDB function in components, to fetch from DB
+I fixed the app structure by adding a component folder and moving them there, and moving the CSS files into the UI. All imports were fixed, as was the SCSS processing. Everything is working fine.

@@ -1,8 +1,8 @@
-import { Header } from '@/app/ui/header';
-import { Footer } from '@/app/ui/footer';
-import { fetchFromDB } from '@/app/ui/components';
+import { Header } from '@/app/components/header';
+import { Footer } from '@/app/components/footer';
+import { fetchFromDB } from '@/app/components/components';
 import { redirect } from 'next/navigation';
-import { ProductCard, ContactItem } from '@/app/ui/components';
+import { ProductCard, ContactItem } from '@/app/components/components';
 import { Product, Account } from '@/app/lib/definitions';
 import styles from '@styles/sellers.module.scss';
 import Image from 'next/image';

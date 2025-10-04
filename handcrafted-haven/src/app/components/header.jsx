@@ -1,5 +1,5 @@
 import { Navigation } from "./nav.jsx";
-import styles from "@/app/styles/page.module.css";
+import styles from "@/app/ui/styles/page.module.css";
 import Image from "next/image.js";
 
 export function Header() {

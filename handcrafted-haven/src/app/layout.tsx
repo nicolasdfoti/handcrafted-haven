@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./styles/global.css";
+import "./ui/styles/global.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 

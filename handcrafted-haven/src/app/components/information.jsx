@@ -1,4 +1,4 @@
-import styles from "../styles/info.module.css";
+import styles from "../ui/styles/info.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadphones } from "@fortawesome/free-regular-svg-icons";
 import Image from "next/image";

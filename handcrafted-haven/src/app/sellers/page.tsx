@@ -1,8 +1,8 @@
 "use client";
 
-import { Footer } from '@/app/ui/footer.jsx';
-import { Header } from '@/app/ui/header.jsx';
-import { FormControl } from '@/app/ui/form-control';
+import { Footer } from '@/app/components/footer';
+import { Header } from '@/app/components/header.jsx';
+import { FormControl } from '@/app/components/form-control';
 import { useActionState } from "react";
 import { registerSeller } from "../lib/form-actions";
 import styles from './styles/sellers.module.scss';

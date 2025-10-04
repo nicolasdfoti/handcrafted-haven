@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sass:watch": "sass --watch public\\styles\\scss:src\\app\\styles",
+    "sass:watch": "sass --watch public\\styles\\scss:src\\app\\ui\\styles",
     "dev:all": "concurrently \"npm:dev\" \"npm:sass:watch\""
   },
   "dependencies": {

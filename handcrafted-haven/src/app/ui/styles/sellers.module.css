@@ -1,0 +1,150 @@
+.details_page {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section */
+.hero_section {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+}
+
+.hero_image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero_img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero_overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+}
+
+.hero_content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.detail {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.company_name {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.artisan_name {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Contacts Section */
+.contact {
+  background: rgba(155, 167, 141, 0.95);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Products Section */
+.products_section {
+  flex: 1;
+  padding: 4rem 0;
+  background: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section_title {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #2c3e50;
+}
+
+.empty_state {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+}
+
+.empty_subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.cards_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero_content {
+    padding: 1rem;
+  }
+  .company_name {
+    font-size: 2rem;
+  }
+  .cards_container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .section_title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .hero_section {
+    min-height: 300px;
+  }
+  .hero_image {
+    height: 300px;
+  }
+  .company_name {
+    font-size: 1.75rem;
+  }
+  .contact {
+    padding: 1rem;
+  }
+}
+
+/*# sourceMappingURL=sellers.module.css.map */

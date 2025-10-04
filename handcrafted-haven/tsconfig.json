@@ -23,6 +23,6 @@
       "@styles/*": ["./public/styles/scss/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/ui/header.jsx", "src/app/ui/footer.jsx", "src/app/ui/hero.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/ui/header.jsx", "src/app/components/footer.jsx", "src/app/components/hero.jsx"],
   "exclude": ["node_modules"]
 }

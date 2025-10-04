@@ -1,4 +1,4 @@
-import styles from "@/app/styles/page.module.css";
+import styles from "@/app/ui/styles/page.module.css";
 
 export function Footer() {
   return (

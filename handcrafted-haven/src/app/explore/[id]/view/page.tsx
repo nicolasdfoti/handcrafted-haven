@@ -1,9 +1,9 @@
-import { Header } from '@/app/ui/header';
-import { Footer } from '@/app/ui/footer';
-import { fetchFromDB } from '@/app/ui/components';
+import { Header } from '@/app/components/header';
+import { Footer } from '@/app/components/footer';
+import { fetchFromDB } from '@/app/components/components';
 import { redirect } from 'next/navigation';
 import styles from '@styles/detail.module.scss';
-import { ProductCard } from '@/app/ui/components';
+import { ProductCard } from '@/app/components/components';
 import Image from 'next/image';
 import { Account, Product } from '@/app/lib/definitions';
 

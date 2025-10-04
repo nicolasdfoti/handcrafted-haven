@@ -1,10 +1,10 @@
-import { Footer } from "@/app/ui/footer.jsx";
-import { Header } from "@/app/ui/header.jsx";
-import styles from "../styles/page.module.css";
+import { Footer } from "@/app/components/footer";
+import { Header } from "@/app/components/header.jsx";
+import styles from "../ui/styles/page.module.css";
 import Image from "next/image";
 import { Product } from "@/app/lib/definitions";
-import { fetchFromDB } from "../ui/components";
-import { ProductCard } from "../ui/components";
+import { fetchFromDB } from "../components/components";
+import { ProductCard } from "../components/components";
 
 //const productList = await fetchProductList();
 

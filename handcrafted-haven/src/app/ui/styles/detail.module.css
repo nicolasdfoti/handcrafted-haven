@@ -1,0 +1,124 @@
+.details_page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.details_body {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  grid-template-rows: auto 1fr;
+  gap: 30px;
+  align-items: start;
+}
+.details_body .similar_products {
+  grid-column: 1/-1;
+}
+
+.product_title {
+  width: 100%;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.product_title h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+.product_title h3 {
+  margin: 10px 0 0 0;
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.image img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product_info {
+  padding: 0 20px;
+}
+
+.product_header h2 {
+  font-family: "Epunda Slab", serif;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.product_body {
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+.product_body h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+  margin: 15px 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+.product_body strong {
+  font-weight: bold;
+  color: #333;
+}
+
+.product_button button {
+  background-color: #2c5530;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+.product_button button:hover {
+  background-color: #1e3a22;
+}
+
+.similar_products {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #e0e0e0;
+}
+.similar_products h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.similar_products_info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-content: center;
+}
+.similar_products_info p {
+  grid-column: 1/-1;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  color: #666;
+  font-style: italic;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/*# sourceMappingURL=detail.module.css.map */

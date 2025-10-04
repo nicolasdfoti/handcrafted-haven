@@ -1,5 +1,5 @@
-import { Footer } from '@/app/ui/footer.jsx';
-import { Header } from '@/app/ui/header.jsx';
+import { Footer } from '@/app/components/footer';
+import { Header } from '@/app/components/header.jsx';
 import styles from '../styles/sellers.module.scss';
 
 
