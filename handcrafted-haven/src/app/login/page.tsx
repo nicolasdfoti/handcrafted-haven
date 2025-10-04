@@ -1,6 +1,6 @@
-import LoginWrapper from "@/app/components/LoginWrapper";
+// import LoginWrapper from "@/app/components/LoginWrapper";
 import Logo from "@/app/components/Logo";
-import { LoginForm } from "anjrot-components";
+// import { LoginForm } from "anjrot-components";
 import React from "react";
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
             <Logo />
           </div>
         </div>
-        <LoginWrapper />
+        {/* <LoginWrapper /> */}
       </div>
     </main>
   );

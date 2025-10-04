@@ -3,6 +3,7 @@ import { Footer } from "./components/footer";
 import { Header } from "./components/header.jsx";
 import { Hero } from "./components/hero.jsx";
 import { Information } from "./components/information.jsx";
+import { SellersCta } from "./components/sellersCta.jsx";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Information />
+      <SellersCta />
       <Footer />
     </div>
   );

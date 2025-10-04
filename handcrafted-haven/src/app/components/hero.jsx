@@ -28,9 +28,6 @@ export function Hero() {
           <a href="/explore" className={`${styles.btn} ${styles.btnPrimary}`}>
             Start Exploring
           </a>
-          <a href="/sellers" className={`${styles.btn} ${styles.btnSecondary}`}>
-            Join as a Seller
-          </a>
         </div>
       </div>
     </section>

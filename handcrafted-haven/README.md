@@ -81,3 +81,4 @@ Added fetchFromDB function in components, to fetch from DB
 - I fixed the app structure by adding a component folder and moving them there, and moving the CSS files into the UI. All imports were fixed, as was the SCSS processing. Everything is working fine.
 - Nav component was changed to NavLinks
 - Changed logo and styles navlink, added login button
+- New section at the end separating the hero and the call to action to invite artisans to join
