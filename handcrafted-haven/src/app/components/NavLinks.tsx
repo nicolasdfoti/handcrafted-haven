@@ -20,7 +20,7 @@ const links = [
   {
     name: "Contact",
     href: "/",
-  }
+  },
 ];
 
 export function NavLinks() {
@@ -28,17 +28,22 @@ export function NavLinks() {
   console.log("pathname :>> ", pathname);
   return (
     <>
+
     <nav className={styles.nav}>
-        {links.map(x => {
-        return (
-          <Link
-            href={x.href}
-            key={x.name}
-          >
-            <p>{x.name}</p>
-          </Link>
-        );
-      })}
+        <div className={styles.right}>
+            {links
+            .filter((x) => x.name !== "Login")
+            .map((x) => (
+                <Link href={x.href} key={x.name}>
+                <p>{x.name}</p>
+                </Link>
+            ))}
+        </div>
+        <div className={styles.login}>
+            <Link href="/login">
+            <p>Login</p>
+            </Link>
+        </div>
     </nav>
 
     </>

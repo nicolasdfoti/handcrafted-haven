@@ -8,10 +8,10 @@ const Logo = () => {
     <div>
         <Link href="/">
             <Image
-                src="/images/logo.png"
+                src="/images/hand-logo.png"
                 alt="Handcrafted Haven Logo"
-                width={200}
-                height={100}
+                width = {350}
+                height={45}
                 priority
               />
         </Link>      

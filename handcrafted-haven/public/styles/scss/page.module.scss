@@ -8,6 +8,10 @@
 /* Header */
 .header {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  column-gap: 20px;
+  height: 90px;
   padding: 1rem 2rem;
   background-color: #f1ece5;
   border-bottom: 2px solid #9ba78d;
@@ -16,7 +20,10 @@
 /* Navigation */
 .nav {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  gap: 1.2rem;
 }
 
 .nav ul {
@@ -28,7 +35,6 @@
 
 .nav li {
   display: flex;
-  align-items: self-end;
   list-style: none;
   display: flex;
 }
@@ -48,6 +54,25 @@
 }
 .nav .svg-inline--fa {
   padding-top: 50px;
+}
+
+.right {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.login {
+  display: flex;
+  background-color: #9ba78d;
+  color: #0b0b0b;
+  padding: 0.5rem 1rem;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.login p:hover {
+  color: #ffffff
 }
 
 /* Hero */
