@@ -25,7 +25,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const { email, password } = parseCredentials.data;
 
         try {
-            const login = await fetch ("http://localhost:3000/api/auth/login", {
+            const login = await fetch(`${process.env.DATABASE_URL}/auth/login`, {
                 headers: { "Content-Type": "application/json" }, 
                 method: "POST",
                 body: JSON.stringify({ email, password }),
