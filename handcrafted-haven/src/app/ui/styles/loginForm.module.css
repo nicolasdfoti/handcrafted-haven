@@ -1,0 +1,98 @@
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.formContainer {
+  flex: 1;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 400px;
+}
+.formContainer h1 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.inputWrapper {
+  margin-top: 1.5rem;
+}
+.inputWrapper label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.inputIcon {
+  position: relative;
+}
+.inputIcon input {
+  width: 100%;
+  padding: 0.6rem 0.6rem 0.6rem 2.2rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+.inputIcon input::placeholder {
+  color: #888;
+}
+.inputIcon input:focus {
+  border-color: #555;
+}
+.inputIcon .icon {
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  width: 18px;
+  color: #666;
+  pointer-events: none;
+}
+
+.submitButton {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.submitButton:hover {
+  background: #555;
+}
+.submitButton .iconRight {
+  margin-left: auto;
+  height: 20px;
+  width: 20px;
+  color: #fff;
+}
+
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.5rem;
+  margin-top: 1rem;
+}
+.errorBox p {
+  font-size: 0.85rem;
+  color: #d32f2f;
+}
+.errorBox .errorIcon {
+  height: 18px;
+  width: 18px;
+  color: #d32f2f;
+}
+
+/*# sourceMappingURL=loginForm.module.css.map */
