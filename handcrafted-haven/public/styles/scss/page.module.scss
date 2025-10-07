@@ -72,7 +72,7 @@
   transition: all 0.2s ease;
 }
 .login p:hover {
-  color: #ffffff
+  color: #ffffff;
 }
 
 .logout_button {
@@ -226,7 +226,7 @@
   flex-direction: column;
   align-self: center;
   width: clamp(968px, 80vw, 1920px);
-  height: 500px; //change to 100%
+  height: 100%;
   margin-top: $xl;
   background-color: $foreground;
 

@@ -4,13 +4,19 @@ import styles from "../ui/styles/page.module.css";
 import Image from "next/image";
 import { Product } from "@/app/lib/definitions";
 import { fetchFromDB } from "../components/components";
-import { ProductCard } from "../components/components";
-
-//const productList = await fetchProductList();
+import { ProductListings } from "../components/product-listings";
 
 export default async function Products() {
+  const products = (await fetchFromDB<Product>(
+    "products",
+    {},
+    { limit: 50 }
+  )) as Product[];
 
-  const products = await fetchFromDB<Product>("products") as Product[];
+  // Call the function immediately to run on load
+  (async function printFunction() {
+    console.log(products);
+  })();
 
   return (
     <div className={`${styles["page"]} ${styles["marketplace__page"]}`}>
@@ -20,24 +26,7 @@ export default async function Products() {
           <h1>hi</h1>
         </div>
         <div className={`${styles["marketplace__dynamic-content"]}`}>
-          <div className={`${styles["marketplace__products"]}`}>
-            <div className={`${styles["marketplace__product-card"]}`}>
-              <div className={`${styles["image-wrapper"]}`}>
-                {/*
-                <Image 
-                src={}//fetched product image
-                />*/}
-              </div>
-              <h2>Product Title</h2>
-
-              <a
-                className={`${styles["marketplace__listing-button"]}`}
-                href="#"
-              >
-                View Listing
-              </a>
-            </div>
-          </div>
+          <ProductListings products={products} />
           <div className={`${styles["marketplace__sidebar"]}`}>
             <h2>hi</h2>
           </div>
