@@ -96,3 +96,39 @@
 }
 
 /*# sourceMappingURL=components.module.css.map */
+
+/* Seller Card */
+.seller_container {
+  cursor: pointer;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #0070f3;
+    word-break: break-all;
+  }
+}

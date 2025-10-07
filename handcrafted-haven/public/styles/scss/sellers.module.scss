@@ -1,3 +1,33 @@
+/* SELLERS PAGE */
+.general_page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #faf9f7;
+  color: #222;
+  font-family: 'Inter', sans-serif;
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 3rem 0 1rem 0;
+    color: #333;
+    letter-spacing: -0.5px;
+  }
+}
+
+.seller_page {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  padding: 2rem 5%;
+  justify-items: center;
+  align-items: stretch;
+  transition: all 0.3s ease-in-out;
+}
+
+/* DETAIL PAGE */
 .details_page {
   font-family: "Poppins", sans-serif;
   min-height: 100vh;

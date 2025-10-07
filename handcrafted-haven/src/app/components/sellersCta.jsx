@@ -8,7 +8,7 @@ export function SellersCta() {
           Are you a artisan? Sell your creations at Handcrafted Haven!
         </h2>
         <div className={styles.hero__actions}>
-          <a href="/sellers" className={`${styles.btn} ${styles.btnSecondarySellers}`}>
+          <a href="/sellers/join" className={`${styles.btn} ${styles.btnSecondarySellers}`}>
             Join as a Seller
           </a>
         </div>

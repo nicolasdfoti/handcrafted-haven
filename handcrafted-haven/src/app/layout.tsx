@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./ui/styles/global.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import Providers from "./providers";
+
 config.autoAddCss = false;
 
 export const metadata: Metadata = {
@@ -28,7 +30,11 @@ export default function RootLayout({
         />
         <link rel="stylesheet" href="styles/global.css"></link>
       </head>
-      <body>{children}</body>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }

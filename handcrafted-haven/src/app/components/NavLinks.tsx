@@ -12,11 +12,11 @@ const links = [
   },
   {
     name: "Products",
-    href: "/",
+    href: "/explore",
   },
   {
     name: "Artisans",
-    href: "/",
+    href: "/sellers",
   },
   {
     name: "Contact",
