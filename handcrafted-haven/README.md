@@ -84,3 +84,4 @@ Added fetchFromDB function in components, to fetch from DB
 - New section at the end separating the hero and the call to action to invite artisans to join
 - Implemented and fixing Auth, when seller authenticate, redirect to sellers/id page
 - If the user is not logged in and tries to enter seller/id, it redirects them to login, and if they are logged in, for example their id is 8, and they try to enter another id from the URL, it takes them to an unauthorized page.
+- When user login the navbar show "Hello, user" and adding logout button, when the user is logout the navbar show the login button only

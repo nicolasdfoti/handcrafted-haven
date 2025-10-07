@@ -75,6 +75,21 @@
   color: #ffffff
 }
 
+.logout_button {
+  background: none;
+  border: none;
+  color: #c00;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding-left: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.logout_button:hover {
+  color: white;
+}
+
 /* Hero */
 .hero {
   position: relative;
