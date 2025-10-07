@@ -1,7 +1,6 @@
 'use client';
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import styles from "@/app/ui/styles/page.module.css";
 import { useSession, signOut } from 'next-auth/react';
 
@@ -25,7 +24,6 @@ const links = [
 ];
 
 export function NavLinks() {
-  // const pathname = usePathname();
   const { data: session, status } = useSession();
 
   const handleLogout = () => {
@@ -44,7 +42,7 @@ export function NavLinks() {
 
       <div className={styles.login}>
         {status === "loading" ? (
-          <p>Loading...</p>
+          <p style={{fontFamily: "Poppins, sans-serif" }}>Loading...</p>
         ) : !session?.user ? (
           <Link href="/login">
             <p>Login</p>
