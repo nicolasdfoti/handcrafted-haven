@@ -3,7 +3,7 @@ import { Product } from "../lib/definitions";
 import styles from "@styles/components.module.scss";
 import Link from "next/link";
 import { pool } from "@/app/lib/db";
-import { Account } from '@/app/lib/definitions';
+import { Account } from "@/app/lib/definitions";
 
 export type ContactType = "email" | "phone" | "website";
 
