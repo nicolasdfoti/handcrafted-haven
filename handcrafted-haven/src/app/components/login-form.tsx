@@ -56,7 +56,6 @@ export default function LoginForm({
         return;
       }
 
-      // 🔥 Get session and redirect to /sellers/[id]
       const session = await getSession();
       console.log('[LOGIN] Session:', session);
 
