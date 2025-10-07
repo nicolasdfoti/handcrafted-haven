@@ -6,13 +6,27 @@ import { ProductCard, ContactItem } from '@/app/components/components';
 import { Product, Account } from '@/app/lib/definitions';
 import styles from '@styles/sellers.module.scss';
 import Image from 'next/image';
+import { auth } from '@/auth';
 
 interface DetailPageProps {
   params: { id: string }; 
 }
 
 export default async function DetailPage({ params }: DetailPageProps) {
-  const { id } = params;
+  const session = await auth();
+
+  if (!session?.user) {
+    redirect('/login');
+  }
+  
+  const { id } = await params;
+
+  const accountId = parseInt(id);
+
+  // if the logged-in user's ID does not match the accountId from the URL, redirect to not-authorized
+  if (String(session.user.id) !== String(accountId)) {
+    redirect('/not-authorized'); 
+  }
   
   try {
     const accountId = parseInt(id);

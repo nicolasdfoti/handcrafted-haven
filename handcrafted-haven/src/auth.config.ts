@@ -8,13 +8,12 @@ export const authConfig = {
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
+      const isOnDashboard = nextUrl.pathname.startsWith('/sellers');
 
       // Solo proteger el dashboard (requiere login)
       if (isOnDashboard) {
         return isLoggedIn;
       }
-      // Ahora no va a forzar ningún redirect, deja que el frontend redirija.
       return true;
     },
   },
