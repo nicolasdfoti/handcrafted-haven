@@ -8,14 +8,18 @@ interface ProductListingsProps {
 }
 
 export function ProductListings({ products }: ProductListingsProps) {
+  if (!products || products.length === 0) {
+    return (
+      <div className={`${styles["marketplace__products"]}`}>
+        <p>No products found</p>
+      </div>
+    );
+  }
+
   return (
     <div className={`${styles["marketplace__products"]}`}>
       {products.map((product) => (
-        <ProductListing
-          key={product.product_id}
-          product={product}
-          className={`${styles["marketplace__product-card"]}`}
-        />
+        <ProductListing key={product.product_id} product={product} />
       ))}
     </div>
   );

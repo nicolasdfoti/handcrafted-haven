@@ -83,7 +83,7 @@ export function ProductCard({
     <article className={`${styles.card} ${className || ""}`}>
       <Link href={`${basePath}/${product.product_id}/view`}>
         <div className={styles.card_header}>
-          <h3 className={styles.card_title}>{product.product_name}</h3>
+          <h3 className={styles.card_title}>{product.product_title}</h3>
         </div>
         <div className={styles.card_body}>
           {showDescription && (
@@ -133,10 +133,10 @@ export function ProductListing({
 }: ProductCardProps) {
   return (
     <div className={`${styles["marketplace__product-card"]}`}>
-      <Link href={`${basePath}/${product.product_id}/view`}>
+      <Link href={`${basePath}/${product.product_id}/view}`}>
         <div className={styles.card_header}>
           {" "}
-          <h3 className={styles.card_title}>{product.product_name}</h3>{" "}
+          <h3 className={styles.card_title}>{product.product_title}</h3>{" "}
         </div>
 
         <div className={styles.card_body}>
@@ -175,7 +175,9 @@ export async function fetchFromDB<T>(
     const result = await pool.query(query, values);
     console.log(`Found ${result.rows.length} rows`);
 
-    if (result.rows.length === 0) return null;
+    if (result.rows.length === 0) {
+      return options?.single ? null : [];
+    }
 
     return options?.single ? (result.rows[0] as T) : (result.rows as T[]);
   } catch (err) {

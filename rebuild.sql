@@ -22,12 +22,19 @@ CREATE TABLE IF NOT EXISTS public.products
   product_thumbnail character varying NOT NULL,
   product_price numeric(9, 0) NOT NULL,
   category_id integer NOT NULL,
-  CONSTRAINT inventory_pkey PRIMARY KEY (inv_id)
+  account_id integer NOT NULL,
+  CONSTRAINT products_pkey PRIMARY KEY (product_id)
 );
 
-ALTER TABLE IF EXISTS public.inventory
+ALTER TABLE IF EXISTS public.products
   ADD CONSTRAINT fk_category FOREIGN KEY (category_id)
   REFERENCES public.category (category_id) MATCH SIMPLE
+  ON UPDATE CASCADE
+  ON DELETE NO ACTION;
+
+ALTER TABLE IF EXISTS public.products
+  ADD CONSTRAINT fk_account FOREIGN KEY (account_id)
+  REFERENCES public.account (account_id) MATCH SIMPLE
   ON UPDATE CASCADE
   ON DELETE NO ACTION;
 
@@ -40,6 +47,11 @@ CREATE TABLE IF NOT EXISTS public.account
     account_username character varying NOT NULL,
     account_password character varying NOT NULL,
     account_type account_type NOT NULL DEFAULT 'User'::account_type,
+    account_company_name character varying,
+    account_firstname character varying,
+    account_lastname character varying,
+    account_phone character varying,
+    account_website character varying,
     CONSTRAINT account_pkey PRIMARY KEY (account_id)
 );
 
@@ -48,8 +60,7 @@ INSERT INTO public.category (category_name)
 VALUES ('Crafts'),
   ('Technology'),
   ('Food'), 
-  ('Clothing'),
-
+  ('Clothing');
 
 SELECT * FROM public.category
 ORDER BY category_id ASC;
@@ -61,14 +72,42 @@ INSERT INTO public.products  (
   product_image,
   product_thumbnail,
   product_price,
-  category_id
+  category_id,
+  account_id
 )
 VALUES (
-    "Old Domino's Pizza"
-    '9/27/2025',
-    'Ordered too much pizza',
-    'image/dominospizza.jpg',
-    'image/dominospizza-tn.jpg',
-    4,
-    3
+  'Old Domino''s Pizza',
+  '2025',
+  'Ordered too much pizza',
+  'image/dominospizza.jpg',
+  'image/dominospizza-tn.jpg',
+  4,
+  3,
+  1
+);
+
+INSERT INTO public.account (
+  account_email,
+  account_username,
+  account_password,
+  account_type,
+  account_company_name,
+  account_firstname,
+  account_lastname,
+  account_phone,
+  account_website
 )
+VALUES (
+  'seller@example.com',
+  'seller1',
+  'password123',
+  'Seller',
+  'Handcrafted Haven',
+  'John',
+  'Doe',
+  '555-123-4567',
+  'https://handcraftedhaven.example.com'
+);
+
+SELECT * FROM public.account
+ORDER BY account_id ASC;

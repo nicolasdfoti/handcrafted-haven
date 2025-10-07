@@ -26,7 +26,7 @@ export default async function Products() {
           <h1>hi</h1>
         </div>
         <div className={`${styles["marketplace__dynamic-content"]}`}>
-          <ProductListings products={products} />
+          <ProductListings products={products || []} />
           <div className={`${styles["marketplace__sidebar"]}`}>
             <h2>hi</h2>
           </div>
