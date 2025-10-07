@@ -1,7 +1,6 @@
 'use client';
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import styles from "@/app/ui/styles/page.module.css";
 import { useSession, signOut } from 'next-auth/react';
 
@@ -34,12 +33,19 @@ export function NavLinks() {
 
  return (
     <nav className={styles.nav}>
+
       <div className={styles.right}>
         {links.map((x) => (
           <Link href={x.href} key={x.name}>
             <p>{x.name}</p>
           </Link>
         ))}
+
+        {session?.user && (
+          <Link href={`/sellers/profile`}>
+            <p>My Profile</p>
+          </Link>
+        )}
       </div>
 
       <div className={styles.login}>
@@ -52,7 +58,7 @@ export function NavLinks() {
         ) : (
           <>
             <Link href={`/sellers/${session.user.id}`}>
-              <p>Hello, {session.user.name} !</p>
+              <p>Hello, {session.user.name}!</p>
             </Link>
             <button
               onClick={handleLogout}
