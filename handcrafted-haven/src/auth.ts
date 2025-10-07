@@ -15,8 +15,9 @@ type DBUser = {
   account_firstname: string | null;
 };
 
-async function getUser(email: string): Promise<DBUser | undefined> {
+export async function getUser(email: string): Promise<DBUser | undefined> {
   try {
+    process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
     const user = await sql<DBUser>`SELECT * FROM account WHERE account_email=${email}`;
     return user.rows[0];
   } catch (error) {
@@ -43,25 +44,31 @@ export const config = {
         }
 
         const { email, password } = parsed.data;
-        const user = await getUser(email);
+        
+        try {
+          const user = await getUser(email);
 
-        if (!user) {
-          console.log('[AUTH] No user found');
+          if (!user) {
+            console.log('[AUTH] No user found');
+            return null;
+          }
+
+          const passwordsMatch = await bcrypt.compare(password, user.account_password);
+
+          if (!passwordsMatch) {
+            console.log('[AUTH] Password incorrect');
+            return null;
+          }
+
+          return {
+            id: String(user.account_id),
+            name: user.account_firstname ?? null,
+            email: user.account_email,
+          };
+        } catch (error) {
+          console.error('[AUTH] Database error:', error);
           return null;
         }
-
-        const passwordsMatch = await bcrypt.compare(password, user.account_password);
-
-        if (!passwordsMatch) {
-          console.log('[AUTH] Password incorrect');
-          return null;
-        }
-
-        return {
-          id: String(user.account_id),
-          name: user.account_firstname ?? null,
-          email: user.account_email,
-        };
       },
     }),
   ],

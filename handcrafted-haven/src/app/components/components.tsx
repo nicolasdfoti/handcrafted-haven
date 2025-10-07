@@ -1,8 +1,9 @@
-import React from 'react';
-import { Product } from '../lib/definitions';
-import styles from '@styles/components.module.scss';
+import React from "react";
+import { Product } from "../lib/definitions";
+import styles from "@styles/components.module.scss";
 import Link from "next/link";
 import { pool } from "@/app/lib/db";
+import { Account } from "@/app/lib/definitions";
 
 export type ContactType = "email" | "phone" | "website";
 
@@ -79,7 +80,7 @@ export function ProductCard({
   showPrice = true,
 }: ProductCardProps) {
   return (
-    <article className={`${styles.card} ${className || ''}`}>
+    <article className={`${styles.card} ${className || ""}`}>
       <Link href={`${basePath}/${product.product_id}/view`}>
         <div className={styles.card_header}>
           <h3 className={styles.card_title}>{product.product_name}</h3>
@@ -99,10 +100,57 @@ export function ProductCard({
   );
 }
 
+export interface SellerCardProps {
+  seller: Account;
+  basePath?: string;
+  className?: string;
+}
+
+export function SellerCard({
+  seller,
+  basePath = "/sellers",
+  className,
+}: SellerCardProps) {
+  return (
+    <Link
+      href={`${basePath}/${seller.account_id}`}
+      className={`${styles.seller_container} ${className || ""}`}
+    >
+      <div>
+        <h2 className={styles.seller_title}>{seller.account_company_name}</h2>
+        <h3>
+          by {seller.account_firstname} {seller.account_lastname}
+        </h3>
+        <p className={styles.seller_website}>{seller.account_website}</p>
+      </div>
+    </Link>
+  );
+}
+
+export function ProductListing({
+  product,
+  basePath = "/explore",
+}: ProductCardProps) {
+  return (
+    <div className={`${styles["marketplace__product-card"]}`}>
+      <Link href={`${basePath}/${product.product_id}/view`}>
+        <div className={styles.card_header}>
+          {" "}
+          <h3 className={styles.card_title}>{product.product_name}</h3>{" "}
+        </div>
+
+        <div className={styles.card_body}>
+          <div className={styles.product_price}> ${product.product_price} </div>
+        </div>
+      </Link>
+    </div>
+  );
+}
+
 export async function fetchFromDB<T>(
   table: string,
   filters: Record<string, unknown> = {},
-  options?: { single?: boolean }
+  options?: { single?: boolean; limit?: number }
 ): Promise<T | T[] | null> {
   try {
     const keys = Object.keys(filters);
@@ -116,18 +164,20 @@ export async function fetchFromDB<T>(
       whereClause = "WHERE " + conditions.join(" AND ");
     }
 
-    const query = `SELECT * FROM ${table} ${whereClause}`;
+    let limitClause = "";
+    if (options?.limit) {
+      limitClause = ` LIMIT ${options.limit}`;
+    }
+
+    const query = `SELECT * FROM ${table} ${whereClause}${limitClause}`;
     console.log(`Query: ${query}`, values);
-    
+
     const result = await pool.query(query, values);
     console.log(`Found ${result.rows.length} rows`);
 
     if (result.rows.length === 0) return null;
 
-    return options?.single
-      ? (result.rows[0] as T)
-      : (result.rows as T[]);
-
+    return options?.single ? (result.rows[0] as T) : (result.rows as T[]);
   } catch (err) {
     console.error("DB fetch error:", err);
     throw new Error("Database query failed");

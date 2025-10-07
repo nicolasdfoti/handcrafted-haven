@@ -10,7 +10,6 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith('/sellers');
 
-      // Solo proteger el dashboard (requiere login)
       if (isOnDashboard) {
         return isLoggedIn;
       }

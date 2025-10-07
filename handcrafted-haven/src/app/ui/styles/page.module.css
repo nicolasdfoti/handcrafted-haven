@@ -223,7 +223,7 @@
   flex-direction: column;
   align-self: center;
   width: clamp(968px, 80vw, 1920px);
-  height: 500px;
+  height: 100%;
   margin-top: 2.618em;
   background-color: #f1ece5;
 }
