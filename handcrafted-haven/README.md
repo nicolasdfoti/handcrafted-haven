@@ -82,3 +82,4 @@ Added fetchFromDB function in components, to fetch from DB
 - Nav component was changed to NavLinks
 - Changed logo and styles navlink, added login button
 - New section at the end separating the hero and the call to action to invite artisans to join
+- Implemented and fixing Auth, when seller authenticate, redirect to sellers/id page

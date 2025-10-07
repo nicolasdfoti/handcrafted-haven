@@ -16,3 +16,10 @@ export type Account = {
   account_phone: string;
   account_website: string;
 }
+
+export type User = {
+  account_id: string;
+  account_firstname: string;
+  account_email: string;
+  account_password: string;
+};

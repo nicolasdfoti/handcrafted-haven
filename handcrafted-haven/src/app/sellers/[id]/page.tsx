@@ -8,11 +8,11 @@ import styles from '@styles/sellers.module.scss';
 import Image from 'next/image';
 
 interface DetailPageProps {
-  params: Promise<{ id: string }>;
+  params: { id: string }; 
 }
 
 export default async function DetailPage({ params }: DetailPageProps) {
-  const { id } = await params;
+  const { id } = params;
   
   try {
     const accountId = parseInt(id);
@@ -80,7 +80,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
           <div className={styles.container}>
             <h2 className={styles.section_title}>Featured Products</h2>
             
-            {products.length === 0 ? (
+            {!Array.isArray(products) || products.length === 0 ? (
               <div className={styles.empty_state}>
                 <p>No products available at the moment</p>
                 <p className={styles.empty_subtitle}>Check back soon for new creations</p>
