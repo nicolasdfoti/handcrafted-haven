@@ -1,8 +1,8 @@
 "use client";
 
-import { Footer } from '@/app/components/footer';
-import { Header } from '@/app/components/header.jsx';
-import { FormControl } from '@/app/components/form-control';
+import { Footer } from "@/app/components/footer";
+import { Header } from "@/app/components/header.jsx";
+import { FormControl } from "@/app/components/form-control";
 import { useActionState } from "react";
 import { registerSeller } from "../../lib/form-actions";
 import styles from "@styles/sellerForm.module.scss";
@@ -21,67 +21,81 @@ function SubmitBtn() {
 }
 
 export default function Sellers() {
-  const [state, formAction] = useActionState<RegisterState, FormData>(registerSeller, initialRegisterState);
+  const [state, formAction] = useActionState<RegisterState, FormData>(
+    registerSeller,
+    initialRegisterState
+  );
 
   return (
     <div>
       <Header />
 
       <main className={styles.container}>
-      {/* <picture className={styles.banner}>
+        {/* <picture className={styles.banner}>
         <source srcSet="/images/banner-form-desktop.webp" media="(min-width: 1024px)" />
         <source srcSet="/images/banner-form-desktop.webp" media="(min-width: 768px)" />
         <img src="/images/banner-form.webp" alt="banner" className={styles.bannerImage} />
       </picture> */}
 
-      <h1 className={styles.title}>Apply as a Seller</h1>
-      <p className={styles.subtitle}>
-        Create your account and tell us about your craft. We’ll review and get back to you.
-      </p>
-
-      <form action={formAction} id="sellerSignupForm" className={styles.form}>
-      {state?.message && (
-        <p role="alert" className={styles.errorMsg}>
-          {state.message}
+        <h1 className={styles.title}>Apply as a Seller</h1>
+        <p className={styles.subtitle}>
+          Create your account and tell us about your craft. We'll review and get
+          back to you.
         </p>
-      )}
-        {/* Account */}
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>Account Information</legend>
 
-          <div className={styles.grid2}>
-            <FormControl label="First Name *" id="account_firstname" name="account_firstname" type="text" required autoComplete="first name" />
-            <FormControl label="Last Name *" id="account_lastname" name="account_lastname" type="text" required autoComplete="last name" />
-            <FormControl label="Email *" id="account_email" name="account_email" type="email" required autoComplete="email" />
-            <FormControl
-              label="Password *"
-              id="account_password"
-              name="account_password"
-              type="password"
-              required
-              autoComplete="new-password"
-              placeholder="At least 8 characters"
-              minLength={8}
-            /> 
+        <form action={formAction} id="sellerSignupForm" className={styles.form}>
+          {state?.message && (
+            <p role="alert" className={styles.errorMsg}>
+              {state.message}
+            </p>
+          )}
+          {/* Account */}
+          <fieldset className={styles.fieldset}>
+            <legend className={styles.legend}>Account Information</legend>
+
+            <div className={styles.grid2}>
+              <FormControl
+                label="First Name *"
+                id="account_firstname"
+                name="account_firstname"
+                type="text"
+                required
+                autoComplete="first name"
+              />
+              <FormControl
+                label="Last Name *"
+                id="account_lastname"
+                name="account_lastname"
+                type="text"
+                required
+                autoComplete="last name"
+              />
+              <FormControl
+                label="Email *"
+                id="account_email"
+                name="account_email"
+                type="email"
+                required
+                autoComplete="email"
+              />
+              <FormControl
+                label="Password *"
+                id="account_password"
+                name="account_password"
+                type="password"
+                required
+                autoComplete="new-password"
+                placeholder="At least 8 characters"
+                minLength={8}
+              />
+            </div>
+          </fieldset>
+          <div className={styles.formActions}>
+            <SubmitBtn />
           </div>
-        </fieldset>
-
-        {/* Business profile */}
-        <fieldset className={styles.fieldset}>
-          <legend className={styles.legend}>Company Information</legend>
-          <div className={styles.grid3}>
-            <FormControl label="Brand / Shop Name *" id="account_company_name" name="account_company_name" required />
-            <FormControl label="Website or Social" id="account_website" name="account_website" type="url" placeholder="https://…" />
-            <FormControl label="Contact Phone *" id="account_phone" name="account_phone" type="tel" required />
-          </div>
-        </fieldset>
-
-        <div className={styles.formActions}>
-          <SubmitBtn />
-        </div>
-      </form>
+        </form>
       </main>
-        
+
       <Footer />
     </div>
   );
