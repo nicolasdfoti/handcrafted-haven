@@ -27,40 +27,48 @@ $artisan-brown: linear-gradient(
 );
 
 //GREEN
-$artisan-green-flat: rgb(34% 50% 34%);  
-$artisan-green-hover: rgb(25% 42% 25%); 
-
+$artisan-green-flat: rgb(34% 50% 34%);
+$artisan-green-hover: rgb(25% 42% 25%);
 
 $artisan-green: linear-gradient(
   $angle,
-  rgb(18% 30% 16%),   // verde bosque profundo
-  rgb(25% 42% 25%),   // verde oliva
-  rgb(34% 50% 34%),   // verde musgo
-  rgb(42% 60% 42%)    // verde tierra suave
+  rgb(18% 30% 16%),
+  // verde bosque profundo
+  rgb(25% 42% 25%),
+  // verde oliva
+  rgb(34% 50% 34%),
+  // verde musgo
+  rgb(42% 60% 42%) // verde tierra suave
 );
 
 //RUST
-$artisan-rust-flat: rgb(62% 32% 22%);   
-$artisan-rust-hover: rgb(55% 25% 15%);  
+$artisan-rust-flat: rgb(62% 32% 22%);
+$artisan-rust-hover: rgb(55% 25% 15%);
 
 $artisan-rust: linear-gradient(
   $angle,
-  rgb(45% 18% 10%),   // terracota oscuro
-  rgb(55% 25% 15%),   // cobre tostado
-  rgb(62% 32% 22%),   // ladrillo
-  rgb(70% 40% 28%)    // óxido suave
+  rgb(45% 18% 10%),
+  // terracota oscuro
+  rgb(55% 25% 15%),
+  // cobre tostado
+  rgb(62% 32% 22%),
+  // ladrillo
+  rgb(70% 40% 28%) // óxido suave
 );
 
 //SAND
-$artisan-sand-flat: rgb(72% 64% 50%);    
-$artisan-sand-hover: rgb(58% 47% 32%);   
+$artisan-sand-flat: rgb(72% 64% 50%);
+$artisan-sand-hover: rgb(58% 47% 32%);
 
 $artisan-sand: linear-gradient(
   $angle,
-  rgb(80% 72% 58%),   // beige claro
-  rgb(72% 64% 50%),   // arena tostada
-  rgb(65% 55% 40%),   // caramelo suave
-  rgb(58% 47% 32%)    // marrón arena
+  rgb(80% 72% 58%),
+  // beige claro
+  rgb(72% 64% 50%),
+  // arena tostada
+  rgb(65% 55% 40%),
+  // caramelo suave
+  rgb(58% 47% 32%) // marrón arena
 );
 
 //utility
@@ -72,5 +80,10 @@ $m: 1em;
 $l: 1.618em;
 $xl: 2.618em;
 $xxl: 4.236em;
+
+//Marketplace
+
+$marketplace__card: 250px;
+$marketplace__gap: 16px;
 
 @use "sass:map";

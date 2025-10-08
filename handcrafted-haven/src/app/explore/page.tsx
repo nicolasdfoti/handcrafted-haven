@@ -13,7 +13,7 @@ export default async function Products() {
     { limit: 50 }
   )) as Product[];
 
-  // Call the function immediately to run on load
+  // Calling the function immediately to run on load
   (async function printFunction() {
     console.log(products);
   })();
@@ -23,13 +23,18 @@ export default async function Products() {
       <Header />
       <main className={`${styles["marketplace__container"]}`}>
         <div className={`${styles["marketplace__header"]}`}>
-          <h1>hi</h1>
+          <h1>Marketplace</h1>
         </div>
+
         <div className={`${styles["marketplace__dynamic-content"]}`}>
-          <ProductListings products={products} />
-          <div className={`${styles["marketplace__sidebar"]}`}>
-            <h2>hi</h2>
+          <div className={`${styles["marketplace__search"]}`}>
+            <h2>Search</h2>
           </div>
+          <div className={`${styles["marketplace__sidebar"]}`}>
+            <h2>Filter</h2>
+          </div>
+          <ProductListings products={products || []} />
+
           {/*
           <div className={`${styles["marketplace__mobile-sidebar"]}`}>
               <h2>hi</h2>

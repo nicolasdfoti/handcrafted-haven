@@ -127,20 +127,26 @@
   padding: 1rem 2rem;
   background-color: #f1ece5;
   border-top: 2px solid #9ba78d;
+  margin-top: auto;
 }
 
 .marketplace__page {
   background-color: #f4f3f0;
+  height: 100%;
 }
 
 .marketplace__container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-self: center;
   width: clamp(968px, 80vw, 1920px);
-  height: 100%;
-  margin-top: 2.618em;
-  background-color: #f1ece5;
+  margin: 4.236em 0;
+  padding: 1.618em;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.06)) #f1ece5;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 6px 14px rgba(0, 0, 0, 0.08), 0 20px 40px -20px rgba(0, 0, 0, 0.25);
 }
 @media (max-width: 1080px) {
   .marketplace__container {
@@ -154,10 +160,15 @@
 }
 
 .marketplace__header {
+  display: flex;
   margin-bottom: auto;
-  border-bottom: #0b0b0b 1px solid;
-  height: 100px;
   width: 100%;
+  padding: 0.618em 1em;
+}
+.marketplace__header h1 {
+  font-size: 4.236em;
+  align-self: center;
+  text-align: center;
 }
 @media (max-width: 576px) {
   .marketplace__header {
@@ -166,18 +177,44 @@
 }
 
 .marketplace__dynamic-content {
+  position: relative;
   display: flex;
   flex-direction: row;
-  width: 100%;
   height: 100%;
-  background-color: #f4f3f0;
+  background-color: #f1ece5;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 6px 14px rgba(0, 0, 0, 0.04), 0 10px 20px -10px rgba(0, 0, 0, 0.12);
 }
 
 .marketplace__products {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, 250px);
+  max-width: 1364px;
+  min-width: 0;
+  margin-left: auto;
+  justify-content: center;
   background-color: #f4f3f0;
+  padding: 4.236em 1em;
+}
+
+.marketplace__sidebar {
   width: 100px;
-  height: 100px;
-  flex: 1;
+  background-color: red;
+  height: 100%;
+}
+.marketplace__sidebar h2 {
+  margin-top: 50px;
+}
+
+.marketplace__search {
+  z-index: 444;
+  position: absolute;
+  width: 100%;
+  padding: 0.618em;
+  background-color: #f1ece5;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: rgba(0, 0, 0, 0.24) 2px solid;
 }
 
 .marketplace__mobile-sidebar {

@@ -1,21 +1,27 @@
 export type Product = {
-  product_id: string;
-  product_name: string;
+  product_id: number;
+  product_title: string;
+  product_date: string;
   product_description: string;
+  product_image: string;
+  product_thumbnail: string;
   product_price: number;
+  category_id: number;
   account_id: number;
-  product_category: string;
-}
+};
 
 export type Account = {
-  account_id: string;
-  account_company_name: string;
-  account_firstname: string;
-  account_lastname: string;
+  account_id: number;
   account_email: string;
-  account_phone: string;
-  account_website: string;
-}
+  account_username: string;
+  account_password: string;
+  account_type: string;
+  account_company_name?: string;
+  account_firstname?: string;
+  account_lastname?: string;
+  account_phone?: string;
+  account_website?: string;
+};
 
 export type User = {
   account_id: string;

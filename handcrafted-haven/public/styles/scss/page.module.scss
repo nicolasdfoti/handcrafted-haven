@@ -1,4 +1,5 @@
 @use "variables" as *;
+@use "sass:color" as *;
 
 .page {
   display: flex;
@@ -110,7 +111,7 @@
 .btnSecondarySellers {
   background-color: #f1ece5;
   width: 200px;
-  height: 50px;
+  height: 50px; //soft top-to-bottom
   font-size: 1.2rem;
 }
 
@@ -130,22 +131,37 @@
   padding: 1rem 2rem;
   background-color: #f1ece5;
   border-top: 2px solid #9ba78d;
+  margin-top: auto;
 }
 
 //Explore
 
 .marketplace__page {
   background-color: $background;
+  height: 100%;
 }
 
 .marketplace__container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-self: center;
   width: clamp(968px, 80vw, 1920px);
-  height: 100%;
-  margin-top: $xl;
-  background-color: $foreground;
+  margin: $xxl 0;
+  padding: $l;
+  border-radius: 14px;
+
+  //soft top-to-bottom
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.06)
+    )
+    $foreground;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 6px 14px rgba(0, 0, 0, 0.08),
+    0 20px 40px -20px rgba(0, 0, 0, 0.25);
 
   @media (max-width: $breakpoint-l) {
     width: clamp($breakpoint-s, 90vw, 1920px);
@@ -158,11 +174,17 @@
 }
 
 .marketplace__header {
+  display: flex;
   margin-bottom: auto;
-  border-bottom: #0b0b0b 1px solid;
-  height: 100px;
-  width: 100%;
 
+  width: 100%;
+  padding: $s $m;
+
+  h1 {
+    font-size: $xxl;
+    align-self: center;
+    text-align: center;
+  }
   //MOBILE
   @media (max-width: $breakpoint-s) {
     display: none;
@@ -170,18 +192,46 @@
 }
 
 .marketplace__dynamic-content {
+  position: relative;
   display: flex;
   flex-direction: row;
-  width: 100%;
   height: 100%;
-  background-color: $background;
+  background-color: $foreground;
+  border: 1px solid rgba(0, 0, 0, 0.171);
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 6px 14px rgba(0, 0, 0, 0.04),
+    0 10px 20px -10px rgba(0, 0, 0, 0.12);
 }
 
 .marketplace__products {
+  display: grid;
+  gap: $marketplace__gap;
+  grid-template-columns: repeat(auto-fit, $marketplace__card);
+  max-width: calc(5 * $marketplace__card + 4 * $marketplace__gap + 50px);
+  min-width: 0;
+  margin-left: auto;
+  justify-content: center;
   background-color: $background;
+  padding: $xxl $m;
+}
+.marketplace__sidebar {
   width: 100px;
-  height: 100px;
-  flex: 1;
+  background-color: red;
+  height: 100%;
+
+  h2 {
+    margin-top: 50px;
+  }
+}
+.marketplace__search {
+  z-index: 444;
+  position: absolute;
+  width: 100%;
+  padding: $s;
+  background-color: $foreground;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  border-bottom: rgba(0, 0, 0, 0.24) 2px solid;
 }
 
 .marketplace__mobile-sidebar {

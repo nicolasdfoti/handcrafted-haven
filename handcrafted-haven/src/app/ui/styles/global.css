@@ -20,6 +20,11 @@ SCSS stands for Scoped CSS, it's basically a quality of life update to CSS. For 
 html,
 body {
   overflow-x: hidden;
+  height: 100%;
+}
+
+h1 {
+  font-family: "Epunda Slab" serif;
 }
 
 h1 {
