@@ -1,0 +1,202 @@
+@charset "UTF-8";
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 64px;
+  padding: 0.75rem 1rem;
+  background-color: #f1ece5;
+  border-bottom: 2px solid #9ba78d;
+  box-sizing: border-box;
+}
+
+/* --- Burger --- */
+.burger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid #9ba78d;
+  background: #fff;
+  cursor: pointer;
+}
+
+.burgerBars,
+.burgerBars::before,
+.burgerBars::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.burgerBars::before {
+  transform: translateY(-6px);
+}
+
+.burgerBars::after {
+  transform: translateY(6px);
+}
+
+.burger[aria-expanded=true] .burgerBars {
+  transform: rotate(45deg);
+}
+
+.burger[aria-expanded=true] .burgerBars::before {
+  transform: rotate(90deg);
+}
+
+.burger[aria-expanded=true] .burgerBars::after {
+  opacity: 0;
+}
+
+/* --- Drawer mobile --- */
+.drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 64px;
+  transform: translateY(-120%);
+  transition: transform 0.25s ease;
+  background: #f1ece5;
+  border-top: 1px solid #9ba78d;
+  z-index: 40;
+  margin: 0 1rem;
+  border-radius: 10px;
+}
+
+.drawerOpen {
+  transform: translateY(50);
+}
+
+.drawerList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 1rem;
+}
+
+.drawerItem {
+  list-style: none;
+}
+
+.drawerLink {
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.drawerLink:hover {
+  color: #9a8054;
+  background: #ebe6de;
+}
+
+.drawerLogin {
+  display: inline-flex;
+  background: #9ba78d;
+  color: #0b0b0b;
+  padding: 0.6rem 1rem;
+  border-radius: 14px;
+  font-weight: 600;
+  border: none;
+  text-decoration: none;
+}
+
+.drawerLogout {
+  background: none;
+  border: none;
+  color: #c00;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Overlay --- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 30;
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Desktop layout  --- */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 64px;
+  position: relative;
+}
+
+.right {
+  display: none;
+}
+
+.login {
+  display: none;
+}
+
+.nav a {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Desktop ≥1024px  */
+@media (min-width: 1024px) {
+  .burger {
+    display: none;
+  }
+  .drawer, .overlay {
+    display: none;
+  }
+  .nav {
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+  .nav a:hover {
+    color: #9a8054;
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-left: auto;
+  }
+  .login {
+    display: flex;
+    background-color: #9ba78d;
+    color: #0b0b0b;
+    padding: 0.5rem 1rem;
+    border-radius: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .login p:hover {
+    color: #fff;
+  }
+}
+
+/*# sourceMappingURL=header.module.css.map */

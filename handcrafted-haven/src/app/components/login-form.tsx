@@ -80,7 +80,7 @@ export default function LoginForm({
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.formContainer}>
-        <h1>Please log in to continue.</h1>
+        <h1>Please log in to continue</h1>
 
         <div className={styles.inputWrapper}>
           <label htmlFor="email">Email</label>

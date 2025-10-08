@@ -1,43 +1,55 @@
 .information-section {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 20px;
-  justify-content: space-evenly;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(12px, 2.5vw, 24px);
+  width: 90%;
   padding: 10px 0;
-  margin: 50px 0;
+  margin: 20px auto;
   background-color: #f1ece5;
+  align-items: stretch;
 }
 
 .site-exploration-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  height: clamp(350px, 25vh, 700px);
-  width: clamp(250px, 50vw, 300px);
-  border-radius: 10%;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  margin-inline: auto;
+  min-height: clamp(260px, 38vh, 480px);
+  padding: clamp(12px, 2.5vw, 20px);
+  border-radius: 16px;
   row-gap: 10px;
   color: black;
 }
 .site-exploration-card .svg-wrapper {
-  width: 40%;
+  width: min(120px, 45%);
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
   margin-top: 1.618em;
 }
+.site-exploration-card .svg-wrapper img, .site-exploration-card .svg-wrapper svg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .site-exploration-card a {
-  border-radius: 5px;
+  display: inline-block;
+  width: min(100%, 280px);
+  padding: 0.618em 2.618em;
   color: white;
   text-decoration: none;
   border-radius: 10px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0.618em 2.618em;
 }
 .site-exploration-card h2 {
-  text-align: center;
-  padding: 0.618em;
   width: 90%;
+  padding: 0.618em;
+  margin: 0;
   border-top: rgba(248, 248, 248, 0.756) 1px solid;
 }
 
@@ -81,6 +93,15 @@
   background-color: rgb(131.4666666667, 106.5333333333, 72.5333333333);
 }
 
-/*make the cards float in and have them randomized order, maybe multiple categories can appear if time */
+@media (max-width: 480px) {
+  .site-exploration-card {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  .site-exploration-card a {
+    width: 100%;
+    padding: 0.618em 1.618em;
+  }
+}
 
 /*# sourceMappingURL=info.module.css.map */

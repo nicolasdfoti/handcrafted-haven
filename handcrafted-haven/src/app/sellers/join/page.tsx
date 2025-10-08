@@ -5,7 +5,7 @@ import { Header } from '@/app/components/header.jsx';
 import { FormControl } from '@/app/components/form-control';
 import { useActionState } from "react";
 import { registerSeller } from "../../lib/form-actions";
-import styles from "../styles/sellers.module.scss";
+import styles from "@styles/sellerForm.module.scss";
 import { useFormStatus } from "react-dom";
 
 type RegisterState = { ok: boolean; message?: string | null };
