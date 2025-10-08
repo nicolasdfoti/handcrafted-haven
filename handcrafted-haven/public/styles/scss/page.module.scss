@@ -195,7 +195,7 @@
 .btnSecondarySellers {
   background-color: #f1ece5;
   width: 200px;
-  height: 50px;
+  height: 50px; //soft top-to-bottom
   font-size: 1.2rem;
 }
 
@@ -213,6 +213,7 @@
   padding: 1rem 2rem;
   background-color: #f1ece5;
   border-top: 2px solid #9ba78d;
+  margin-top: auto;
 }
 
 //Explore
