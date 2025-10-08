@@ -206,8 +206,10 @@
 
 /* Footer */
 .footer {
+  height: 100px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
   padding: 1rem 2rem;
   background-color: #f1ece5;

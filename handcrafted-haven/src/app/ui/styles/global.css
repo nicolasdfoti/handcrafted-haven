@@ -22,6 +22,10 @@ body {
   overflow-x: hidden;
 }
 
+h1 {
+  font-family: "Epunda Slab" serif;
+}
+
 h2,
 h3,
 h4,
