@@ -89,3 +89,4 @@ Added fetchFromDB function in components, to fetch from DB
 - When user login the navbar show "Hello, user" and adding logout button, when the user is logout the navbar show the login button only
 - Added sellers/join for sellers to join
 - Fixed responsive header, hamb button with menu drawer
+- fix card information responsive mode

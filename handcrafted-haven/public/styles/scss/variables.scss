@@ -63,29 +63,6 @@ $artisan-sand: linear-gradient(
   rgb(58% 47% 32%)    // marrón arena
 );
 
-// //BLUE
-// $tech-blue-flat: rgb(47.8% 77.3% 80.4%);
-// $tech-blue-hover: rgba(122, 197, 205, 0.5);
-
-// $tech-blue: linear-gradient(
-//   $angle,
-//   hsl(180, 30%, 55%),
-//   rgb(47.8% 77.3% 80.4%),
-//   rgb(69% 88.6% 100%),
-//   rgb(107, 230, 255)
-// );
-
-// //RED
-// $raspberry-red-flat: rgb(80% 34.1% 39.6%);
-// $raspberry-red-hover: hsla(353, 53%, 57%, 0.5);
-
-// $raspberry-red: linear-gradient(
-//   $angle,
-//   rgb(58% 23.5% 27.8%),
-//   rgb(80% 34.1% 39.6%),
-//   rgb(87.8% 51% 48.2%)
-// );
-
 //utility
 $transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 $xxs: 0.236em;

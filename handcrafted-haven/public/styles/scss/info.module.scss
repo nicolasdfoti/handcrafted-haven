@@ -2,117 +2,100 @@
 @use "sass:color" as *;
 
 .information-section {
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 20px;
-  justify-content: space-evenly;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(12px, 2.5vw, 24px);
+  width: 90%;
   padding: 10px 0;
-  margin: 50px 0;
+  margin: 20px auto;
   background-color: $foreground;
+  align-items: stretch;
 }
+
 .site-exploration-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  height: clamp(350px, 25vh, 700px);
-  width: clamp(250px, 50vw, 300px);
-  border-radius: 10%;
+  justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  text-align: center;
+  width: 100%;
+  max-width: 360px;       
+  margin-inline: auto;
+  min-height: clamp(260px, 38vh, 480px);
+  padding: clamp(12px, 2.5vw, 20px);
+  border-radius: 16px; 
   row-gap: 10px;
-  
-
   color: black;
 
   .svg-wrapper {
-    width: 40%;
+    width: min(120px, 45%);
+    aspect-ratio: 1 / 1;  
+    display: grid;
+    place-items: center;
     margin-top: $l;
+
+    img, svg {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
   }
 
   a {
-    border-radius: 5px;
+    display: inline-block;
+    width: min(100%, 280px);       
+    padding: $s $xl;
     color: white;
     text-decoration: none;
     border-radius: 10px;
     transition: $transition;
-    padding: $s $xl;
   }
 
   h2 {
-    text-align: center;
-    padding: $s;
     width: 90%;
+    padding: $s;
+    margin: 0;                      
     border-top: rgba(248, 248, 248, 0.756) 1px solid;
   }
 }
 
 .artisan-brown {
   background: $artisan-brown;
-
   a {
     border: 2px solid adjust($artisan-brown-flat, $lightness: -20%);
-    &:hover {
-      background-color: adjust($artisan-brown-hover, $lightness: -5%);
-    }
+    &:hover { background-color: adjust($artisan-brown-hover, $lightness: -5%); }
+  }
+}
+.artisan-green {
+  background: $artisan-green;
+  a {
+    border: 2px solid adjust($artisan-green-flat, $lightness: -20%);
+    &:hover { background-color: adjust($artisan-green-hover, $lightness: -5%); }
+  }
+}
+.artisan-rust {
+  background: $artisan-rust;
+  a {
+    border: 2px solid adjust($artisan-rust-flat, $lightness: -20%);
+    &:hover { background-color: adjust($artisan-rust-hover, $lightness: -5%); }
+  }
+}
+.artisan-sand {
+  background: $artisan-sand;
+  a {
+    border: 2px solid adjust($artisan-sand-flat, $lightness: -20%);
+    &:hover { background-color: adjust($artisan-sand-hover, $lightness: -5%); }
   }
 }
 
-.artisan-green {
-  background: $artisan-green;
-
-  a {
-    border: 2px solid adjust($artisan-green-flat, $lightness: -20%);
-    &:hover {
-      background-color: adjust($artisan-green-hover, $lightness: -5%);
-    }
-  } 
+@media (max-width: 480px) {
+  .site-exploration-card {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  .site-exploration-card a {
+    width: 100%;
+    padding: $s $l;
+  }
 }
-
-.artisan-rust {
-  background: $artisan-rust;
-
-  a {
-    border: 2px solid adjust($artisan-rust-flat, $lightness: -20%);
-    &:hover {
-      background-color: adjust($artisan-rust-hover, $lightness: -5%);
-    }
-  } 
-}
-
-.artisan-sand {
-  background: $artisan-sand;
-
-  a {
-    border: 2px solid adjust($artisan-sand-flat, $lightness: -20%);
-    &:hover {
-      background-color: adjust($artisan-sand-hover, $lightness: -5%);
-    }
-  } 
-}
-
-// .tech-blue {
-//   background: $tech-blue;
-
-//   a {
-//     border: 2px solid adjust($tech-blue-flat, $lightness: -20%);
-//     &:hover {
-//       background-color: adjust($tech-blue-hover, $lightness: -7%);
-//     }
-//   }
-// }
-
-// .raspberry-red {
-//   background: $raspberry-red;
-
-//   a {
-//     border: 2px solid adjust($raspberry-red-flat, $lightness: -20%);
-//     &:hover {
-//       background-color: adjust($raspberry-red-hover, $lightness: -5%);
-//     }
-//   }
-// }
-
-
-/*make the cards float in and have them randomized order, maybe multiple categories can appear if time */
