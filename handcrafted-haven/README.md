@@ -90,3 +90,4 @@ Added fetchFromDB function in components, to fetch from DB
 - Added sellers/join for sellers to join
 - Fixed responsive header, hamb button with menu drawer
 - fix card information responsive mode
+- fix seller form responsive mode and add styles

@@ -1,0 +1,158 @@
+/* --- Layout --- */
+.container {
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: clamp(20px, 3vw, 40px);
+  margin: 20px auto;
+}
+
+.title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: clamp(1.5rem, 1.1rem + 2vw, 2.25rem);
+  line-height: 1.2;
+  color: #5a3a1f; 
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: clamp(0.95rem, 0.9rem + 0.4vw, 1.1rem);
+  color: #5b5b5b;
+  margin: 0 0 clamp(18px, 2.5vw, 26px) 0;
+}
+
+.form {
+  background: #f8f6f2;
+  border: 1px solid #e6e1d8;
+  border-radius: 16px;
+  padding: clamp(16px, 3.5vw, 28px);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.06),
+    inset 0 0 0 1px rgba(255,255,255,.5);
+}
+
+.errorMsg {
+  background: #ffecec;
+  border: 1px solid #f3b3b3;
+  color: #b40e0e;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: clamp(12px, 2vw, 18px);
+  font-weight: 600;
+}
+
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0 0 clamp(18px, 3vw, 28px) 0;
+  background: #fbfaf8;
+  border-radius: 12px;
+  outline: 1px solid #ede7de;
+}
+
+.legend {
+  width: fit-content;
+  padding: 8px 12px;
+  margin-left: 10px;
+  transform: translateY(-12px);
+  border-radius: 999px;
+  background: #ede7de;
+  color: #5a3a1f;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 1px solid #e0d8cb;
+}
+
+.grid2, .grid3 {
+  display: grid;
+  gap: clamp(12px, 2.5vw, 18px);
+  padding: clamp(12px, 2.5vw, 22px);
+}
+
+.grid2 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.grid3 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.form :where(label) {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  margin-bottom: 6px;
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+.form :where(input, select, textarea) {
+  width: 100%;
+  appearance: none;
+  border: 1px solid #d9d4cb;
+  background: #fff;
+  color: #222;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1rem);
+  transition: border-color .15s ease, box-shadow .15s ease, transform .05s ease;
+  outline: none;
+  min-height: 44px;
+}
+
+.form :where(input, select, textarea)::placeholder { color: #9a9a9a; }
+
+.form :where(input, select, textarea):focus {
+  border-color: #9ba78d;
+  box-shadow: 0 0 0 4px rgba(155, 167, 141, 0.25);
+}
+
+.form :where(input, select, textarea):active {
+  transform: translateY(0.5px);
+}
+
+.form :where(input, select, textarea):user-invalid {
+  border-color: #e26a6a;
+  box-shadow: 0 0 0 3px rgba(226, 106, 106, .18);
+}
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 6px;
+}
+
+.formActions :where(button, input[type="submit"]) {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  background: #5a3a1f;
+  color: #fff;
+  cursor: pointer;
+  transition: transform .05s ease, filter .15s ease, box-shadow .15s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+}
+.formActions :where(button, input[type="submit"]):hover { filter: brightness(1.05); }
+.formActions :where(button, input[type="submit"]):active { transform: translateY(1px); }
+
+@media (max-width: 480px) {
+  .form {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .legend {
+    font-size: 0.9rem;
+    transform: translateY(-10px);
+  }
+  .formActions {
+    justify-content: stretch;
+  }
+  .formActions :where(button, input[type="submit"]) {
+    width: 100%;
+  }
+}
