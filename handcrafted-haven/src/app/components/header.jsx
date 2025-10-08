@@ -1,5 +1,5 @@
-import {NavLinks} from "./NavLinks";
-import styles from "@/app/ui/styles/page.module.css";
+import { NavLinks } from "./NavLinks";
+import styles from "@/app/ui/styles/header.module.css";
 import Logo from "./Logo";
 import { SessionProvider } from "next-auth/react";
 

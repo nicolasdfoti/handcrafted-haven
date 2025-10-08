@@ -88,3 +88,4 @@ Added fetchFromDB function in components, to fetch from DB
 - If the user is not logged in and tries to enter seller/id, it redirects them to login, and if they are logged in, for example their id is 8, and they try to enter another id from the URL, it takes them to an unauthorized page.
 - When user login the navbar show "Hello, user" and adding logout button, when the user is logout the navbar show the login button only
 - Added sellers/join for sellers to join
+- Fixed responsive header, hamb button with menu drawer
