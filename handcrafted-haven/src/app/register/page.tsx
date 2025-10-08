@@ -2,7 +2,7 @@
 
 import { Footer } from "@/app/components/footer";
 import { Header } from "@/app/components/header.jsx";
-import SellerForm from "@/app/components/seller-form";
+import UserForm from "@/app/components/user-form";
 import styles from "@styles/sellerForm.module.scss";
 
 export default function Sellers() {
@@ -16,13 +16,12 @@ export default function Sellers() {
         <img src="/images/banner-form.webp" alt="banner" className={styles.bannerImage} />
       </picture> */}
 
-        <h1 className={styles.title}>Apply as a Seller</h1>
+        <h1 className={styles.title}>Register an Account</h1>
         <p className={styles.subtitle}>
-          Create your account and tell us about your craft. We'll review and get
-          back to you.
+          Create your account to participate in our community!
         </p>
 
-        <SellerForm />
+        <UserForm />
       </main>
 
       <Footer />

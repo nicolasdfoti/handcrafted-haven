@@ -2,7 +2,7 @@ import { FormControl } from "./form-control";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import styles from "@styles/sellerForm.module.scss";
-import { registerSeller } from "../lib/form-actions";
+import { registerUser } from "../lib/form-actions";
 
 type RegisterState = { ok: boolean; message?: string | null };
 const initialRegisterState: RegisterState = { ok: false, message: null };
@@ -11,19 +11,19 @@ function SubmitBtn() {
   const { pending } = useFormStatus();
   return (
     <button type="submit" className={styles.submitBtn} disabled={pending}>
-      {pending ? "Creating..." : "Create account & Apply"}
+      {pending ? "Creating..." : "Create Account"}
     </button>
   );
 }
 
-export default function SellerForm() {
+export default function UserForm() {
   const [state, formAction] = useActionState<RegisterState, FormData>(
-    registerSeller,
+    registerUser,
     initialRegisterState
   );
 
   return (
-    <form action={formAction} id="sellerSignupForm" className={styles.form}>
+    <form action={formAction} id="userSignupForm" className={styles.form}>
       {state?.message && (
         <p role="alert" className={styles.errorMsg}>
           {state.message}
@@ -40,6 +40,7 @@ export default function SellerForm() {
             type="text"
             required
             autoComplete="first name"
+            defaultValue="testFirstName"
           />
           <FormControl
             label="Last Name *"
@@ -48,6 +49,7 @@ export default function SellerForm() {
             type="text"
             required
             autoComplete="last name"
+            defaultValue="testLastName"
           />
           <FormControl
             label="Email *"
@@ -56,6 +58,16 @@ export default function SellerForm() {
             type="email"
             required
             autoComplete="email"
+            defaultValue="test@example.com"
+          />
+          <FormControl
+            label="Username *"
+            id="account_username"
+            name="account_username"
+            type="username"
+            required
+            autoComplete="username"
+            defaultValue="testMan"
           />
           <FormControl
             label="Password *"
@@ -66,33 +78,7 @@ export default function SellerForm() {
             autoComplete="new-password"
             placeholder="At least 8 characters"
             minLength={8}
-          />
-        </div>
-      </fieldset>
-
-      {/* Business profile */}
-      <fieldset className={styles.fieldset}>
-        <legend className={styles.legend}>Company Information</legend>
-        <div className={styles.grid3}>
-          <FormControl
-            label="Brand / Shop Name *"
-            id="account_company_name"
-            name="account_company_name"
-            required
-          />
-          <FormControl
-            label="Website or Social"
-            id="account_website"
-            name="account_website"
-            type="url"
-            placeholder="https://…"
-          />
-          <FormControl
-            label="Contact Phone *"
-            id="account_phone"
-            name="account_phone"
-            type="tel"
-            required
+            defaultValue="password123"
           />
         </div>
       </fieldset>
