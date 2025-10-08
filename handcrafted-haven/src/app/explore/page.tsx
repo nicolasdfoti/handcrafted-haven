@@ -25,10 +25,14 @@ export default async function Products() {
         <div className={`${styles["marketplace__header"]}`}>
           <h1>Marketplace</h1>
         </div>
-        <div className={`${styles["marketplace__sidebar"]}`}>
-          <h2>hi</h2>
-        </div>
+
         <div className={`${styles["marketplace__dynamic-content"]}`}>
+          <div className={`${styles["marketplace__search"]}`}>
+            <h2>Search</h2>
+          </div>
+          <div className={`${styles["marketplace__sidebar"]}`}>
+            <h2>Filter</h2>
+          </div>
           <ProductListings products={products || []} />
 
           {/*
