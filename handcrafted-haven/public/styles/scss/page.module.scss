@@ -219,16 +219,30 @@
 
 .marketplace__page {
   background-color: $background;
+  height: 100%;
 }
 
 .marketplace__container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-self: center;
   width: clamp(968px, 80vw, 1920px);
-  height: 100%;
-  margin-top: $xl;
-  background-color: $foreground;
+  margin: $xxl 0;
+  padding: $l;
+  border-radius: 14px;
+
+  //soft top-to-bottom
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.06)
+    )
+    $foreground;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 6px 14px rgba(0, 0, 0, 0.08),
+    0 20px 40px -20px rgba(0, 0, 0, 0.25);
 
   @media (max-width: $breakpoint-l) {
     width: clamp($breakpoint-s, 90vw, 1920px);
@@ -241,11 +255,17 @@
 }
 
 .marketplace__header {
+  display: flex;
   margin-bottom: auto;
   border-bottom: #0b0b0b 1px solid;
-  height: 100px;
   width: 100%;
+  padding: $l $m;
 
+  h1 {
+    font-size: $xxl;
+    align-self: center;
+    text-align: center;
+  }
   //MOBILE
   @media (max-width: $breakpoint-s) {
     display: none;
@@ -258,13 +278,19 @@
   width: 100%;
   height: 100%;
   background-color: $background;
+  padding: $m;
 }
 
 .marketplace__products {
+  display: grid;
+  gap: $marketplace__gap;
+  grid-template-columns: repeat(auto-fit, $marketplace__card);
+  max-width: calc(5 * $marketplace__card + 4 * $marketplace__gap);
+  width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+  justify-content: center;
   background-color: $background;
-  width: 100px;
-  height: 100px;
-  flex: 1;
 }
 
 .marketplace__mobile-sidebar {

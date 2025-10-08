@@ -128,4 +128,36 @@
   word-break: break-all;
 }
 
+.marketplace__product_card {
+  margin: 0;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1ece5;
+  overflow: hidden;
+}
+
+.marketplace__product_card_header {
+  background-color: red;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.marketplace__product_card_body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f1ece5;
+  padding: 1em;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.marketplace__product_image_wrapper {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  margin-bottom: 0.618em;
+}
+
 /*# sourceMappingURL=components.module.css.map */

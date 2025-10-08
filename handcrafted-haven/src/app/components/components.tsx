@@ -132,15 +132,20 @@ export function ProductListing({
   basePath = "/explore",
 }: ProductCardProps) {
   return (
-    <div className={`${styles["marketplace__product-card"]}`}>
-      <Link href={`${basePath}/${product.product_id}/view}`}>
-        <div className={styles.card_header}>
-          {" "}
-          <h3 className={styles.card_title}>{product.product_title}</h3>{" "}
-        </div>
+    <div className={`${styles.marketplace__product_card}`}>
+      <Link href={`${basePath}/${product.product_id}/view`}>
+        <div className={styles.marketplace__product_card_header}> </div>
 
-        <div className={styles.card_body}>
-          <div className={styles.product_price}> ${product.product_price} </div>
+        <div className={styles.marketplace__product_card_body}>
+          <div className={styles.marketplace__product_image_wrapper}></div>
+          <h3 className={styles.marketplace__product_card_title}>
+            {product.product_title}
+          </h3>{" "}
+          <div className={styles.marketplace__product_card_price}>
+            {" "}
+            ${product.product_price}{" "}
+          </div>
+          <a></a>
         </div>
       </Link>
     </div>

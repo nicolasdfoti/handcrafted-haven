@@ -20,10 +20,19 @@ CREATE TABLE IF NOT EXISTS public.account
     account_username character varying NOT NULL,
     account_password character varying NOT NULL,
     account_type account_type NOT NULL DEFAULT 'User'::account_type,
-    account_company_name character varying,
-    account_phone character varying,
-    account_website character varying,
     CONSTRAINT account_pkey PRIMARY KEY (account_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.seller_info
+(
+    account_id integer NOT NULL PRIMARY KEY,
+    company_name character varying,
+    phone character varying,
+    website character varying,
+    CONSTRAINT seller_info_account_id_fkey FOREIGN KEY (account_id)
+        REFERENCES public.account (account_id) MATCH SIMPLE
+        ON UPDATE CASCADE
+        ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS public.products
@@ -52,7 +61,6 @@ ALTER TABLE IF EXISTS public.products
   ON UPDATE CASCADE
   ON DELETE NO ACTION;
 
-
 INSERT INTO public.category (category_name)
 VALUES ('Crafts'),
   ('Technology'),
@@ -65,10 +73,7 @@ INSERT INTO public.account (
   account_lastname,
   account_username,
   account_password,
-  account_type,
-  account_company_name,
-  account_phone,
-  account_website
+  account_type
 )
 VALUES (
   'seller@example.com',
@@ -76,10 +81,58 @@ VALUES (
   'Doe',
   'seller1',
   'password123',
-  'Seller',
+  'Seller'
+),
+-- Below here is GPT generated data for populating the database.
+(
+  'crafty@example.com',
+  'Jane',
+  'Smith',
+  'crafty123',
+  'password456',
+  'Seller'
+),
+(
+  'techwiz@example.com',
+  'Mike',
+  'Johnson',
+  'techwiz',
+  'password789',
+  'Seller'
+),
+(
+  'user@example.com',
+  'Sarah',
+  'Williams',
+  'sarahw',
+  'password000',
+  'User'
+);
+
+INSERT INTO public.seller_info (
+  account_id,
+  company_name,
+  phone,
+  website
+)
+VALUES ( 
+  1,
   'Handcrafted Haven',
   '555-123-4567',
   'https://handcraftedhaven.example.com'
+),
+-- Below here is GPT generated data for populating the database.
+(
+  2,
+  'Crafty Creations',
+  '555-234-5678',
+  'https://craftycreations.example.com'
+),
+(
+  3,
+  'Tech Gadgets Galore',
+  '555-345-6789',
+  'https://techgadgets.example.com'
 );
 
 INSERT INTO public.products  (
@@ -92,19 +145,117 @@ INSERT INTO public.products  (
   category_id,
   account_id
 )
-VALUES (
-  'Old Domino''s Pizza',
-  '2025',
-  'Ordered too much pizza',
-  'image/dominospizza.jpg',
-  'image/dominospizza-tn.jpg',
-  4,
-  3,
-  1
-);
+VALUES 
+  (
+    'Old Domino''s Pizza',
+    '2025',
+    'Ordered too much pizza',
+    'image/dominospizza.jpg',
+    'image/dominospizza-tn.jpg',
+    4,
+    3,
+    1
+  ),
+  -- Below here is GPT generated data for populating the database.
+  (
+    'Hand-knitted Scarf',
+    '2024',
+    'Cozy wool scarf perfect for winter. Hand-knitted with love and care.',
+    'image/scarf.jpg',
+    'image/scarf-tn.jpg',
+    25,
+    1,
+    2
+  ),
+  (
+    'Custom Wooden Phone Stand',
+    '2024',
+    'Eco-friendly phone stand made from reclaimed wood. Fits all phone sizes.',
+    'image/phonestand.jpg',
+    'image/phonestand-tn.jpg',
+    15,
+    2,
+    2
+  ),
+  (
+    'Homemade Chocolate Chip Cookies',
+    '2025',
+    'Freshly baked chocolate chip cookies made with organic ingredients. Dozen per order.',
+    'image/cookies.jpg',
+    'image/cookies-tn.jpg',
+    12,
+    3,
+    1
+  ),
+  (
+    'Vintage Denim Jacket',
+    '2023',
+    'Retro-style denim jacket with custom patches. Size Medium. Excellent condition.',
+    'image/jacket.jpg',
+    'image/jacket-tn.jpg',
+    35,
+    4,
+    2
+  ),
+  (
+    'Arduino Starter Kit',
+    '2024',
+    'Complete Arduino starter kit with board, sensors, and instructions. Perfect for beginners.',
+    'image/arduino.jpg',
+    'image/arduino-tn.jpg',
+    45,
+    2,
+    3
+  ),
+  (
+    'Handmade Pottery Mug',
+    '2024',
+    'Ceramic mug with unique glaze pattern. Dishwasher and microwave safe. Holds 12oz.',
+    'image/mug.jpg',
+    'image/mug-tn.jpg',
+    18,
+    1,
+    2
+  ),
+  (
+    'Raspberry Pi 4 Bundle',
+    '2025',
+    'Raspberry Pi 4 with case, power supply, and pre-loaded NOOBS OS. Great for projects.',
+    'image/raspberrypi.jpg',
+    'image/raspberrypi-tn.jpg',
+    75,
+    2,
+    3
+  ),
+  (
+    'Organic Honey Jar',
+    '2024',
+    'Raw organic honey from local bees. 16oz jar. No additives or preservatives.',
+    'image/honey.jpg',
+    'image/honey-tn.jpg',
+    10,
+    3,
+    1
+  ),
+  (
+    'Custom T-shirt Design',
+    '2025',
+    'Custom-designed t-shirt with your choice of print. 100% cotton. All sizes available.',
+    'image/tshirt.jpg',
+    'image/tshirt-tn.jpg',
+    22,
+    4,
+    2
+  );
 
 SELECT * FROM public.category
 ORDER BY category_id ASC;
 
 SELECT * FROM public.account
 ORDER BY account_id ASC;
+
+SELECT * FROM public.seller_info
+ORDER BY account_id ASC;
+
+SELECT * FROM public.products
+ORDER BY product_id ASC;
