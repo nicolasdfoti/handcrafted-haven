@@ -40,6 +40,16 @@
   font-weight: 600;
 }
 
+.successMsg {
+  background: #f0f9f0;
+  border: 1px solid #a8d5a8;
+  color: #2d7a2d;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: clamp(12px, 2vw, 18px);
+  font-weight: 600;
+}
+
 .fieldset {
   border: 0;
   padding: 0;
@@ -62,7 +72,8 @@
   border: 1px solid #e0d8cb;
 }
 
-.grid2, .grid3 {
+.grid2,
+.grid3 {
   display: grid;
   gap: clamp(12px, 2.5vw, 18px);
   padding: clamp(12px, 2.5vw, 22px);

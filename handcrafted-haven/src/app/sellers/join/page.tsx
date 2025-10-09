@@ -1,11 +1,12 @@
-"use client";
-
 import { Footer } from "@/app/components/footer";
 import { Header } from "@/app/components/header.jsx";
 import SellerForm from "@/app/components/seller-form";
 import styles from "@styles/sellerForm.module.scss";
+import { auth } from "@/auth";
 
-export default function Sellers() {
+export default async function Sellers() {
+  const session = await auth();
+
   return (
     <div>
       <Header />

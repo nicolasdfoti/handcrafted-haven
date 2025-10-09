@@ -1,10 +1,17 @@
+"use client";
+
 import { FormControl } from "./form-control";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import styles from "@styles/sellerForm.module.scss";
 import { registerSeller } from "../lib/form-actions";
+import { useRouter } from "next/navigation";
 
-type RegisterState = { ok: boolean; message?: string | null };
+type RegisterState = {
+  ok: boolean;
+  message?: string | null;
+  redirect?: string;
+};
 const initialRegisterState: RegisterState = { ok: false, message: null };
 
 function SubmitBtn() {
@@ -21,54 +28,24 @@ export default function SellerForm() {
     registerSeller,
     initialRegisterState
   );
+  const router = useRouter();
+
+  useEffect(() => {
+    if (state.ok && state.redirect) {
+      router.push(state.redirect);
+    }
+  }, [state, router]);
 
   return (
     <form action={formAction} id="sellerSignupForm" className={styles.form}>
       {state?.message && (
-        <p role="alert" className={styles.errorMsg}>
+        <p
+          role="alert"
+          className={state.ok ? styles.successMsg : styles.errorMsg}
+        >
           {state.message}
         </p>
       )}
-      {/* Account Information */}
-      <fieldset className={styles.fieldset}>
-        <legend className={styles.legend}>Account Information</legend>
-        <div className={styles.grid2}>
-          <FormControl
-            label="First Name *"
-            id="account_firstname"
-            name="account_firstname"
-            type="text"
-            required
-            autoComplete="first name"
-          />
-          <FormControl
-            label="Last Name *"
-            id="account_lastname"
-            name="account_lastname"
-            type="text"
-            required
-            autoComplete="last name"
-          />
-          <FormControl
-            label="Email *"
-            id="account_email"
-            name="account_email"
-            type="email"
-            required
-            autoComplete="email"
-          />
-          <FormControl
-            label="Password *"
-            id="account_password"
-            name="account_password"
-            type="password"
-            required
-            autoComplete="new-password"
-            placeholder="At least 8 characters"
-            minLength={8}
-          />
-        </div>
-      </fieldset>
 
       {/* Business profile */}
       <fieldset className={styles.fieldset}>

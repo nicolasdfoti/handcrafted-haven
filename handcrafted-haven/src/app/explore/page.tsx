@@ -6,6 +6,7 @@ import { Product } from "@/app/lib/definitions";
 import { fetchFromDB } from "../components/components";
 import { ProductListings } from "../components/product-listings";
 
+
 export default async function Products() {
   const products = (await fetchFromDB<Product>(
     "products",
