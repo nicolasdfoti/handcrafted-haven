@@ -9,7 +9,7 @@ export type ContactType = "email" | "phone" | "website";
 
 export interface ContactItemProps {
   label: string;
-  value: string;
+  value: string | number | null | undefined;
   type: ContactType;
   linkClassName?: string;
   labelClassName?: string;

@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { Footer } from "@/app/components/footer";
 import { Header } from "../../components/header";
 import { fetchFromDB } from "@/app/components/components";
-import { Product, Account } from "@/app/lib/definitions";
+import { Product } from "@/app/lib/definitions";
 import styles from "@styles/sellers.module.scss";
 import FeaturedProducts from "@/app/components/featured-products";
 import SellerPanel from "@/app/components/seller-panel";
@@ -11,9 +11,12 @@ import SellerPanel from "@/app/components/seller-panel";
 export default async function ProfilePage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+
+  const { id } = await params;
   const session = await auth();
+  
   const products = (await fetchFromDB<Product>(
     "products",
     {},
@@ -25,13 +28,13 @@ export default async function ProfilePage({
     redirect("/login");
   }
 
-  if (session.user?.id && session.user?.id !== params.id) {
+  if (session.user?.id && session.user?.id !== id) {
     redirect(`/profile/${session.user?.id}`);
   }
 
-  const isSeller = false;
+  let isSeller = false;
   if (session?.user?.id) {
-    const isSeller = session.user?.accountType === "Seller";
+    isSeller = session.user?.accountType === "Seller";
   } else {
     redirect(`/login`);
   }
