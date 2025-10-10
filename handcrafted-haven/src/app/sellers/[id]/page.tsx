@@ -2,8 +2,8 @@ import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { fetchFromDB } from "@/app/components/components";
 import { redirect } from "next/navigation";
-import { ContactItem } from "@/app/components/components";
-import { Product, Account } from "@/app/lib/definitions";
+import { ContactItem, SellerCardProps } from "@/app/components/components";
+import { Product, Account, Seller } from "@/app/lib/definitions";
 import styles from "@styles/sellers.module.scss";
 import Image from "next/image";
 import { auth } from "@/auth";
@@ -34,9 +34,16 @@ export default async function DetailPage({ params }: DetailPageProps) {
       { account_id: accountId },
       { single: true }
     )) as Account | null;
+
     const products = (await fetchFromDB<Product>("products", {
       account_id: accountId,
     })) as Product[];
+
+    const seller = (await fetchFromDB<Seller> (
+      "seller_info",
+      { account_id: accountId },
+      { single: true }
+    )) as Seller;
 
     if (!account) {
       redirect("/not-found");
@@ -64,7 +71,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
             <div className={styles.hero_content}>
               <div className={styles.detail}>
                 <h1 className={styles.company_name}>
-                  {account.account_company_name}
+                  {seller.company_name}
                 </h1>
                 <p className={styles.artisan_name}>
                   by {account.account_firstname} {account.account_lastname}
@@ -81,12 +88,12 @@ export default async function DetailPage({ params }: DetailPageProps) {
                   />
                   <ContactItem
                     label="Phone"
-                    value={account.account_phone || ""}
+                    value={seller.phone || ""}
                     type="phone"
                   />
                   <ContactItem
                     label="Website"
-                    value={account.account_website || ""}
+                    value={seller.website || ""}
                     type="website"
                   />
                 </div>

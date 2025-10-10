@@ -14,7 +14,7 @@ type RegisterState = {
 };
 const initialRegisterState: RegisterState = { ok: false, message: null };
 
-function SubmitBtn() {
+export function SubmitBtn({ className = ""}) {
   const { pending } = useFormStatus();
   return (
     <button type="submit" className={styles.submitBtn} disabled={pending}>
