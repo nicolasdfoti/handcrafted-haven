@@ -16,6 +16,10 @@ type DBUser = {
   account_type: string;
 };
 
+interface ExtendedUser extends User {
+  accountType?: string;
+}
+
 export async function getUser(email: string): Promise<DBUser | undefined> {
   try {
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -82,7 +86,7 @@ export const config = {
     async jwt({ token, user }: { token: JWT; user?: User }) {
       if (user && user.id) {
         token.id = user.id;
-        token.accountType = (user as any).accountType;
+        token.accountType = (user as ExtendedUser).accountType;
       }
       return token;
     },

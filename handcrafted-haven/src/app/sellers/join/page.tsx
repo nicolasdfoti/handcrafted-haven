@@ -19,7 +19,7 @@ export default async function Sellers() {
 
         <h1 className={styles.title}>Apply as a Seller</h1>
         <p className={styles.subtitle}>
-          Create your account and tell us about your craft. We'll review and get
+          Create your account and tell us about your craft. We will review and get
           back to you.
         </p>
 
