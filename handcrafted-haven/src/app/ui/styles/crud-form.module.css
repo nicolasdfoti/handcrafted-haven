@@ -1,0 +1,35 @@
+.crud_form {
+  padding: 10px;
+  width: 80%;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+.crud_form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.crud_submit_btn {
+  background: rgb(153, 93.075, 39.015);
+  color: white;
+  border: none;
+  margin: 10px;
+  padding: 12px 1.618em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+}
+.crud_submit_btn:hover:not(:disabled) {
+  background: rgb(183.6, 163.2, 127.5);
+  color: black;
+}
+.crud_submit_btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/*# sourceMappingURL=crud-form.module.css.map */
