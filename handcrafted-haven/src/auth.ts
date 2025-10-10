@@ -103,4 +103,4 @@ export const config = {
   },
 } satisfies NextAuthConfig;
 
-export const { auth, handlers } = NextAuth(config);
+export const { auth, handlers, signIn } = NextAuth(config);
