@@ -8,7 +8,7 @@ import {
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "@/app/components/button";
 import { signIn, getSession } from "next-auth/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "@/app/ui/styles/loginForm.module.css";
 import { useSearchParams } from "next/navigation";
 
