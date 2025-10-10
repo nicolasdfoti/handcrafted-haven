@@ -1,0 +1,77 @@
+/* --- Layout --- */
+
+.container {
+  max-width: 1100px;
+  min-height: 80dvh;
+  margin-inline: auto;
+  padding: clamp(20px, 3vw, 40px);
+  align-content: center;
+  margin: 40px auto;
+  text-align: center;
+  font-family: "Poppins", system-ui, sans-serif;
+  background-color: #fffdf9;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+  strong {
+    color: #4a2c0a;
+    font-weight: 700;
+  }
+
+  a {
+    display: inline-block;
+    color: #8a6230;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      color: #5a3a1f;
+      border-color: #5a3a1f;
+    }
+
+    &:focus-visible {
+      outline: 2px dashed #8a6230;
+      outline-offset: 2px;
+      border-color: transparent;
+    }
+  }
+}
+
+/* --- Title --- */
+.title {
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-size: clamp(1.8rem, 1.1rem + 2.3vw, 2.5rem);
+  color: #5a3a1f;
+  margin-bottom: clamp(16px, 2vw, 24px);
+  text-shadow: 0 1px 1px rgba(90, 58, 31, 0.15);
+}
+
+/* --- Subtitles / Paragraphs --- */
+.subtitle {
+  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.15rem);
+  color: #5b5b5b;
+  margin-bottom: clamp(16px, 2vw, 24px);
+  line-height: 1.6;
+}
+
+.container p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+    margin: 20px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}

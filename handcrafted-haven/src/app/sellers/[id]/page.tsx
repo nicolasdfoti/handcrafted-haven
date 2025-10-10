@@ -21,8 +21,6 @@ export default async function DetailPage({ params }: DetailPageProps) {
     redirect("/login");
   }
 
-  const accountId = parseInt(id);
-
   // if the logged-in user's ID does not match the accountId from the URL, redirect to not-authorized
   // if (String(session.user.id) !== String(accountId)) {
   //   redirect("/not-authorized");

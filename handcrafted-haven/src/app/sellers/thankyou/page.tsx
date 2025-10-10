@@ -1,6 +1,7 @@
 import { Footer } from "@/app/components/footer";
 import { Header } from "@/app/components/header.jsx";
-import styles from "../styles/sellers.module.scss";
+import styles from "@styles/thankyou.module.scss";
+import Link from "next/link";
 
 export default function ThankYou() {
   return (
@@ -21,6 +22,11 @@ export default function ThankYou() {
             For demonstration purposes, you have been verified as a seller.
           </strong>
         </p>
+
+        <Link href="/" style={{ marginTop: '1rem', display: 'inline-block' }}>
+        ← Back to Home
+      </Link>
+
       </main>
       <Footer />
     </div>

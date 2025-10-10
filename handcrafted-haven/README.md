@@ -91,3 +91,5 @@ Added fetchFromDB function in components, to fetch from DB
 - Fixed responsive header, hamb button with menu drawer
 - fix card information responsive mode
 - fix seller form responsive mode and add styles
+- Add styles to the thank you page
+- The home section changes to register an account or become a seller depending on whether the user is logged in or not.
