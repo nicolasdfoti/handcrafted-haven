@@ -10,17 +10,16 @@ import { auth } from "@/auth";
 import FeaturedProducts from "@/app/components/featured-products";
 
 interface DetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function DetailPage({ params }: DetailPageProps) {
+  const { id } = await params;
   const session = await auth();
 
   if (!session?.user) {
     redirect("/login");
   }
-
-  const { id } = await params;
 
   const accountId = parseInt(id);
 
