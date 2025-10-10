@@ -6,7 +6,6 @@ import { ContactItem } from "@/app/components/components";
 import { Product, Account, Seller } from "@/app/lib/definitions";
 import styles from "@styles/sellers.module.scss";
 import Image from "next/image";
-import { auth } from "@/auth";
 import FeaturedProducts from "@/app/components/featured-products";
 
 interface DetailPageProps {
@@ -15,16 +14,6 @@ interface DetailPageProps {
 
 export default async function DetailPage({ params }: DetailPageProps) {
   const { id } = await params;
-  // const session = await auth();
-
-  // if (!session?.user) {
-  //   redirect("/login");
-  // }
-
-  // if the logged-in user's ID does not match the accountId from the URL, redirect to not-authorized
-  // if (String(session.user.id) !== String(accountId)) {
-  //   redirect("/not-authorized");
-  // }
 
   try {
     const accountId = parseInt(id);
@@ -57,7 +46,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
         <section className={styles.hero_section}>
           <div className={styles.hero_image}>
             <Image
-              src="/images/handcrafted-hero.jpg"
+              src="/images/hero-mypage.jpg"
               alt={`Artisan products by ${
                 account.account_company_name || account.account_firstname
               }`}
