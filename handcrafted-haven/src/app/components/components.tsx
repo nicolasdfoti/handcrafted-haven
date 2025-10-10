@@ -24,14 +24,13 @@ export interface ProductCardProps {
 }
 
 // formats the phone number
-export const formatPhoneNumber = (phone: string): string => {
-  const cleaned = phone.replace(/\D/g, "");
+export const formatPhoneNumber = (phone: string | number): string => {
+  const stringPhone = String(phone);
+  const cleaned = stringPhone.replace(/\D/g, "");
   if (cleaned.length === 10) {
-    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(
-      6
-    )}`;
+    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
   }
-  return phone;
+  return stringPhone;
 };
 
 // exports the contact item for seller page
@@ -44,13 +43,15 @@ export function ContactItem({
 }: ContactItemProps) {
   if (!value) return null;
 
-  const formattedValue = type === "phone" ? formatPhoneNumber(value) : value;
+  const stringValue = String(value);
+
+  const formattedValue = type === "phone" ? formatPhoneNumber(stringValue) : stringValue;
   const href =
     type === "email"
-      ? `mailto:${value}`
+      ? `mailto:${stringValue}`
       : type === "phone"
-      ? `tel:${value}`
-      : value;
+      ? `tel:${stringValue}`
+      : stringValue;
 
   const containerClass = styles.contact_item;
   const labelClass = labelClassName || styles.contact_label;
