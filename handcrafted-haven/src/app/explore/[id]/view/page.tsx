@@ -47,7 +47,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
         <div className={styles.details_body}>
           <div className={styles.image}>
             <Image
-              src="/images/handcrafted-hero.jpg"
+              src={`/images/${product.product_image}` || "/images/home-icon.jpg"}
               alt={`Artisan products by ${
                 account.account_company_name || account.account_firstname
               }`}

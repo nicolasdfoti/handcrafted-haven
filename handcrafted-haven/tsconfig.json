@@ -32,6 +32,6 @@
     "src/app/components/footer.jsx",
     "src/app/components/hero.tsx",
     "src/types/**/*.ts"
-  ],
+, "src/app/components/form-control.jsx"  ],
   "exclude": ["node_modules"]
 }

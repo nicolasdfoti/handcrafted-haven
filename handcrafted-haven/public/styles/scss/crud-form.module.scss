@@ -10,9 +10,13 @@
     flex-direction: column;
     font-family: "Poppins", sans-serif;
 
-    label {
+    input {
+        width: 100%;
+        border: none;
+        border-radius: 10px;
         margin-top: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
+        padding: 10px;
     }
 }
 
@@ -36,5 +40,26 @@
     &:disabled {
         background-color: #ccc;
         cursor: not-allowed;
+    }
+}
+
+.form_control {
+
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+
+    select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        font-family: "Poppins", sans-serif;
+    }
+
+    label {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-family: "Poppins", sans-serif;
     }
 }

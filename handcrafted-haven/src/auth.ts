@@ -32,7 +32,7 @@ export async function getUser(email: string): Promise<DBUser | undefined> {
   }
 }
 
-export const config = {
+export const authOptions = {
   ...authConfig,
   providers: [
     Credentials({
@@ -103,4 +103,5 @@ export const config = {
   },
 } satisfies NextAuthConfig;
 
-export const { auth, handlers, signIn } = NextAuth(config);
+export const { auth, handlers, signIn, signOut } = NextAuth(authOptions);
+export const config = authOptions;

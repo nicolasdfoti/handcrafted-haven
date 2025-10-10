@@ -17,6 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.0.1",
     "@fortawesome/react-fontawesome": "^3.0.2",
     "@heroicons/react": "^2.2.0",
+    "@prisma/client": "^6.17.1",
     "@vercel/postgres": "^0.10.0",
     "anjrot-components": "^2.1.4",
     "bcryptjs": "^3.0.2",
@@ -26,6 +27,7 @@
     "next": "^15.5.4",
     "next-auth": "^5.0.0-beta.29",
     "pg": "^8.16.3",
+    "prisma": "^6.17.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "zod": "^4.1.11"

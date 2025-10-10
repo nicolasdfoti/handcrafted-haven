@@ -5,6 +5,8 @@ import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { FormControl } from "@/app/components/form-control";
 import { useFormStatus } from "react-dom";
+import { createProduct } from "@/app/components/create-product";
+import { useSession } from "next-auth/react";
 
 export function CrudSubmitBtn({ text = "Create Product" }) {
   const { pending } = useFormStatus();
@@ -16,11 +18,28 @@ export function CrudSubmitBtn({ text = "Create Product" }) {
 }
 
 export default function Page() {
+
+    const { data: session, status } = useSession();
+
+    if (status === "loading") {
+        return <div>Loading...</div>;
+    }
+
+    if (!session) {
+        return (
+            <div>
+                <Header />
+                <div>Please log in to create products</div>
+                <Footer />
+            </div>
+        );
+    }
+
     return(
         <div>
             <Header />
             <div>
-                <form className={styles.crud_form} action="">
+                <form className={styles.crud_form} action={createProduct}>                    
                     <FormControl
                         label="Product Title *"
                         id="product_title"
@@ -32,8 +51,8 @@ export default function Page() {
                         label="Product Date *"
                         id="product_date"
                         name="product_date"
-                        type="date"
-                        placeholder="https://…"
+                        type="number"
+                        placeholder="2025"
                         required
                     />
                     <FormControl
@@ -48,6 +67,7 @@ export default function Page() {
                         label="Product Image *"
                         id="product_image"
                         name="product_image"
+                        type="file"
                         required
                     />
 
@@ -55,6 +75,7 @@ export default function Page() {
                         label="Product Thumbnail *"
                         id="product_thumbnail"
                         name="product_thumbnail"
+                        type="file"
                         required
                     />
                     <FormControl
@@ -64,6 +85,17 @@ export default function Page() {
                         type="number"
                         placeholder="$..."
                     />
+
+                    <div className={styles.form_control}>
+                        <label htmlFor="category_id"><strong>Category *</strong></label>
+                        <select id="category_id" name="category_id" required>
+                            <option value="">Select a category</option>
+                            <option value="1">Textiles</option>
+                            <option value="2">Technology</option>
+                            <option value="3">Food</option>
+                            <option value="4">Clothing</option>
+                        </select>
+                    </div>
                     <CrudSubmitBtn />
                 </form>
             </div>

@@ -1,4 +1,4 @@
-import { FormControl } from "./form-control";
+import { FormControl } from "./form-control.ts";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 import styles from "@styles/sellerForm.module.scss";
