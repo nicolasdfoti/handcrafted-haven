@@ -1,5 +1,6 @@
 import { Footer } from '@/app/components/footer';
 import { Header } from '../components/header';
+import { Hero } from "@/app/components/hero";
 import { fetchFromDB } from '@/app/components/components';
 import { Account, Seller } from '@/app/lib/definitions';
 import styles from '@styles/sellers.module.scss'
@@ -18,8 +19,12 @@ export default async function Page() {
     return(
         <div className={styles.general_page}>
             <Header/>
-            
-            <h1>Highlited sellers</h1>
+
+            <Hero
+                  image="/images/hero-artisans.jpg"
+                  title="Highlited sellers"
+                  subtitle="Meet the artisans who stand out for their creativity, quality, and passion."
+            />
 
             <div className={styles.seller_page}>
                 {accounts?.map((account) => {

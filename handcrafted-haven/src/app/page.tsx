@@ -18,7 +18,7 @@ export default function Home() {
     <div className={styles.page}>
       <Header />
       <Hero
-      image="/images/handcrafted-hero.jpg"
+      image="/images/hero-home.jpg"
       title="Discover Unique Handcrafted Treasures"
       subtitle="Connect with artisans and find one-of-a-kind creations made with passion."
       buttonText="Start Exploring"

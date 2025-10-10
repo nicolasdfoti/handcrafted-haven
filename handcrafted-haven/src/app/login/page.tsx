@@ -2,6 +2,7 @@
 
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { Hero } from "@/app/components/hero";
 import LoginForm from "../components/login-form";
 import React, { Suspense } from "react";
 
@@ -18,6 +19,16 @@ const Login = () => {
             <Suspense fallback={<div>Loading form...</div>}>
               <LoginForm />
             </Suspense>
+
+            <Hero
+              image="/images/hero-login.jpg"
+              title="Welcome to Handcrafted Haven"
+              subtitle="Log in to manage your shop, track your sales, or discover new handmade creations from fellow artisans"
+            >
+            <p className="notMemberText">
+              Not a member yet? <a href="/register">Join now</a>
+            </p>
+            </Hero>
             
             <Suspense fallback={<div>Loading...</div>}>
               <Footer />
