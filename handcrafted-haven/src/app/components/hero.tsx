@@ -3,16 +3,8 @@
 import React from "react";
 import styles from "@/app/ui/styles/page.module.css";
 import Image from "next/image";
+import type { Hero } from "../lib/definitions";
 
-type HeroProps = {
-  image: string;
-  alt?: string;
-  title: string;
-  subtitle?: string;
-  buttonText?: string;
-  buttonLink?: string;
-  children?: React.ReactNode;
-};
 
 export function Hero({
   image,
@@ -22,7 +14,7 @@ export function Hero({
   buttonText,
   buttonLink,
   children,
-}: HeroProps) {
+}: Hero) {
   return (
     <section className={styles.hero}>
       <div className={styles.heroImage}>
@@ -46,7 +38,7 @@ export function Hero({
               {buttonText}
             </a>
           )}
-          {children}
+          {children && <div className={styles.hero__extra}>{children}</div>}
         </div>
       </div>
     </section>

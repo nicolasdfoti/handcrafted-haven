@@ -35,3 +35,13 @@ export type Seller = {
   phone?: string,
   website?: string
 }
+
+export type Hero = {
+  image: string;
+  alt?: string;
+  title: string;
+  subtitle?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  children?: React.ReactNode;
+};

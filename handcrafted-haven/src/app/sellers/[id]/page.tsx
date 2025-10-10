@@ -15,11 +15,11 @@ interface DetailPageProps {
 
 export default async function DetailPage({ params }: DetailPageProps) {
   const { id } = await params;
-  const session = await auth();
+  // const session = await auth();
 
-  if (!session?.user) {
-    redirect("/login");
-  }
+  // if (!session?.user) {
+  //   redirect("/login");
+  // }
 
   // if the logged-in user's ID does not match the accountId from the URL, redirect to not-authorized
   // if (String(session.user.id) !== String(accountId)) {

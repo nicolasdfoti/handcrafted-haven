@@ -55,6 +55,20 @@
   justify-content: center;
 }
 
+.hero__extra {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  color: #f4f4f4;
+}
+.hero__extra a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+.hero__extra a:hover {
+  color: #ffd37b;
+}
+
 .btn {
   display: inline-block;
   padding: 0.9rem 1.25rem;
