@@ -1,3 +1,5 @@
+'use client';
+
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
 import LoginForm from "../components/login-form";
@@ -12,7 +14,7 @@ const Login = () => {
             <Suspense fallback={<div>Loading...</div>}>
               <Header />
             </Suspense>
-            
+
             <Suspense fallback={<div>Loading form...</div>}>
               <LoginForm />
             </Suspense>

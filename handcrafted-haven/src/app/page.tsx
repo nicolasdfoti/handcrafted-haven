@@ -3,7 +3,7 @@
 import styles from "./ui/styles/page.module.css";
 import { Footer } from "./components/footer";
 import { Header } from "./components/header.jsx";
-import { Hero } from "./components/hero.jsx";
+import { Hero } from "./components/hero";
 import { Information } from "./components/information.jsx";
 import { SellersCta } from "./components/sellersCta.jsx";
 import { RegisterCta } from "./components/registerCta.jsx";
@@ -17,7 +17,13 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <Header />
-      <Hero />
+      <Hero
+      image="/images/handcrafted-hero.jpg"
+      title="Discover Unique Handcrafted Treasures"
+      subtitle="Connect with artisans and find one-of-a-kind creations made with passion."
+      buttonText="Start Exploring"
+      buttonLink="/explore"
+    />
       <Information />
       {session ? (
         // if (user is logged in)

@@ -30,7 +30,7 @@
     ".next/types/**/*.ts",
     "src/app/ui/header.jsx",
     "src/app/components/footer.jsx",
-    "src/app/components/hero.jsx",
+    "src/app/components/hero.tsx",
     "src/types/**/*.ts"
   ],
   "exclude": ["node_modules"]

@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../../public/styles/scss/crud-form.module.scss","../../../../public/styles/scss/variables.scss"],"names":[],"mappings":"AAIA;EACI;EACA;EACA;EACA;EACA;EACA;;AAEA;EACI;EACA;;;AAIR;EACI,YCFiB;EDGjB;EACA;EACA;EACA;EACA;EACA;EACA,YCgDS;ED/CT;EACA;;AAEA;EACI,YC4BY;ED3BZ;;AAGJ;EACI;EACA","file":"crud-form.module.css"}
