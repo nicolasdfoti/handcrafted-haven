@@ -95,3 +95,4 @@ Added fetchFromDB function in components, to fetch from DB
 - The home section changes to register an account or become a seller depending on whether the user is logged in or not.
 - Changing the hero component to be able to reuse it on other pages
 - Add hero to login page
+- Add hero to artisans page

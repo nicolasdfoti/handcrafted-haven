@@ -21,7 +21,7 @@ const Login = () => {
             </Suspense>
 
             <Hero
-              image="/images/handcrafted-login.jpg"
+              image="/images/hero-login.jpg"
               title="Welcome to Handcrafted Haven"
               subtitle="Log in to manage your shop, track your sales, or discover new handmade creations from fellow artisans"
             >
