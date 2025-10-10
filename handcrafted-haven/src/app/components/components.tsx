@@ -3,7 +3,7 @@ import { Product } from "../lib/definitions";
 import styles from "@styles/components.module.scss";
 import Link from "next/link";
 import { pool } from "@/app/lib/db";
-import { Account } from "@/app/lib/definitions";
+import { Account, Seller } from "@/app/lib/definitions";
 
 export type ContactType = "email" | "phone" | "website";
 
@@ -102,27 +102,29 @@ export function ProductCard({
 }
 
 export interface SellerCardProps {
-  seller: Account;
+  account: Account;
+  seller: Seller;
   basePath?: string;
   className?: string;
 }
 
 export function SellerCard({
   seller,
+  account,
   basePath = "/sellers",
   className,
 }: SellerCardProps) {
   return (
     <Link
-      href={`${basePath}/${seller.account_id}`}
+      href={`${basePath}/${account.account_id}`}
       className={`${styles.seller_container} ${className || ""}`}
     >
       <div>
-        <h2 className={styles.seller_title}>{seller.account_company_name}</h2>
+        <h2 className={styles.seller_title}>{seller.company_name}</h2>
         <h3>
-          by {seller.account_firstname} {seller.account_lastname}
+          by {account.account_firstname} {account.account_lastname}
         </h3>
-        <p className={styles.seller_website}>{seller.account_website}</p>
+        <p className={styles.seller_website}>{seller.website}</p>
       </div>
     </Link>
   );

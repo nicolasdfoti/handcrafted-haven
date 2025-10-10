@@ -4,7 +4,6 @@ import styles from "@styles/crud-form.module.scss"
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { FormControl } from "@/app/components/form-control";
-import { SubmitBtn } from "@/app/components/seller-form";
 import { useFormStatus } from "react-dom";
 
 export function CrudSubmitBtn({ text = "Create Product" }) {
