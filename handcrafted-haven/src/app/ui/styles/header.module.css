@@ -157,6 +157,22 @@
 
 .login {
   display: none;
+  gap: 10px;
+}
+
+.logout_button {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: #c00;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.logout_button:hover {
+  color: white;
+  transition: 0.5s ease-in-out;
 }
 
 .nav a {

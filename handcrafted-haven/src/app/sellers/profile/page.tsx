@@ -17,10 +17,10 @@ export default async function SellerProfilePage() {
 
   const accountId = session.user.id;
 
-  // if the logged-in user's ID does not match the accountId from the URL, redirect to not-authorized
-//   if (String(session.user.id) !== String(accountId)) {
-//     redirect('/not-authorized'); 
-//   }
+//if the logged-in user's ID does not match the accountId from the URL, redirect to not-authorized
+  if (String(session.user.id) !== String(accountId)) {
+    redirect('/not-authorized'); 
+  }
   
   try {
 
@@ -81,6 +81,11 @@ export default async function SellerProfilePage() {
             </div>
           </div>
         </section>
+
+        <div>
+          <button></button>
+          <button></button>
+        </div>
 
         {/* Products Section */}
         <section className={styles.products_section}>
