@@ -4,12 +4,33 @@ import { fetchFromDB } from "@/app/components/components";
 import { redirect } from "next/navigation";
 import styles from "@styles/detail.module.scss";
 import { ProductCard } from "@/app/components/components";
-import Image from "next/image";
 import { Account, Product } from "@/app/lib/definitions";
+import ProductImage from "@/app/components/product-image";
 
 interface DetailPageProps {
   params: Promise<{ id: string }>;
 }
+
+const getValidImageSrc = (imagePath: any): string => {
+  if (!imagePath || typeof imagePath !== 'string') {
+    return "/images/home-icon.jpg";
+  }
+
+  const trimmed = imagePath.trim();
+
+  if (trimmed === '' || 
+      trimmed === 'null' || 
+      trimmed === 'undefined' || 
+      trimmed === 'NaN') {
+    return "/images/home-icon.jpg";
+  }
+
+  if (!trimmed.startsWith('/')) {
+    return `/${trimmed}`;
+  }
+
+  return trimmed;
+};
 
 export default async function DetailPage({ params }: DetailPageProps) {
   const { id } = await params;
@@ -22,6 +43,10 @@ export default async function DetailPage({ params }: DetailPageProps) {
       { product_id: productId },
       { single: true }
     )) as Product;
+
+    console.log('DEBUG - Product image from DB:', product.product_image);
+    console.log('DEBUG - Product image type:', typeof product.product_image);
+
     const similar_products = (await fetchFromDB<Product>("products", {
       category_id: product.category_id,
     })) as Product[];
@@ -35,6 +60,10 @@ export default async function DetailPage({ params }: DetailPageProps) {
       redirect("/not-found");
     }
 
+    const imageSrc = getValidImageSrc(product.product_image);
+
+    console.log('DEBUG - Final image source:', imageSrc);
+
     return (
       <div className={styles.details_page}>
         <Header />
@@ -46,13 +75,12 @@ export default async function DetailPage({ params }: DetailPageProps) {
 
         <div className={styles.details_body}>
           <div className={styles.image}>
-            <Image
-              src={`/images/${product.product_image}` || "/images/home-icon.jpg"}
-              alt={`Artisan products by ${
-                account.account_company_name || account.account_firstname
-              }`}
-              width="400"
-              height="300"
+            <ProductImage
+              src={imageSrc}
+              alt={`Artisan products by ${account.account_company_name || account.account_firstname}`}
+              width={400}
+              height={300}
+              fallbackSrc="/images/home-icon.jpg"
             />
           </div>
 

@@ -33,7 +33,7 @@ export async function createProduct(formData: FormData) {
         const buffer = Buffer.from(await product_image_file.arrayBuffer());
         const filePath = path.join(uploadFolder, product_image_file.name);
         await fs.promises.writeFile(filePath, buffer);
-        product_image = `/uploads/${product_image_file.name}`;
+        product_image = `/images/${product_image_file.name}`;
     }
 
     if (product_thumbnail_file) {
