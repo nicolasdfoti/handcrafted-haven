@@ -17,11 +17,9 @@ export default async function ProfilePage({
   const { id } = await params;
   const session = await auth();
   
-  const products = (await fetchFromDB<Product>(
-    "products",
-    {},
-    { limit: 10 }
-  )) as Product[];
+  const products = (await fetchFromDB<Product>("products", {
+      account_id: id,
+    })) as Product[];
 
   // If user is not logged in, redirect to login
   if (!session) {
@@ -48,7 +46,6 @@ export default async function ProfilePage({
       </p>
       {isSeller && <SellerPanel />}
       {!isSeller && <a>apply to be seller</a>}
-      <p>This is your personal profile page.</p>
       <FeaturedProducts products={products || []} />
       <Footer />
     </div>

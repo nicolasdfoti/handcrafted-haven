@@ -2,7 +2,7 @@ import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { fetchFromDB } from "@/app/components/components";
 import { redirect } from "next/navigation";
-import { ContactItem, SellerCardProps } from "@/app/components/components";
+import { ContactItem } from "@/app/components/components";
 import { Product, Account, Seller } from "@/app/lib/definitions";
 import styles from "@styles/sellers.module.scss";
 import Image from "next/image";

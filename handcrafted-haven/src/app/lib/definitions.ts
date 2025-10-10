@@ -31,6 +31,7 @@ export type User = {
 };
 
 export type Seller = {
+  account_id?: number,
   company_name?: string,
   phone?: string,
   website?: string
