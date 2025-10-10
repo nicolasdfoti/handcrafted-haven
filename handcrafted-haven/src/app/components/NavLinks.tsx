@@ -50,10 +50,6 @@ export function NavLinks() {
         {links.map((x) => (
           <Link href={x.href} key={x.name}><p>{x.name}</p></Link>
         ))}
-
-        {session?.user && (
-          <Link href={`/sellers/profile`}><p>My Profile</p></Link>
-        )}
       </div>
 
       {/* Login/account block (desktop) */}
@@ -64,7 +60,7 @@ export function NavLinks() {
           <Link href="/login"><p>Login</p></Link>
         ) : (
           <>
-            <Link href={`/sellers/${session.user.id}`}>
+            <Link href={`/profile/${session.user.id}`}>
               <p>Hello, {session.user.name}!</p>
             </Link>
             <button onClick={handleLogout} className={styles.logout_button}>Logout</button>

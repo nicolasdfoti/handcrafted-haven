@@ -146,7 +146,6 @@ export function ProductListing({
             {" "}
             ${product.product_price}{" "}
           </div>
-          <a></a>
         </div>
       </Link>
     </div>

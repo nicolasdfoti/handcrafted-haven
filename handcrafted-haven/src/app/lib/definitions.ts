@@ -29,3 +29,9 @@ export type User = {
   account_email: string;
   account_password: string;
 };
+
+export type Seller = {
+  company_name?: string,
+  phone?: string,
+  website?: string
+}
