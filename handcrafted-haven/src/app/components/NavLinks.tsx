@@ -53,7 +53,7 @@ export function NavLinks() {
       </div>
 
       {/* Login/account block (desktop) */}
-      <div className={styles.login}>
+      <div className={styles.menuLogin}>
         {status === "loading" ? (
           <p style={{ fontFamily: "Poppins, sans-serif" }}>Loading...</p>
         ) : !session?.user ? (
@@ -63,7 +63,12 @@ export function NavLinks() {
             <Link href={`/profile/${session.user.id}`}>
               <p>Hello, {session.user.name}!</p>
             </Link>
-            <button onClick={handleLogout} className={styles.logout_button}>Logout</button>
+            <Link href={`/sellers/${session.user.id}`} onClick={() => setOpen(false)}>
+              <p>My Page</p>
+            </Link>
+            <button onClick={handleLogout} className={styles.drawerLogout}>
+              Logout
+            </button>
           </>
         )}
       </div>
@@ -84,21 +89,26 @@ export function NavLinks() {
           ))}
           {session?.user && (
             <>
-              <li className={styles.drawerItem}>
-                <Link href={`/sellers/profile`} onClick={() => setOpen(false)} className={styles.drawerLink}>
-                  My Profile
-                </Link>
-              </li>
-              <li className={styles.drawerItem}>
-                <Link href={`/sellers/${session.user.id}`} onClick={() => setOpen(false)} className={styles.drawerLink}>
-                  Hello, {session.user.name}!
-                </Link>
-              </li>
-              <li className={styles.drawerItem}>
-                <button onClick={() => { setOpen(false); handleLogout(); }} className={styles.drawerLogout}>
-                  Logout
-                </button>
-              </li>
+            <div className={styles.menuLogin}>
+              <ul>
+                <li className={styles.drawerItem}>
+                  <Link href={`/profile/${session.user.id}`} onClick={() => setOpen(false)} className={styles.drawerLink}>
+                    Hello, {session.user.name}!
+                  </Link>
+                </li>
+                <li className={styles.drawerItem}>
+                  <Link href={`/sellers/${session.user.id}`} onClick={() => setOpen(false)} className={styles.drawerLink}>
+                    My page
+                  </Link>
+                </li>
+                <li className={styles.drawerItem}>
+                  <button onClick={() => { setOpen(false); handleLogout(); }} className={styles.drawerLogout}>
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+
             </>
           )}
           {!session?.user && status !== "loading" && (

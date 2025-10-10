@@ -75,6 +75,17 @@
   transform: translateY(50);
 }
 
+.menuLogin {
+  height: auto;
+  width: 90%;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: #9ba78d;
+  text-align: center;
+  margin: 0.5rem 0;
+  border: none;
+}
+
 .drawerList {
   list-style: none;
   display: flex;
@@ -157,22 +168,6 @@
 
 .login {
   display: none;
-  gap: 10px;
-}
-
-.logout_button {
-  font-family: "Poppins", sans-serif;
-  cursor: pointer;
-  border: none;
-  background: none;
-  color: #c00;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.logout_button:hover {
-  color: white;
-  transition: 0.5s ease-in-out;
 }
 
 .nav a {
@@ -211,6 +206,27 @@
     transition: all 0.2s ease;
   }
   .login p:hover {
+    color: #fff;
+  }
+  .menuLogin {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+    margin: 0.5rem 0;
+    border: none;
+  }
+  .menuLogin p {
+    font-weight: 500;
+    font-size: 15px;
+    margin: 0;
+  }
+  .menuLogin p:hover {
+    color: #fff;
+  }
+  .drawerLogout {
+    font-size: 15px;
+  }
+  .drawerLogout:hover {
     color: #fff;
   }
 }

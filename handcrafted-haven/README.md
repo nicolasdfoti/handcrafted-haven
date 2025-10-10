@@ -96,3 +96,4 @@ Added fetchFromDB function in components, to fetch from DB
 - Changing the hero component to be able to reuse it on other pages
 - Add hero to login page
 - Add hero to artisans page
+- Adding styles to the login menu
