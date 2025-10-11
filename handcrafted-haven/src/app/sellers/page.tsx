@@ -1,7 +1,7 @@
 import { Footer } from '@/app/components/footer';
 import { Header } from '../components/header';
 import { Hero } from "@/app/components/hero";
-import { fetchFromDB } from '@/app/components/components';
+import { fetchFromDB } from "@/app/lib/database";
 import { Account, Seller } from '@/app/lib/definitions';
 import styles from '@styles/sellers.module.scss'
 import { SellerCard } from '@/app/components/components';

@@ -2,7 +2,7 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Footer } from "@/app/components/footer";
 import { Header } from "../../components/header";
-import { fetchFromDB } from "@/app/components/components";
+import { fetchFromDB } from "@/app/lib/database";
 import { Product } from "@/app/lib/definitions";
 import Image from "next/image";
 import styles from "@styles/sellers.module.scss";

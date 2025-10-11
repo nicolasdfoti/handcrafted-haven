@@ -1,6 +1,6 @@
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
-import { fetchFromDB } from "@/app/components/components";
+import { fetchFromDB } from "@/app/lib/database";
 import { redirect } from "next/navigation";
 import styles from "@styles/detail.module.scss";
 import { ProductCard } from "@/app/components/components";
