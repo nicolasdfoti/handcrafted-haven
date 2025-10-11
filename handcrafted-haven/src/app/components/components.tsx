@@ -1,8 +1,7 @@
 import React from "react";
-import { Product } from "../lib/definitions";
+import { Product } from "@/app/lib/definitions";
 import styles from "@styles/components.module.scss";
 import Link from "next/link";
-import { pool } from "@/app/lib/db";
 import { Account, Seller } from "@/app/lib/definitions";
 import Image from "next/image";
 
@@ -29,7 +28,9 @@ export const formatPhoneNumber = (phone: string | number): string => {
   const stringPhone = String(phone);
   const cleaned = stringPhone.replace(/\D/g, "");
   if (cleaned.length === 10) {
-    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(6)}`;
+    return `(${cleaned.slice(0, 3)}) ${cleaned.slice(3, 6)}-${cleaned.slice(
+      6
+    )}`;
   }
   return stringPhone;
 };
@@ -46,7 +47,8 @@ export function ContactItem({
 
   const stringValue = String(value);
 
-  const formattedValue = type === "phone" ? formatPhoneNumber(stringValue) : stringValue;
+  const formattedValue =
+    type === "phone" ? formatPhoneNumber(stringValue) : stringValue;
   const href =
     type === "email"
       ? `mailto:${stringValue}`
@@ -81,18 +83,15 @@ export function ProductCard({
   showDescription = true,
   showPrice = true,
 }: ProductCardProps) {
-
   const getImageSrc = (path?: string | null) => {
-    if (!path) return "/images/placeholder.jpg"; 
-    if (!path.startsWith("/")) return `/${path}`; 
-    return path; 
+    if (!path) return "/images/placeholder.jpg";
+    if (!path.startsWith("/")) return `/${path}`;
+    return path;
   };
 
-    return (
+  return (
     <article className={`${styles.card} ${className || ""}`}>
       <Link href={`${basePath}/${product.product_id}/view`}>
-
-
         <div className={styles.card_header}>
           <h3 className={styles.card_title}>{product.product_title}</h3>
         </div>
@@ -115,9 +114,7 @@ export function ProductCard({
             </p>
           )}
           {showPrice && (
-            <div className={styles.product_price}>
-              ${product.product_price}
-            </div>
+            <div className={styles.product_price}>${product.product_price}</div>
           )}
         </div>
       </Link>
@@ -158,16 +155,15 @@ export function ProductListing({
   product,
   basePath = "/explore",
 }: ProductCardProps) {
-
   const getImageSrc = (path?: string | null) => {
-    if (!path) return "/images/placeholder.jpg"; 
-    if (!path.startsWith("/")) return `/${path}`; 
-    return path; 
+    if (!path) return "/images/placeholder.jpg";
+    if (!path.startsWith("/")) return `/${path}`;
+    return path;
   };
 
   return (
     <div className={`${styles.marketplace__product_card}`}>
-      <Link href={`${basePath}/${product.product_id}/view`}>
+      <Link href={`${basePath}/${product.product_id}/view}`}>
         <div className={styles.marketplace__product_card_body}>
           <div>
             <Image
@@ -179,55 +175,15 @@ export function ProductListing({
               style={{ objectFit: "cover" }}
             />
           </div>
-
-            <h3 className={styles.marketplace__product_card_title}>
-              {product.product_title}
-            </h3>{" "}
-            <div className={styles.marketplace__product_card_price}>
-              {" "}
-              ${product.product_price}{" "}
-            </div>
+          <h3 className={styles.marketplace__product_card_title}>
+            {product.product_title}
+          </h3>{" "}
+          <div className={styles.marketplace__product_card_price}>
+            {" "}
+            ${product.product_price}{" "}
+          </div>
         </div>
       </Link>
     </div>
   );
-}
-
-export async function fetchFromDB<T>(
-  table: string,
-  filters: Record<string, unknown> = {},
-  options?: { single?: boolean; limit?: number }
-): Promise<T | T[] | null> {
-  try {
-    const keys = Object.keys(filters);
-    const values = Object.values(filters);
-
-    console.log(`Fetching from ${table} with filters:`, filters);
-
-    let whereClause = "";
-    if (keys.length > 0) {
-      const conditions = keys.map((key, index) => `${key} = $${index + 1}`);
-      whereClause = "WHERE " + conditions.join(" AND ");
-    }
-
-    let limitClause = "";
-    if (options?.limit) {
-      limitClause = ` LIMIT ${options.limit}`;
-    }
-
-    const query = `SELECT * FROM ${table} ${whereClause}${limitClause}`;
-    console.log(`Query: ${query}`, values);
-
-    const result = await pool.query(query, values);
-    console.log(`Found ${result.rows.length} rows`);
-
-    if (result.rows.length === 0) {
-      return options?.single ? null : [];
-    }
-
-    return options?.single ? (result.rows[0] as T) : (result.rows as T[]);
-  } catch (err) {
-    console.error("DB fetch error:", err);
-    throw new Error("Database query failed");
-  }
 }

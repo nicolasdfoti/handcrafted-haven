@@ -211,7 +211,6 @@
 .marketplace__dynamic-content {
   position: relative;
   display: flex;
-  flex-direction: row;
   height: 100%;
   background-color: $foreground;
   border: 1px solid rgba(0, 0, 0, 0.171);
@@ -229,26 +228,115 @@
   margin-left: auto;
   justify-content: center;
   background-color: $background;
-  padding: $xxl $m;
+  padding: 10em $m;
 }
 .marketplace__sidebar {
-  width: 100px;
-  background-color: red;
   height: 100%;
-
+  padding: 10em $m;
   h2 {
     margin-top: 50px;
   }
 }
 .marketplace__search {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
   z-index: 444;
   position: absolute;
-  width: 100%;
+  gap: $m;
   padding: $s;
   background-color: $foreground;
   border: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: rgba(0, 0, 0, 0.24) 2px;
+  align-items: center;
+}
 
-  border-bottom: rgba(0, 0, 0, 0.24) 2px solid;
+.category-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search__input {
+  padding: $s $m;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  &:focus {
+    outline: none;
+    border-color: $artisan-green-flat;
+    box-shadow: 0 0 0 2px rgba(87, 128, 87, 0.3);
+  }
+}
+
+.filter__select {
+  padding: $s $m;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: $s;
+
+  &:focus {
+    outline: none;
+    border-color: $artisan-green-flat;
+    box-shadow: 0 0 0 2px rgba(87, 128, 87, 0.3);
+  }
+}
+.search__input {
+  margin: $s;
+}
+
+.filter__group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter__label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.price-range__group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-input {
+  width: 80px;
+  padding: $s $m;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.9);
+
+  &:focus {
+    outline: none;
+    border-color: $artisan-green-flat;
+    box-shadow: 0 0 0 2px rgba(87, 128, 87, 0.3);
+  }
+}
+
+.price-separator {
+  font-weight: 600;
+  color: #666;
 }
 
 .marketplace__mobile-sidebar {
