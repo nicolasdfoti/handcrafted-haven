@@ -120,7 +120,6 @@
   border-radius: 8px;
 }
 
-/* ---------- Tablet (max-width: 992px) ---------- */
 @media (max-width: 768px) {
   .details_body {
     grid-template-columns: 1fr;
@@ -150,7 +149,6 @@
     font-size: 0.95rem;
   }
 }
-/* ---------- Small Mobile (max-width: 400px) ---------- */
 @media (max-width: 425px) {
   .details_body {
     margin: 0;

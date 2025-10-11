@@ -1,7 +1,6 @@
 import { Footer } from "@/app/components/footer";
 import { Header } from "@/app/components/header.jsx";
 import styles from "../ui/styles/page.module.css";
-import Image from "next/image";
 import { Product } from "@/app/lib/definitions";
 import { fetchFromDB } from "../components/components";
 import { ProductListings } from "../components/product-listings";

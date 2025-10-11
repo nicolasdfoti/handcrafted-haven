@@ -100,3 +100,5 @@ Added fetchFromDB function in components, to fetch from DB
 -   When a seller logs in, they are redirected to their profile, and the "My Seller Page" option appears in the menu.
     When a regular user logs in, they are redirected to Explore, and the "My Seller Page" option does not appear in the menu.
     If a regular user logs into their profile, the seller CTA appears if they want to register.
+- The images that are uploaded to the products are seen in product details, featured products, similar products and on the explore page
+- A new reviews table was created in the database and implemented to leave ratings and reviews on a product. If the user is not logged in, they can only see the ratings. If they are logged in, they can leave a comment.

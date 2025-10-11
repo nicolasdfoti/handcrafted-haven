@@ -6,12 +6,13 @@ import styles from "@styles/detail.module.scss";
 import { ProductCard } from "@/app/components/components";
 import { Account, Product } from "@/app/lib/definitions";
 import ProductImage from "@/app/components/product-image";
+import ProductReviews from "@/app/components/ProductReviews";
 
 interface DetailPageProps {
   params: Promise<{ id: string }>;
 }
 
-const getValidImageSrc = (imagePath: any): string => {
+const getValidImageSrc = (imagePath: string | undefined): string => {
   if (!imagePath || typeof imagePath !== 'string') {
     return "/images/home-icon.jpg";
   }
@@ -85,22 +86,25 @@ export default async function DetailPage({ params }: DetailPageProps) {
           </div>
 
           <div className={styles.product_info}>
-            <div className={styles.product_header}>
-              <h2>{product.product_title}</h2>
-            </div>
+                <div className={styles.product_header}>
+                  <h2>{product.product_title}</h2>
+                </div>
 
-            <div className={styles.product_body}>
-              <h3>
-                <strong>Price: </strong> ${product.product_price}
-              </h3>
-              <h3>
-                <strong>Description: </strong> {product.product_description}
-              </h3>
-            </div>
+                <div className={styles.product_body}>
+                  <h3>
+                    <strong>Price: </strong> ${product.product_price}
+                  </h3>
+                  <h3>
+                    <strong>Description: </strong> {product.product_description}
+                  </h3>
+                </div>
 
-            <div className={styles.product_button}>
-              <button>Buy now!</button>
-            </div>
+                <div className={styles.product_button}>
+                  <button>Buy now!</button>
+                </div>
+                <div>
+                  <ProductReviews productId={productId} />
+                </div>
           </div>
 
           <div className={styles.similar_products}>

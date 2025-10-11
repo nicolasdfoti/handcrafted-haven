@@ -44,44 +44,29 @@ export const authOptions = {
           })
           .safeParse(credentials);
 
-        if (!parsed.success) {
-          console.log("[AUTH] Credentials failed validation");
-          return null;
-        }
+        if (!parsed.success) return null;
 
         const { email, password } = parsed.data;
+        const user = await getUser(email);
 
-        try {
-          const user = await getUser(email);
+        if (!user) return null;
 
-          if (!user) {
-            console.log("[AUTH] No user found");
-            return null;
-          }
+        const passwordsMatch = await bcrypt.compare(
+          password,
+          user.account_password
+        );
+        if (!passwordsMatch) return null;
 
-          const passwordsMatch = await bcrypt.compare(
-            password,
-            user.account_password
-          );
-
-          if (!passwordsMatch) {
-            console.log("[AUTH] Password incorrect");
-            return null;
-          }
-
-          return {
-            id: String(user.account_id),
-            name: user.account_firstname ?? null,
-            email: user.account_email,
-            accountType: user.account_type,
-          };
-        } catch (error) {
-          console.error("[AUTH] Database error:", error);
-          return null;
-        }
+        return {
+          id: String(user.account_id),
+          name: user.account_firstname ?? null,
+          email: user.account_email,
+          accountType: user.account_type,
+        };
       },
     }),
   ],
+
   callbacks: {
     async jwt({ token, user }: { token: JWT; user?: User }) {
       if (user && user.id) {
@@ -90,16 +75,21 @@ export const authOptions = {
       }
       return token;
     },
+
     async session({ session, token }: { session: Session; token: JWT }) {
-      return {
-        ...session,
-        user: {
+      if (token?.id) {
+        session.user = {
           ...session.user,
           id: token.id as string,
           accountType: token.accountType as string,
-        },
-      };
+        };
+      }
+      return session;
     },
+  },
+
+  pages: {
+    signIn: "/login",
   },
 } satisfies NextAuthConfig;
 
