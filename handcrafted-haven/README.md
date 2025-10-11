@@ -97,3 +97,6 @@ Added fetchFromDB function in components, to fetch from DB
 - Add hero to login page
 - Add hero to artisans page
 - Adding styles to the login menu
+-   When a seller logs in, they are redirected to their profile, and the "My Seller Page" option appears in the menu.
+    When a regular user logs in, they are redirected to Explore, and the "My Seller Page" option does not appear in the menu.
+    If a regular user logs into their profile, the seller CTA appears if they want to register.

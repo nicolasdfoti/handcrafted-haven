@@ -8,6 +8,7 @@ import Image from "next/image";
 import styles from "@styles/sellers.module.scss";
 import FeaturedProducts from "@/app/components/featured-products";
 import SellerPanel from "@/app/components/seller-panel";
+import { SellersCta } from "@/app/components/sellersCta";
 
 export default async function ProfilePage({
   params,
@@ -58,7 +59,7 @@ export default async function ProfilePage({
       </div>
     </section>
       {isSeller && <SellerPanel />}
-      {!isSeller && <a>apply to be seller</a>}
+      {!isSeller && <SellersCta/>}
       <FeaturedProducts products={products || []} />
       <Footer />
     </div>

@@ -78,9 +78,9 @@ export default function LoginForm({ callbackUrl = "/" }: LoginFormProps) {
       // Otherwise, redirect based on user type
       if (session?.user?.id) {
         if (session.user.accountType === "Seller") {
-          window.location.href = `/sellers/${session.user.id}`;
-        } else {
           window.location.href = `/profile/${session.user.id}`;
+        } else {
+          window.location.href = "/explore";
         }
       } else {
         window.location.href = effectiveCallbackUrl;

@@ -75,7 +75,13 @@
   transform: translateY(50);
 }
 
+/* --- Menu login visibility control --- */
 .menuLogin {
+  display: none;
+}
+
+.drawer .menuLogin {
+  display: block;
   height: auto;
   width: 90%;
   padding: 0.5rem 1rem;
@@ -179,7 +185,8 @@
   .burger {
     display: none;
   }
-  .drawer, .overlay {
+  .drawer,
+  .overlay {
     display: none;
   }
   .nav {
@@ -208,12 +215,21 @@
   .login p:hover {
     color: #fff;
   }
+  .drawer .menuLogin {
+    display: none;
+  }
   .menuLogin {
     display: flex;
     column-gap: 1rem;
     align-items: center;
     margin: 0.5rem 0;
     border: none;
+    background: #9ba78d;
+    color: #0b0b0b;
+    padding: 0.6rem 1rem;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
   }
   .menuLogin p {
     font-weight: 500;

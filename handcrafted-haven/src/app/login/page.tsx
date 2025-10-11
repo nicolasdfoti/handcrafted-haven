@@ -16,10 +16,6 @@ const Login = () => {
               <Header />
             </Suspense>
 
-            <Suspense fallback={<div>Loading form...</div>}>
-              <LoginForm />
-            </Suspense>
-
             <Hero
               image="/images/hero-login.jpg"
               title="Welcome to Handcrafted Haven"
@@ -29,6 +25,10 @@ const Login = () => {
               Not a member yet? <a href="/register">Join now</a>
             </p>
             </Hero>
+
+            <Suspense fallback={<div>Loading form...</div>}>
+              <LoginForm />
+            </Suspense>
             
             <Suspense fallback={<div>Loading...</div>}>
               <Footer />

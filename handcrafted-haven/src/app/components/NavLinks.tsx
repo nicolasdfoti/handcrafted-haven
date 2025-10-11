@@ -17,7 +17,7 @@ export function NavLinks() {
   const drawerRef = useRef<HTMLDivElement>(null);
 
   const handleLogout = () => {
-    signOut({ callbackUrl: '/login' });
+    signOut({ callbackUrl: '/' });
   };
 
   // Close click outside drawer
@@ -31,6 +31,7 @@ export function NavLinks() {
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
   }, [open]);
+                                 
 
   return (
     <nav className={styles.nav}>
@@ -63,9 +64,13 @@ export function NavLinks() {
             <Link href={`/profile/${session.user.id}`}>
               <p>Hello, {session.user.name}!</p>
             </Link>
-            <Link href={`/sellers/${session.user.id}`} onClick={() => setOpen(false)}>
-              <p>My Page</p>
-            </Link>
+
+            {session.user.accountType === "Seller" && (
+              <Link href={`/sellers/${session.user.id}`} onClick={() => setOpen(false)}>
+                <p>My Seller Page</p>
+              </Link>
+            )}
+
             <button onClick={handleLogout} className={styles.drawerLogout}>
               Logout
             </button>
@@ -96,11 +101,13 @@ export function NavLinks() {
                     Hello, {session.user.name}!
                   </Link>
                 </li>
-                <li className={styles.drawerItem}>
-                  <Link href={`/sellers/${session.user.id}`} onClick={() => setOpen(false)} className={styles.drawerLink}>
-                    My page
-                  </Link>
-                </li>
+                {session.user.accountType === "Seller" && (
+                  <li className={styles.drawerItem}>
+                    <Link href={`/sellers/${session.user.id}`} onClick={() => setOpen(false)} className={styles.drawerLink}>
+                      My Seller Page
+                    </Link>
+                  </li>
+                )}
                 <li className={styles.drawerItem}>
                   <button onClick={() => { setOpen(false); handleLogout(); }} className={styles.drawerLogout}>
                     Logout
