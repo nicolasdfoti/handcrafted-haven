@@ -90,10 +90,10 @@ export default function Page() {
                         <label htmlFor="category_id"><strong>Category *</strong></label>
                         <select id="category_id" name="category_id" required>
                             <option value="">Select a category</option>
-                            <option value="1">Textiles</option>
-                            <option value="2">Technology</option>
-                            <option value="3">Food</option>
-                            <option value="4">Clothing</option>
+                            <option value="1">Home & Living</option>
+                            <option value="2">Style & Accesories</option>
+                            <option value="3">Art & Collectibles</option>
+                            <option value="4">Gifts & Specials</option>
                         </select>
                     </div>
                     <CrudSubmitBtn />
