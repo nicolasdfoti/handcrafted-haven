@@ -4,6 +4,7 @@ import styles from "@styles/components.module.scss";
 import Link from "next/link";
 import { pool } from "@/app/lib/db";
 import { Account, Seller } from "@/app/lib/definitions";
+import Image from "next/image";
 
 export type ContactType = "email" | "phone" | "website";
 
@@ -80,12 +81,33 @@ export function ProductCard({
   showDescription = true,
   showPrice = true,
 }: ProductCardProps) {
-  return (
+
+  const getImageSrc = (path?: string | null) => {
+    if (!path) return "/images/placeholder.jpg"; 
+    if (!path.startsWith("/")) return `/${path}`; 
+    return path; 
+  };
+
+    return (
     <article className={`${styles.card} ${className || ""}`}>
       <Link href={`${basePath}/${product.product_id}/view`}>
+
+
         <div className={styles.card_header}>
           <h3 className={styles.card_title}>{product.product_title}</h3>
         </div>
+
+        <div className={styles.card_image_wrapper}>
+          <Image
+            src={getImageSrc(product.product_image)}
+            alt={product.product_title}
+            width={250}
+            height={200}
+            className={styles.card_image}
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+
         <div className={styles.card_body}>
           {showDescription && (
             <p className={styles.product_description}>
@@ -93,7 +115,9 @@ export function ProductCard({
             </p>
           )}
           {showPrice && (
-            <div className={styles.product_price}>${product.product_price}</div>
+            <div className={styles.product_price}>
+              ${product.product_price}
+            </div>
           )}
         </div>
       </Link>
@@ -134,20 +158,35 @@ export function ProductListing({
   product,
   basePath = "/explore",
 }: ProductCardProps) {
+
+  const getImageSrc = (path?: string | null) => {
+    if (!path) return "/images/placeholder.jpg"; 
+    if (!path.startsWith("/")) return `/${path}`; 
+    return path; 
+  };
+
   return (
     <div className={`${styles.marketplace__product_card}`}>
       <Link href={`${basePath}/${product.product_id}/view`}>
-        <div className={styles.marketplace__product_card_header}> </div>
-
         <div className={styles.marketplace__product_card_body}>
-          <div className={styles.marketplace__product_image_wrapper}></div>
-          <h3 className={styles.marketplace__product_card_title}>
-            {product.product_title}
-          </h3>{" "}
-          <div className={styles.marketplace__product_card_price}>
-            {" "}
-            ${product.product_price}{" "}
+          <div>
+            <Image
+              src={getImageSrc(product.product_image)}
+              alt={product.product_title}
+              width={250}
+              height={250}
+              className={styles.marketplace_card_image}
+              style={{ objectFit: "cover" }}
+            />
           </div>
+
+            <h3 className={styles.marketplace__product_card_title}>
+              {product.product_title}
+            </h3>{" "}
+            <div className={styles.marketplace__product_card_price}>
+              {" "}
+              ${product.product_price}{" "}
+            </div>
         </div>
       </Link>
     </div>

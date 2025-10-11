@@ -55,6 +55,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   border: 1px solid #e9ecef;
+  margin: 0 1rem;
 }
 
 .card:hover {
@@ -79,6 +80,14 @@
 
 .card_body {
   padding: 1.5rem;
+}
+
+.card_image {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  margin-bottom: $m;
 }
 
 .product_description {
@@ -138,7 +147,7 @@
 
 .marketplace__product_card {
   margin: 0;
-  height: 225px;
+  height: auto;
   display: flex;
   flex-direction: column;
   background-color: $foreground;
@@ -161,9 +170,11 @@
   min-height: 0;
 }
 
-.marketplace__product_image_wrapper {
-  height: 100px;
-  width: 100px;
-  background-color: red;
-  margin-bottom: $s;
+.marketplace_card_image {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: $m;
 }

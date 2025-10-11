@@ -21,7 +21,7 @@ export default function FeaturedProducts({
     <section className={styles.products_section}>
       <div className={styles.container}>
         <h2 className={styles.section_title}>{title}</h2>
-        
+
         {!Array.isArray(products) || products.length === 0 ? (
           <div className={styles.empty_state}>
             <p>{emptyMessage}</p>
