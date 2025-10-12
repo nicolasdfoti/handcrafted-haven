@@ -4,7 +4,7 @@ import { fetchFromDB } from "@/app/lib/database";
 import { redirect } from "next/navigation";
 import styles from "@styles/detail.module.scss";
 import { ProductCard } from "@/app/components/components";
-import { Account, Product } from "@/app/lib/definitions";
+import { Account, Product, Seller } from "@/app/lib/definitions";
 import ProductImage from "@/app/components/product-image";
 import ProductReviews from "@/app/components/ProductReviews";
 
@@ -51,6 +51,7 @@ export default async function DetailPage({ params }: DetailPageProps) {
     const similar_products = (await fetchFromDB<Product>("products", {
       category_id: product.category_id,
     })) as Product[];
+
     const account = (await fetchFromDB<Account>(
       "account",
       { account_id: product.account_id },
@@ -60,6 +61,12 @@ export default async function DetailPage({ params }: DetailPageProps) {
     if (!account) {
       redirect("/not-found");
     }
+
+    const seller_info = (await fetchFromDB<Seller>(
+      "seller_info",
+      { account_id: account.account_id },
+      { single: true }
+    )) as Seller;
 
     const imageSrc = getValidImageSrc(product.product_image);
 
@@ -71,16 +78,16 @@ export default async function DetailPage({ params }: DetailPageProps) {
 
         <div className={styles.product_title}>
           <h1>{product.product_title}</h1>
-          <h3>by {account.account_company_name}</h3>
+          <h3>by {seller_info.company_name}</h3> 
         </div>
 
         <div className={styles.details_body}>
           <div className={styles.image}>
             <ProductImage
               src={imageSrc}
-              alt={`Artisan products by ${account.account_company_name || account.account_firstname}`}
+              alt={`Artisan products by ${seller_info.company_name || account.account_firstname}`}
               width={400}
-              height={300}
+              height={400}
               fallbackSrc="/images/home-icon.jpg"
             />
           </div>

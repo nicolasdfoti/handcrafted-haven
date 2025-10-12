@@ -163,7 +163,7 @@ export function ProductListing({
 
   return (
     <div className={`${styles.marketplace__product_card}`}>
-      <Link href={`${basePath}/${product.product_id}/view}`}>
+      <Link href={`${basePath}/${product.product_id}/view`}>
         <div className={styles.marketplace__product_card_body}>
           <div>
             <Image

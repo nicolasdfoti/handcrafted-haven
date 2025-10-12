@@ -1,15 +1,13 @@
 import styles from "../ui/styles/info.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeadphones } from "@fortawesome/free-regular-svg-icons";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Information() {
   return (
-    <section className={`${styles["information-section"]}`}>
-      <div
-        className={`${styles["site-exploration-card"]} ${styles["artisan-green"]}`}
-      >
-        <div className={`${styles["svg-wrapper"]}`}>
+    <section className={styles["information-section"]}>
+      {/* Home & Living */}
+      <div className={`${styles["site-exploration-card"]} ${styles["artisan-green"]}`}>
+        <div className={styles["svg-wrapper"]}>
           <Image
             src="/images/home-icon.png"
             alt="Home and Living Icon"
@@ -19,33 +17,37 @@ export function Information() {
         </div>
         <h2>Home & Living</h2>
         <p>Pieces to decorate and bring warmth to your home.</p>
-        <a className={`${styles["button-styles"]}`} href="#">
+        <Link
+          className={styles["button-styles"]}
+          href="/explore"
+        >
           Explore
-        </a>
+        </Link>
       </div>
 
-      <div
-        className={`${styles["site-exploration-card"]} ${styles["artisan-brown"]}`}
-      >
-        <div className={`${styles["svg-wrapper"]}`}>
+      {/*  Style & Accessories */}
+      <div className={`${styles["site-exploration-card"]} ${styles["artisan-brown"]}`}>
+        <div className={styles["svg-wrapper"]}>
           <Image
             src="/images/bag-icon.png"
-            alt="Accesories Icon"
+            alt="Accessories Icon"
             width={128}
             height={128}
           />
         </div>
         <h2>Style & Accessories</h2>
         <p>Fashion, handcrafted jewelry, bags, and accessories.</p>
-        <a className={`${styles["button-styles"]}`} href="#">
+        <Link
+          className={styles["button-styles"]}
+          href="/explore"
+        >
           Explore
-        </a>
+        </Link>
       </div>
 
-      <div
-        className={`${styles["site-exploration-card"]} ${styles["artisan-rust"]}`}
-      >
-        <div className={`${styles["svg-wrapper"]}`}>
+      {/*  Art & Collectibles */}
+      <div className={`${styles["site-exploration-card"]} ${styles["artisan-rust"]}`}>
+        <div className={styles["svg-wrapper"]}>
           <Image
             src="/images/art-icon.png"
             alt="Art Icon"
@@ -55,15 +57,17 @@ export function Information() {
         </div>
         <h2>Art & Collectibles</h2>
         <p>Original artwork, prints, and unique collectibles.</p>
-        <a className={`${styles["button-styles"]}`} href="#">
+        <Link
+          className={styles["button-styles"]}
+          href="/explore"
+        >
           Explore
-        </a>
-      </div> 
-      
-      <div
-        className={`${styles["site-exploration-card"]} ${styles["artisan-sand"]}`} 
-      >
-        <div className={`${styles["svg-wrapper"]}`}>
+        </Link>
+      </div>
+
+      {/* 🎁 Gifts & Specials */}
+      <div className={`${styles["site-exploration-card"]} ${styles["artisan-sand"]}`}>
+        <div className={styles["svg-wrapper"]}>
           <Image
             src="/images/gift-icon.png"
             alt="Gift Icon"
@@ -73,10 +77,14 @@ export function Information() {
         </div>
         <h2>Gifts & Specials</h2>
         <p>Handpicked gifts for every occasion and special moments.</p>
-        <a className={`${styles["button-styles"]}`} href="#">
+        <Link
+          className={styles["button-styles"]}
+          href="/explore"
+        >
           Explore
-        </a>
+        </Link>
       </div>
     </section>
   );
 }
+

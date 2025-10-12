@@ -45,7 +45,7 @@
 .image {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   
   img {
     border-radius: 8px;
@@ -129,7 +129,7 @@
     font-family: "Playfair Display", serif;
     color: #666;
     font-style: italic;
-    padding: 40px;
+    padding: 10px;
     background-color: #f9f9f9;
     border-radius: 8px;
   }

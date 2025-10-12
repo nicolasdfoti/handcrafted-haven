@@ -48,7 +48,7 @@
 }
 
 /* Product Cards */
-.card {
+.card  {
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -56,6 +56,7 @@
   transition: all 0.3s ease;
   border: 1px solid #e9ecef;
   margin: 0 1rem;
+  height: auto;
 }
 
 .card:hover {
@@ -66,7 +67,6 @@
 .card_header {
   background: #9ba78d;
   padding: 1.5rem;
-  border-bottom: 1px solid #e9ecef;
 }
 
 .card_title {
@@ -74,18 +74,21 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: #2c3e50;
-  margin: 0;
   text-align: center;
 }
 
 .card_body {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; ;
+  height: 220px;
 }
 
 .card_image {
   width: 100%;
-  height: auto;
-  max-height: 250px;
+  height: 280px;
+  max-height: auto;
   object-fit: cover;
   margin-bottom: $m;
 }
@@ -105,6 +108,13 @@
   background: #f8f9fa;
   border-radius: 8px;
   border: 2px solid #e9ecef;
+}
+
+.product_price:hover {
+  background: #e0f7e9;  
+  color: #219653;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /*# sourceMappingURL=components.module.css.map */
@@ -168,6 +178,33 @@
   padding: $m;
   flex: 1 1 auto;
   min-height: 0;
+  row-gap: 20px;
+}
+
+.marketplace__product_card_title {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.marketplace__product_card_price {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #27ae60;
+  text-align: center;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.marketplace__product_card_price:hover {
+  background: #e0f7e9;  
+  color: #219653;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .marketplace_card_image {
