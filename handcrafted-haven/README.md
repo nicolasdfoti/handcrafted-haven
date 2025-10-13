@@ -103,3 +103,4 @@ Added fetchFromDB function in components, to fetch from DB
 - The images that are uploaded to the products are seen in product details, featured products, similar products and on the explore page
 - A new reviews table was created in the database and implemented to leave ratings and reviews on a product. If the user is not logged in, they can only see the ratings. If they are logged in, they can leave a comment.
 - explore page , cards and some components styles
+- Added create and delete products functionalities
