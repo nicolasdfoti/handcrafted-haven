@@ -40,7 +40,7 @@ export default function UserForm() {
             type="text"
             required
             autoComplete="first name"
-            defaultValue="testFirstName"
+            defaultValue=""
           />
           <FormControl
             label="Last Name *"
@@ -49,7 +49,7 @@ export default function UserForm() {
             type="text"
             required
             autoComplete="last name"
-            defaultValue="testLastName"
+            defaultValue=""
           />
           <FormControl
             label="Email *"
@@ -58,7 +58,7 @@ export default function UserForm() {
             type="email"
             required
             autoComplete="email"
-            defaultValue="test@example.com"
+            defaultValue=""
           />
           <FormControl
             label="Username *"
@@ -67,7 +67,7 @@ export default function UserForm() {
             type="username"
             required
             autoComplete="username"
-            defaultValue="testMan"
+            defaultValue=""
           />
           <FormControl
             label="Password *"
@@ -78,7 +78,7 @@ export default function UserForm() {
             autoComplete="new-password"
             placeholder="At least 8 characters"
             minLength={8}
-            defaultValue="password123"
+            defaultValue=""
           />
         </div>
       </fieldset>

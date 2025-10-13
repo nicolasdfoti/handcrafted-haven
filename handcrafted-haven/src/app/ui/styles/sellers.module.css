@@ -224,10 +224,10 @@
 }
 @media (max-width: 480px) {
   .hero_section {
-    min-height: 300px;
+    min-height: 350px;
   }
   .hero_image {
-    height: 300px;
+    height: 350px;
   }
   .company_name {
     font-size: 1.75rem;

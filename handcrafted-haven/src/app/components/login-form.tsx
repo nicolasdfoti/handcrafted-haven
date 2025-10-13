@@ -111,7 +111,7 @@ export default function LoginForm({ callbackUrl = "/" }: LoginFormProps) {
               type="email"
               name="email"
               placeholder="Enter your email address"
-              defaultValue={defaultEmail}
+              // defaultValue={defaultEmail}
               required
             />
             <AtSymbolIcon className={styles.icon} />
@@ -126,7 +126,7 @@ export default function LoginForm({ callbackUrl = "/" }: LoginFormProps) {
               type="password"
               name="password"
               placeholder="Enter your password"
-              defaultValue={defaultPassword}
+              // defaultValue={defaultPassword}
               required
               minLength={6}
             />
