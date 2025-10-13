@@ -5,6 +5,7 @@ import { Footer } from "../components/footer";
 import { Hero } from "@/app/components/hero";
 import LoginForm from "../components/login-form";
 import React, { Suspense } from "react";
+import Link from "next/link";
 
 const Login = () => {
   return (
@@ -22,7 +23,7 @@ const Login = () => {
               subtitle="Log in to manage your shop, track your sales, or discover new handmade creations from fellow artisans"
             >
             <p className="notMemberText">
-              Not a member yet? <a href="/register">Join now</a>
+              Not a member yet? <Link href="/register">Join now</Link>
             </p>
             </Hero>
 

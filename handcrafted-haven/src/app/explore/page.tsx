@@ -20,9 +20,8 @@ export default function Products() {
   const [sortOrder, setSortOrder] = useState<"ASC" | "DESC">("DESC");
   const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
   const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
-  const [initialLoad, setInitialLoad] = useState(true); // ← Nuevo estado
+  const [initialLoad, setInitialLoad] = useState(true);
 
-  // Leer parámetros de URL al cargar la página
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
@@ -31,7 +30,7 @@ export default function Products() {
       if (categoryFromUrl) {
         setSelectedCategory(parseInt(categoryFromUrl));
       }
-      setInitialLoad(false); // ← Marcar que ya se leyó la URL
+      setInitialLoad(false);
     }
   }, []);
 
