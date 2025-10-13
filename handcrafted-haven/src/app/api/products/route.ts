@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { fetchFromDB } from "@/app/lib/database";
+import { Product } from "@/app/lib/definitions";
 
 export async function GET(request: NextRequest) {
   try {
@@ -34,7 +35,7 @@ export async function GET(request: NextRequest) {
         minPrice,
         maxPrice,
       }
-    )) as any[];
+    )) as Product[];
 
     return NextResponse.json({ products });
   } catch (error) {
