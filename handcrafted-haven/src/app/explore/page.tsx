@@ -20,6 +20,20 @@ export default function Products() {
   const [sortOrder, setSortOrder] = useState<"ASC" | "DESC">("DESC");
   const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
   const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
+  const [initialLoad, setInitialLoad] = useState(true); // ← Nuevo estado
+
+  // Leer parámetros de URL al cargar la página
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const categoryFromUrl = urlParams.get('category');
+      
+      if (categoryFromUrl) {
+        setSelectedCategory(parseInt(categoryFromUrl));
+      }
+      setInitialLoad(false); // ← Marcar que ya se leyó la URL
+    }
+  }, []);
 
   // fetch products with current filters
   const fetchProducts = async () => {
@@ -54,14 +68,17 @@ export default function Products() {
     }
   };
 
-  //load fetch
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    if (!initialLoad) {
+      fetchProducts();
+    }
+  }, [initialLoad]);
 
   // refetch when filters change
   useEffect(() => {
-    fetchProducts();
+    if (!initialLoad) {
+      fetchProducts();
+    }
   }, [searchQuery, selectedCategory, sortBy, sortOrder, minPrice, maxPrice]);
 
   const handleSearch = (query: string) => {
@@ -100,6 +117,7 @@ export default function Products() {
           <SearchAndFilter
             onSearch={handleSearch}
             onCategoryChange={handleCategoryChange}
+            selectedCategory={selectedCategory}
           />
 
           <div className={`${styles["marketplace__sidebar"]}`}>
@@ -118,11 +136,6 @@ export default function Products() {
           ) : (
             <ProductListings products={products || []} />
           )}
-
-          {/*
-          <div className={`${styles["marketplace__mobile-sidebar"]}`}>
-              <h2>hi</h2>
-          </div>*/}
         </div>
       </main>
       <Footer />

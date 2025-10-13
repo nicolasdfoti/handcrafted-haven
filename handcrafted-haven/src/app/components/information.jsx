@@ -1,8 +1,18 @@
+"use client";
+
 import styles from "../ui/styles/info.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
 export function Information() {
+
+  const categoryMapping = {
+    "Home & Living": 1,
+    "Style & Accessories": 2, 
+    "Art & Collectibles": 3,
+    "Gifts & Specials": 4
+  };
+
   return (
     <section className={styles["information-section"]}>
       {/* Home & Living */}
@@ -19,13 +29,13 @@ export function Information() {
         <p>Pieces to decorate and bring warmth to your home.</p>
         <Link
           className={styles["button-styles"]}
-          href="/explore"
+          href={`/explore?category=${categoryMapping["Home & Living"]}`}
         >
           Explore
         </Link>
       </div>
 
-      {/*  Style & Accessories */}
+      {/* Style & Accessories */}
       <div className={`${styles["site-exploration-card"]} ${styles["artisan-brown"]}`}>
         <div className={styles["svg-wrapper"]}>
           <Image
@@ -39,13 +49,13 @@ export function Information() {
         <p>Fashion, handcrafted jewelry, bags, and accessories.</p>
         <Link
           className={styles["button-styles"]}
-          href="/explore"
+          href={`/explore?category=${categoryMapping["Style & Accessories"]}`}
         >
           Explore
         </Link>
       </div>
 
-      {/*  Art & Collectibles */}
+      {/* Art & Collectibles */}
       <div className={`${styles["site-exploration-card"]} ${styles["artisan-rust"]}`}>
         <div className={styles["svg-wrapper"]}>
           <Image
@@ -59,13 +69,13 @@ export function Information() {
         <p>Original artwork, prints, and unique collectibles.</p>
         <Link
           className={styles["button-styles"]}
-          href="/explore"
+          href={`/explore?category=${categoryMapping["Art & Collectibles"]}`}
         >
           Explore
         </Link>
       </div>
 
-      {/* 🎁 Gifts & Specials */}
+      {/* Gifts & Specials */}
       <div className={`${styles["site-exploration-card"]} ${styles["artisan-sand"]}`}>
         <div className={styles["svg-wrapper"]}>
           <Image
@@ -79,7 +89,7 @@ export function Information() {
         <p>Handpicked gifts for every occasion and special moments.</p>
         <Link
           className={styles["button-styles"]}
-          href="/explore"
+          href={`/explore?category=${categoryMapping["Gifts & Specials"]}`}
         >
           Explore
         </Link>
@@ -87,4 +97,3 @@ export function Information() {
     </section>
   );
 }
-

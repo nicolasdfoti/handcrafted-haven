@@ -11,16 +11,15 @@ interface Category {
 interface SearchAndFilterProps {
   onSearch: (query: string) => void;
   onCategoryChange: (categoryId: number | undefined) => void;
+  selectedCategory?: number | undefined;
 }
 
 export function SearchAndFilter({
   onSearch,
   onCategoryChange,
+  selectedCategory
 }: SearchAndFilterProps) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<number | undefined>(
-    undefined
-  );
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -51,7 +50,7 @@ export function SearchAndFilter({
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
           onSearch(query);
-        }, 300); // 300ms delay
+        }, 300);
       };
     })(),
     [onSearch]
@@ -66,9 +65,7 @@ export function SearchAndFilter({
 
   // Handle category change
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const categoryId =
-      e.target.value === "" ? undefined : parseInt(e.target.value);
-    setSelectedCategory(categoryId);
+    const categoryId = e.target.value === "" ? undefined : parseInt(e.target.value);
     onCategoryChange(categoryId);
   };
 
