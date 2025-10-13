@@ -4,18 +4,9 @@ import styles from "@styles/crud-form.module.scss"
 import { Header } from "@/app/components/header";
 import { Footer } from "@/app/components/footer";
 import { FormControl } from "@/app/components/form-control";
-import { useFormStatus } from "react-dom";
+import { CrudSubmitBtn } from "@/app/components/crud-button";
 import { createProduct } from "@/app/components/create-product";
 import { useSession } from "next-auth/react";
-
-export function CrudSubmitBtn({ text = "Create Product" }) {
-  const { pending } = useFormStatus();
-  return (
-    <button type="submit" className={styles.crud_submit_btn} disabled={pending}>
-      {pending ? "Creating..." : text}
-    </button>
-  );
-}
 
 export default function Page() {
 
