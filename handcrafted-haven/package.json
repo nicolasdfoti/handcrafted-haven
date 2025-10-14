@@ -18,6 +18,7 @@
     "@fortawesome/react-fontawesome": "^3.0.2",
     "@heroicons/react": "^2.2.0",
     "@prisma/client": "^6.17.1",
+    "@uploadthing/react": "^7.3.3",
     "@vercel/postgres": "^0.10.0",
     "anjrot-components": "^2.1.4",
     "bcryptjs": "^3.0.2",
@@ -30,6 +31,7 @@
     "prisma": "^6.17.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "uploadthing": "^7.7.4",
     "zod": "^4.1.11"
   },
   "devDependencies": {
