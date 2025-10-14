@@ -174,8 +174,16 @@
 
 @media (max-width: 425px) {
   .details_body {
-    margin: 0;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center;
   }
+
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+
   .product_title h1 {
     font-size: 1.6rem;
   }
@@ -187,5 +195,9 @@
   .product_button button {
     font-size: 0.9rem;
     width: 100%;
+  }
+
+  .similar_products_info {
+    margin-bottom: 20px;
   }
 }
