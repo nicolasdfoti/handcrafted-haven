@@ -7,7 +7,6 @@ import { FormControl } from "@/app/components/form-control";
 import { CrudSubmitBtn } from "@/app/components/crud-button";
 import { createProduct } from "@/app/components/create-product";
 import { useSession } from "next-auth/react";
-import UploadImage from "@/app/components/upload-image"
 
 export default function Page() {
 
@@ -55,8 +54,21 @@ export default function Page() {
                         required
                     />
 
-                    <UploadImage name="product_image" label="Product Image *"/>
-                    <UploadImage name="product_thumbnail" label="Product Thumbnail *" />
+                    <FormControl
+                        label="Product Image *"
+                        id="product_image"
+                        name="product_image"
+                        type="file"
+                        required
+                    />
+
+                    <FormControl
+                        label="Product Thumbnail *"
+                        id="product_thumbnail"
+                        name="product_thumbnail"
+                        type="file"
+                        required
+                    />
 
                     <FormControl
                         label="Product Price *"
